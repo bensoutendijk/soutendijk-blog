@@ -3,11 +3,49 @@
   <head>
     <title>Blog</title>
     <%= csrf_meta_tags %>
-
+    
+    <!--Google Fonts:-->
+    
+      <!--Barrio-->
+    <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
+    
+      <!--Josefin Sans-->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    
+      <!--Raleway-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,800" rel="stylesheet">
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  
+  <!--NAVBAR-->
+  
+  <nav class="navbar navbar-default">
+    <div class="container-text-center">
+      <h1>Boozy Heights</h1>
+    </div>
+    <ul>
+      <div class="navbar-text">
+        <a href="/" class="navbar-link">
+          <span>Read</span>
+        </a>
+      </div>
+      <div class="navbar-text navbar-right">
+        <a href="/about" class="navbar-link">
+          <span>About</span>
+        </a>
+        <span>  |  </span>
+        <a href="https://twitter.com/msouten" class="navbar-link">
+          <span>Contact</span>
+        </a>
+      </div>
+    </ul>
+    <div class="container-fluid container-text-center">
+      <h3>"What else can change your ideas...like whisky?"</h3>
+    </div>
+  </nav>
+  
   <div class="container">
     <%= yield %>
   </div>
