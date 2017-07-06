@@ -8,7 +8,9 @@
       <% col = 6 %>
     <% end %>
     <%= content_tag :div, :class => "col-md-#{col} text-center" do -%>
-      <% link_to(article.id, article_path(article)) %>
+      <%= link_to article_path(article) do %>
+        <%= image_tag "articleThumbnail#{id}" %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
