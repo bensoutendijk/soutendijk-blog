@@ -7,7 +7,7 @@
     <% else %>
       <% col = 6 %>
     <% end %>
-    <%= content_tag :div, :class => "col-md-#{col} text-center" do -%>
+    <%= content_tag :div, :class => "col-md-#{col} text-center thumbnail-dither" do -%>
       <%= link_to article_path(article) do %>
         <%= image_tag "articleThumbnail#{id}" %>
       <% end %>
