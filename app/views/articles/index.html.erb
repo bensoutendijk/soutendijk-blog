@@ -1,3 +1,14 @@
-<div class="container-fluid col-md-12">
+<div class="container-fluid">
   <!--FOR EACH ARTICLE, CREATE A DIV OF APPROPRIATE SIZE-->
+  <% @article.reverse.each do |article| %>
+    <% id = article.id %>
+    <% if id%3 == 0 %>
+      <% col = 12 %>
+    <% else %>
+      <% col = 6 %>
+    <% end %>
+    <%= content_tag :div, :class => "col-md-#{col} text-center" do -%>
+      <% link_to(article.id, article_path(article)) %>
+    <% end %>
+  <% end %>
 </div>

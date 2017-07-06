@@ -20,41 +20,26 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
-  <!--NAVBAR-->
-  
-  <nav class="navbar navbar-default">
-    
-    
-    
-    <!--BRAND-->
-    
-    <div class="container container-text-center">
-      <h1>Boozy Heights</h1>
+  <nav class="navbar navbar-static">
+    <div class="container-fluid">
+      <div class="row">
+        <h1 class="text-center">Boozy Heights</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <%= link_to "Read", root_path, class: (action_name == 'index' ? 'navbar-text navbar-link navbar-link-active' : 'navbar-text navbar-link') %>
+        </div>
+        <div class="col-md-2 col-md-offset-8">
+          <%= link_to "About", about_path, class: (action_name == 'about' ? 'navbar-text navbar-link navbar-right navbar-link-active' : 'navbar-text navbar-link navbar-right') %>
+        </div>
+      </div>
+      <div class="row">
+        <h3 class="text-center">"What else can change your ideas...like whisky?"</h3>
+      </div>
     </div>
-    
-    
-    
-    <!--LINKS-->
-    
-    <div class="container-fluid navbar-link-row">
-      <%= link_to "Read", root_path, class: (action_name == 'home' ? 'navbar-text navbar-link-active' : 'navbar-text navbar-link') %>
-      <%= link_to "About", about_path, class: (action_name == 'about' ? 'navbar-text navbar-right navbar-link-active' : 'navbar-text navbar-right navbar-link') %>
-    </div>
-    
-       
-    <!--SUBTITLE-->
-    
-    <div class="container container-text-center">
-      <h3>"What else can change your ideas...like whisky?"</h3>
-    </div>
-    
-    
-    
   </nav>
-  
-  
-  
-  <div class="container-fluid article-index">
+    
+  <div class="container-fluid">
     <%= yield %>
   </div>
 </html>
