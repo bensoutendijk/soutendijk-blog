@@ -49,6 +49,9 @@ gem 'figaro', '1.1.1'
 #Use Paperclip for file attachment
 gem 'paperclip', github: 'thoughtbot/paperclip'
 
+#Use RMagick for Ruby bindings for ImageMagick
+gem 'rmagick'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
