@@ -30,6 +30,7 @@
           <%= link_to "Read", root_path, class: (action_name == 'index' ? 'navbar-text navbar-link navbar-link-active' : 'navbar-text navbar-link') %>
         </div>
         <div class="col-md-2 col-md-offset-8">
+          <%= link_to "New Posts", new_article_path, class: (action_name == 'new' ? 'navbar-text navbar-link navbar-right navbar-link-active' : 'navbar-text navbar-link navbar-right') %>
           <%= link_to "About", about_path, class: (action_name == 'about' ? 'navbar-text navbar-link navbar-right navbar-link-active' : 'navbar-text navbar-link navbar-right') %>
         </div>
       </div>
@@ -39,7 +40,7 @@
     </div>
   </nav>
     
-  <div class="container-fluid">
+  <div class="container-fluid", id="body">
     <%= yield %>
   </div>
 </html>

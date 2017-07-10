@@ -52,6 +52,9 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 #Use RMagick for Ruby bindings for ImageMagick
 gem 'rmagick'
 
+#Use CKEditor for User Posting
+gem 'ckeditor'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'

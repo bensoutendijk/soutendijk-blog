@@ -5,4 +5,11 @@ class Article < ApplicationRecord
     :styles => { 
         :homepage => ['480x480#', :jpg, :quality => 100]
     }
+     # Article form validations
+    validates :title, presence: true
+    validates :text, presence: true
+    validates :average_color, presence: true
+    validates_attachment :thumbnail,
+                        content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
+                        presense: true
 end

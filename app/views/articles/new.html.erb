@@ -1,17 +1,34 @@
-<h1>Article Page</h1>
-
-<%= form_for :article, url: articles_path do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+<div class="well well-lg">
+  <h1 class="text-center">Create a new blog post</h1>
+  <%= form_for :article, url: articles_path do |f| %>
+  <div class="row text-center">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="form-group">
+        <h3 class="text-center">Title</h3>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+      <div class="form-group" id="thumbnail-form">
+        <span class="text-center">Upload a jpeg/gif/png as thumbnail</span>
+        <%= f.file_field :thumbnail, class: 'form control' %>
+        <span class="text-center">Pick color to border thumbnail</span>
+        <%= f.color_field :average_color, class: 'panel panel-default', id: 'color' %>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="form-group">
+        <div>
+          <h3>Body</h3>
+          <%= f.cktext_area :text %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-md-4 col-md-offset-4">
+      <%= f.submit 'Post', class: 'btn btn-success' %>
+    </div>
+  </div>
+</div>
 <% end %>
