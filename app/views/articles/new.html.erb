@@ -2,21 +2,30 @@
   <h1 class="text-center">Create a new blog post</h1>
   <%= form_for :article, url: articles_path do |f| %>
     <div class="row text-center">
-      <div class="col-md-4 col-md-offset-4">
+      <div class="col-md-6 col-md-offset-3">
         <div class="form-group">
           <h3 class="text-center">Title</h3>
           <%= f.text_field :title, class: 'form-control' %>
         </div>
-        <div class="form-group" id="thumbnail-form">
-          <div class="row">
+          <div class="form-group">
             <span>Choose a thumbnail image:</span>
-            <%= f.file_field :thumbnail, class: 'col-md-offset-4', id: 'imgInp', "data-filename-placement" => 'inside' %> </br></br>
+            <%= f.file_field :thumbnail, id: 'imgInp', "data-filename-placement" => 'inside' %>
           </div>
-          <div class="row">
-            <img id="thumbnail-preview" src="#" alt="your image" />
-          </div>
-          <%= f.text_field :average_color, class: 'form-control minicolors' %>
-        </div>
+      </div>
+    </div>
+    </br>
+    <div class="row">
+      <div class="col-md-6" id="thumbnail-cropper" >
+        <img id="thumbnail-edit" src="#" alt="crop tool image here">
+      </div>
+      <div class="col-md-6" id="thumbnail-wrapper">
+        <div class="container-fluid img-preview" id="thumbnail-preview" alt="preview image here"></div>
+      </div>
+    </div>
+    </br>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+         <%= f.text_field :average_color, class: 'form-control minicolors', id: "minicolors" %>
       </div>
     </div>
     <div class="row text-center">

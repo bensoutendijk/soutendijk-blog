@@ -1,8 +1,6 @@
 /* global $ */
 //Document ready.
 $(document).on('turbolinks:load', function(){
-  var form = document.getElementById("thumbnail-form");
-  var div = document.createElement("div");
   
   // Use bootstrap.file-input.js to bootstrap 'choose file' button
   $('input[type=file]').bootstrapFileInput();
@@ -17,17 +15,37 @@ $(document).on('turbolinks:load', function(){
     readURL(this);
   });
   
+  $("#minicolors").change(function(){
+    var hex = $("#minicolors").val();
+    $("#thumbnail-wrapper").css("background-color", hex);
+  });
 });
-
 
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     
     reader.onload = function (e) {
-      $('#thumbnail-preview').attr('src', e.target.result);
+      $('#thumbnail-edit').attr('src', e.target.result);
+       $('#thumbnail-edit').cropper({
+      aspectRatio: 1 / 1,
+      zoomable: false,
+      preview: ".img-preview",
+      crop: function(e) {
+        // Output the result data for cropping image.
+        // console.log(e.x);
+        // console.log(e.y);
+        // console.log(e.width);
+        // console.log(e.height);
+        // console.log(e.rotate);
+        // console.log(e.scaleX);
+        // console.log(e.scaleY);
+      }
+     });
     };
 
     reader.readAsDataURL(input.files[0]);
+    
+   
   }
 }
