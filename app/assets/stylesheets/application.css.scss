@@ -52,14 +52,3 @@ h1, h2, h3 {
   font-family: 'Josefin Sans', sans-serif;
 }
 
-/* Limit image width to avoid overflow the container for cropper.js */
-img {
-  max-width: 100%; /* This rule is very important, please do not ignore this! */
-}
-
-.img-preview {
-  overflow: hidden;
-  width: 480px; 
-  height: 480px;
-}
-

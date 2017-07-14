@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170707030152) do
+ActiveRecord::Schema.define(version: 20170713170035) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -22,6 +22,10 @@ ActiveRecord::Schema.define(version: 20170707030152) do
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
     t.string   "average_color"
+    t.string   "crop_x"
+    t.string   "crop_y"
+    t.string   "crop_h"
+    t.string   "crop_w"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|

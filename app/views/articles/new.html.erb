@@ -15,8 +15,19 @@
     </div>
     </br>
     <div class="row">
+      <div class="col-md-6 text-center">
+        <h3>Crop image</h3>
+      </div>
+      <div class="col-md-6 text-center">
+        <h3>Thumbnail preview</h3>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-6" id="thumbnail-cropper" >
-        <img id="thumbnail-edit" src="#" alt="crop tool image here">
+        <img class="container-fluid" id="thumbnail-edit" src="#" alt="crop tool image here">
+        <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+          <%= f.text_field attribute, :id => attribute, :type => 'hidden' %>
+        <% end %>
       </div>
       <div class="col-md-6" id="thumbnail-wrapper">
         <div class="container-fluid img-preview" id="thumbnail-preview" alt="preview image here"></div>
@@ -40,7 +51,7 @@
     </div>
     <div class="row text-center">
       <div class="col-md-4 col-md-offset-4">
-        <%= f.submit 'Post', class: 'btn btn-success' %>
+        <%= f.submit 'Post', class: 'btn btn-success', id: 'post' %>
       </div>
     </div>
   <% end %>

@@ -9,7 +9,7 @@
     <% else %>
       <% col = 6 %>
     <% end %>
-    <%= content_tag :div, :class => "col-md-#{col} text-center thumbnail-dither", style: "background: #{average_color};" do -%>
+    <%= content_tag :div, :class => "col-md-#{col} text-center", style: "background: #{average_color};" do -%>
       <%= link_to article_path(article) do %>
         <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
       <% end %>

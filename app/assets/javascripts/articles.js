@@ -28,15 +28,15 @@ function readURL(input) {
     reader.onload = function (e) {
       $('#thumbnail-edit').attr('src', e.target.result);
        $('#thumbnail-edit').cropper({
-      aspectRatio: 1 / 1,
+      aspectRatio: 16 / 9,
       zoomable: false,
       preview: ".img-preview",
       crop: function(e) {
         // Output the result data for cropping image.
-        // console.log(e.x);
-        // console.log(e.y);
-        // console.log(e.width);
-        // console.log(e.height);
+        $('#crop_x').val(e.x);
+        $('#crop_y').val(e.y);
+        $('#crop_w').val(e.width);
+        $('#crop_h').val(e.height);
         // console.log(e.rotate);
         // console.log(e.scaleX);
         // console.log(e.scaleY);
@@ -46,6 +46,5 @@ function readURL(input) {
 
     reader.readAsDataURL(input.files[0]);
     
-   
   }
 }
