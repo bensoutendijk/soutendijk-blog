@@ -7,42 +7,40 @@
           <h3 class="text-center">Title</h3>
           <%= f.text_field :title, class: 'form-control' %>
         </div>
-          <div class="form-group">
-            <span>Choose a thumbnail image:</span>
-            <%= f.file_field :thumbnail, id: 'imgInp', "data-filename-placement" => 'inside' %>
-          </div>
       </div>
     </div>
     </br>
-    <div class="row">
-      <div class="col-md-6 text-center">
-        <h3>Crop image</h3>
-      </div>
-      <div class="col-md-6 text-center">
-        <h3>Thumbnail preview</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6" id="thumbnail-cropper" >
-        <img class="container-fluid" id="thumbnail-edit" src="#" alt="crop tool image here">
-        <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
-          <%= f.text_field attribute, :id => attribute, :type => 'hidden' %>
-        <% end %>
-      </div>
-      <div class="col-md-6" id="thumbnail-wrapper">
-        <div class="container-fluid img-preview" id="thumbnail-preview" alt="preview image here"></div>
-      </div>
-    </div>
-    </br>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-         <%= f.text_field :average_color, class: 'form-control minicolors', id: "minicolors" %>
-      </div>
-    </div>
+    
+    <!--Thumbnail Preview Code-->
+    <!--<div class="row text-center">-->
+    <!--  <div class="col-md-6" id="image-uploader">-->
+    <!--    <div class="form-group">-->
+    <!--        <span>Choose a thumbnail image:</span>-->
+    <!--        <%= f.file_field :thumbnail, id: 'imgInp', "data-filename-placement" => 'inside' %>-->
+    <!--    </div>-->
+    <!--  </div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+    <!--  <div class="col-md-6 text-center">-->
+    <!--    <h3>Thumbnail preview</h3>-->
+    <!--  </div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+    <!--  <div class="col-md-6" id="thumbnail-wrapper" >-->
+    <!--    <img class="container-fluid" id="thumbnail-edit" src="#" alt="crop tool image here">-->
+    <!--  </div>-->
+    <!--</div>-->
+    <!--</br>-->
+    <!--<div class="row">-->
+    <!--  <div class="col-md-6" id="colorpicker">-->
+    <!--     <%= f.text_field :average_color, class: 'form-control minicolors', id: "minicolors" %>-->
+    <!--  </div>-->
+    <!--</div>-->
+    
     <div class="row text-center">
       <div class="col-md-10 col-md-offset-1">
         <div class="form-group">
-          <div>
+          <div id="ckeditor-article-text-area">
             <h3>Body</h3>
             <%= f.cktext_area :text %>
           </div>

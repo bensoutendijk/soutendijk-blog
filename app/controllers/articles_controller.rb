@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     
     private
         def article_params
-            params.require(:article).permit(:title, :text, :average_color, :crop_x, :crop_y, :crop_w, :crop_h, :thumbnail)
+            params.require(:article).permit(:title, :text, :average_color, :thumbnail)
         end
     
 end

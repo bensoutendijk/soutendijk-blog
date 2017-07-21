@@ -2,14 +2,12 @@
   <!--FOR EACH ARTICLE, CREATE A DIV OF APPROPRIATE SIZE-->
   <% @article.reverse.each do |article| %>
     <% id = article.id %>
+    
     <% thumbnail_file_name = article.thumbnail_file_name %>
+    
     <% average_color = article.average_color %>
-    <% if id%3 == 0 %>
-      <% col = 12 %>
-    <% else %>
-      <% col = 6 %>
-    <% end %>
-    <%= content_tag :div, :class => "col-md-#{col} text-center", style: "background: #{average_color};" do -%>
+
+    <%= content_tag :div, :class => "col-md-6 text-center", style: "background: #{average_color};" do -%>
       <%= link_to article_path(article) do %>
         <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
       <% end %>
