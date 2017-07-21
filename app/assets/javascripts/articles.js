@@ -2,14 +2,30 @@
 //Document ready.
 $(document).on('turbolinks:load', function(){
   
-  // Use bootstrap.file-input.js to bootstrap 'choose file' button
-  $('input[type=file]').bootstrapFileInput();
+  // // Use bootstrap.file-input.js to bootstrap 'choose file' button
+  // $('input[type=file]').bootstrapFileInput();
   
-  $("#imgInp").change(function(){
-    readURL(this);
-  });
+  // // Preview the image chosen for upload
+  // $("#imgInp").change(function(){
+  //   readURL(this);
+  // });
 
-  initMiniColors();
+  // initMiniColors();
+  
+  $('.thumbnail_element').hover(
+    function() {
+        $(this).find('.thumbnail_hover').animate({
+          'padding-top' : '20px',
+          'opacity' : '.75'
+        },'fast');
+    },
+    function() {
+        $(this).find('.thumbnail_hover').animate({
+          'padding-top' : '10px',
+          'opacity' : '0'
+        },'fast');
+    }
+  );
   
 });
 
