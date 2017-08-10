@@ -14,12 +14,21 @@
  *= require_tree .
  *= require_self
  */
- 
- 
- 
- @import 'bootstrap-sprockets';
- @import 'bootstrap';
- 
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+
+a {
+  color: grey;
+  text-decoration: none;
+
+  &:hover {
+    color: grey;
+    text-decoration: none;
+  }
+}
+
 body {
     background: #ECE9E6;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
@@ -46,12 +55,10 @@ body {
     margin-top: -12px;
 }
  
-// Apply custom font to h1,h2,h3 
-
+// Apply custom font to h1,h2,h3
 h1, h2, h3 {
   font-family: 'Josefin Sans', sans-serif;
 }
-
 
 // Thumbnail styles
 .homepage-thumbnail {
@@ -59,6 +66,6 @@ h1, h2, h3 {
     margin: 1px;
 }
 
-.article-name-text {
-    color: white;
+.thumbnail-hover {
+    opacity: 0;
 }

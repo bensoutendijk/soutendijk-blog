@@ -1,15 +1,18 @@
 <div class="container-fluid">
   <!--FOR EACH ARTICLE, CREATE A DIV OF APPROPRIATE SIZE-->
+  
+  
   <% @article.reverse.each do |article| %>
     <% id = article.id %>
     <% title = article.title %>
     <% thumbnail_file_name = article.thumbnail_file_name %>
-    <% average_color = article.average_color %>
 
     
     <%= link_to article_path(article) do %>
-      <%= content_tag :div, :class => "col-md-6 text-center homepage-thumbnail thumbnail_element", style: "background: #2B3F61;" do -%>
-        <%= content_tag :h2, "#{title}", :class => "thumbnail_hover", style: "color: red; opacity: 0;" %>
+      <%= content_tag :div, :class => "row text-center" do -%>  
+        <%= content_tag :div, :class => "col-md-6 homepage-thumbnail", style: "background: #2B3F61;" do -%>
+          <%= content_tag :h2, "#{title}", :class => "thumbnail-hover" %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>

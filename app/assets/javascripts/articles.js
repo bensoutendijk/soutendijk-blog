@@ -2,26 +2,24 @@
 //Document ready.
 $(document).on('turbolinks:load', function(){
   
-  // // Use bootstrap.file-input.js to bootstrap 'choose file' button
-  // $('input[type=file]').bootstrapFileInput();
+  // Use bootstrap.file-input.js to bootstrap 'choose file' button
+  $('input[type=file]').bootstrapFileInput();
   
-  // // Preview the image chosen for upload
-  // $("#imgInp").change(function(){
-  //   readURL(this);
-  // });
+  // Preview the image chosen for upload
+  $("#imgInp").change(function(){
+    readURL(this);
+  });
 
-  // initMiniColors();
+  initMiniColors();
   
-  $('.thumbnail_element').hover(
+  $('.homepage-thumbnail').hover(
     function() {
-        $(this).find('.thumbnail_hover').animate({
-          'padding-top' : '20px',
+        $(this).find('.thumbnail-hover').animate({
           'opacity' : '.75'
         },'fast');
     },
     function() {
-        $(this).find('.thumbnail_hover').animate({
-          'padding-top' : '10px',
+        $(this).find('.thumbnail-hover').animate({
           'opacity' : '0'
         },'fast');
     }
@@ -39,23 +37,23 @@ function readURL(input) {
       $('#thumbnail-edit').attr('src', e.target.result);
       
       // Cropper Code
-      // $('#thumbnail-edit').cropper({
-      //   aspectRatio: 16 / 9,
-      //   preview: ".img-preview",
-      //   minContainerWidth: 640,
-      //   minContainerHeight: 360,
-      //   modal: false,
-      //   crop: function(e) {
-      //     // Output the result data for cropping image.
-      //     $('#crop_x').val(e.x);
-      //     $('#crop_y').val(e.y);
-      //     $('#crop_w').val(e.width);
-      //     $('#crop_h').val(e.height);
-      //     // console.log(e.rotate);
-      //     // console.log(e.scaleX);
-      //     // console.log(e.scaleY);
-      //   }
-      // });
+      $('#thumbnail-edit').cropper({
+        aspectRatio: 16 / 9,
+        preview: ".img-preview",
+        minContainerWidth: 640,
+        minContainerHeight: 360,
+        modal: false,
+        crop: function(e) {
+          // Output the result data for cropping image.
+          $('#crop_x').val(e.x);
+          $('#crop_y').val(e.y);
+          $('#crop_w').val(e.width);
+          $('#crop_h').val(e.height);
+          // console.log(e.rotate);
+          // console.log(e.scaleX);
+          // console.log(e.scaleY);
+        }
+      });
       
       
     };
