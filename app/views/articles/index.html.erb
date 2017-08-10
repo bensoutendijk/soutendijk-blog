@@ -1,19 +1,66 @@
 <div class="container-fluid">
-  <!--FOR EACH ARTICLE, CREATE A DIV OF APPROPRIATE SIZE-->
   
+  <!--Count the number of articles to display-->
+  <% numarticle = 0 %>
+  <% @article.each do |article| %>
+    <% numarticle += 1 %>
+  <% end %>
   
+  <!--Articles are displayed in rows alternating between 1 and 2 thumbnails per row-->
+  <% if numarticle%3==0 || numarticle%3==1 %>
+    <!--If the number of articles%3 is 1 or 0, then the first row contains one thumbnail-->
+    <% counter = 2 %>
+  <% end %>
+  <% if numarticle%3==2 %>
+    <!--Else if the number of articles%3 is 2, then the first row contains two thumbnails-->
+    <% counter = 0 %>
+  <% end %>
+  
+  <!--Create the articles-->
   <% @article.reverse.each do |article| %>
+    <!--Store data in variables-->
     <% id = article.id %>
     <% title = article.title %>
     <% thumbnail_file_name = article.thumbnail_file_name %>
-
+    <% average_color = article.average_color %>
     
-    <%= link_to article_path(article) do %>
-      <%= content_tag :div, :class => "row text-center" do -%>  
-        <%= content_tag :div, :class => "col-md-6 homepage-thumbnail", style: "background: #2B3F61;" do -%>
-          <%= content_tag :h2, "#{title}", :class => "thumbnail-hover" %>
+    <% if counter == 0 %>
+      <!--Create a new row with two articles by placing the article in this iteration, as well as the next iteration. Then skip the next iteration.-->
+      <% nextid = id - 2 %>
+      <!--Create the first article (current iteration)-->
+      <%= content_tag :div, :class => "row" do -%>
+        <%= link_to article_path(article) do %>
+          <%= content_tag :div, :class => "col-md-6 homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
+            <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
+          <% end %>
+        <% end %>
+        
+        <!--Create the next article (current iteration - 1)-->
+        <!--Store data for next article-->
+        <% id = @article[nextid].id %>
+        <% title = @article[nextid].title %>
+        <% thumbnail_file_name = @article[nextid].thumbnail_file_name %>
+        <% average_color = @article[nextid].average_color %>
+        <%= link_to article_path(@article[nextid]) do %>
+          <%= content_tag :div, :class => "col-md-6 homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
+            <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
+          <% end %>
+        <% end %>
+        <% counter += 1 %>
+      <% end %>
+    <% elsif counter == 1 %>
+      <% counter += 1 %>
+    <% elsif counter == 2 %>
+      <!--Create a new row and article with 'col-md-12'-->
+      <%= content_tag :div, :class => "row" do -%>
+        <%= link_to article_path(article) do %>
+          <%= content_tag :div, :class => "col-md-12 homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
+            <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
+          <% end %>
         <% end %>
       <% end %>
+      <% counter = 0 %>
     <% end %>
   <% end %>
+
 </div>

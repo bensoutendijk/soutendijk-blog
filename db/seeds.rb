@@ -6,6 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# (1..5).each do |i|
-#     Article.create(title: "Article #{i}", text: 'Lorem ipsum')
-# end
+(1..5).each do |i|
+    Article.create!(title: "Article #{i}", text: 'Lorem ipsum', average_color: "#000000")
+end
