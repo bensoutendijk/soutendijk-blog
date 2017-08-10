@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.minicolors
+//= require jquery.mCustomScrollbar
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require ckeditor/init
@@ -21,6 +22,8 @@
 /* global $ */
 
 $(document).on('turbolinks:load', function(){
+  
+  // Animations
   $('.homepage-thumbnail').hover(
     function() {
       $(this).find('.thumbnail-hover').animate({
@@ -45,4 +48,10 @@ $(document).on('turbolinks:load', function(){
       }, 'slow');
     }
   );
+  
+  // Scrollbar
+  $("body").mCustomScrollbar({
+    axis: "y",
+    scrollInertia:400
+  });
 });
