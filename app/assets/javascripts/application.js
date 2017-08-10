@@ -18,3 +18,31 @@
 //= require ckeditor/init
 //= require_tree ./ckeditor
 //= require_tree .
+/* global $ */
+
+$(document).on('turbolinks:load', function(){
+  $('.homepage-thumbnail').hover(
+    function() {
+      $(this).find('.thumbnail-hover').animate({
+        'opacity' : '.75'
+      },'fast');
+    },
+    function() {
+      $(this).find('.thumbnail-hover').animate({
+        'opacity' : '0'
+      },'fast');
+    }
+  );
+  $('.navbar-link').hover(
+    function() {
+      $(this).animate({
+        'opacity' : '.5'  
+      },'slow');
+    },
+    function() {
+      $(this).animate({
+         'opacity' : "1"
+      }, 'slow');
+    }
+  );
+});
