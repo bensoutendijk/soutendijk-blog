@@ -28,6 +28,9 @@
     <div class="row">
       <div class="col-md-offset-3 col-md-6" id="thumbnail-wrapper" >
         <img class="container-fluid" id="thumbnail-edit" src="#" alt="crop tool image here">
+        <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+         <%= f.text_field attribute, :id => attribute, :type => 'hidden' %>
+        <% end %>
       </div>
     </div>
     </br>

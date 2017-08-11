@@ -4,12 +4,12 @@ class Article < ApplicationRecord
     :url => "/article/:attachment/:id/:basename_:style.:extension",
     :styles => { 
         :homepage => ['640x360#', :png, :quality => 100]
-     } 
+     },
      
     # Cropper code (Disabled pending further developement)
-    # :processors => [:cropper]
-    # attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-    # after_update :reprocess_avatar
+    :processors => [:cropper]
+    attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+    after_update :reprocess_avatar
     
      # Article form validations
     validates :title, presence: true
