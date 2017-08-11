@@ -31,6 +31,9 @@
       <%= content_tag :div, :class => "row" do -%>
         <%= link_to article_path(article) do %>
           <%= content_tag :div, :class => "col-md-6 homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
+            <% if !thumbnail_file_name.nil? %>
+              <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
+            <% end %>
             <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
           <% end %>
         <% end %>
@@ -43,6 +46,9 @@
         <% average_color = @article[nextid].average_color %>
         <%= link_to article_path(@article[nextid]) do %>
           <%= content_tag :div, :class => "col-md-6 homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
+            <% if !thumbnail_file_name.nil? %>
+              <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
+            <% end %>
             <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
           <% end %>
         <% end %>
@@ -55,6 +61,9 @@
       <%= content_tag :div, :class => "row" do -%>
         <%= link_to article_path(article) do %>
           <%= content_tag :div, :class => "col-md-12 homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
+            <% if !thumbnail_file_name.nil? %>
+              <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
+            <% end %>
             <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
           <% end %>
         <% end %>
