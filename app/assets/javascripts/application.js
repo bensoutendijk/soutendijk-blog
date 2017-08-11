@@ -40,18 +40,19 @@ $(document).on('turbolinks:load', function(){
     function() {
       $(this).animate({
         'opacity' : '.5'  
-      },'slow');
+      },'fast');
     },
     function() {
       $(this).animate({
          'opacity' : "1"
-      }, 'slow');
+      }, 'fast');
     }
   );
   
   // Scrollbar
   $("body").mCustomScrollbar({
     axis: "y",
-    scrollInertia:400
+    scrollInertia:270,
+    theme: 'my-theme'
   });
 });

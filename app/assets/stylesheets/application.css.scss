@@ -52,7 +52,7 @@ body {
 
 .navbar-text {
     color: grey;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Raleway', sans-serif;
     margin-top: -12px;
 }
  
@@ -74,4 +74,29 @@ h1, h2, h3 {
 html, body{
     height: 100%;
     overflow: hidden;
+}
+
+.article-title-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 5em;
+}
+
+.article-container {
+    margin: 256px;
+}
+
+.josefin {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.barrio {
+    font-family: 'Barrio', sans-serif;
+}
+
+.raleway {
+    font-family: 'Raleway', sans-serif;
+}
+
+.mCS-my-theme .mCSB_container{
+    margin-right: 0px;
 }
