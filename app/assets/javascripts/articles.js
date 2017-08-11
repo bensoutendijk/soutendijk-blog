@@ -57,15 +57,15 @@ function initMiniColors(){
     defaultValue: '#000000'
   });
   
-  //initialize background color for preivew
-  $("#minicolors").ready(function(){
-    var hex = $("#minicolors").val();
-    $("#thumbnail-wrapper").css("background-color", hex);
-  });
+  // //initialize background color for preivew
+  // $("#minicolors").ready(function(){
+  //   var hex = $("#minicolors").val();
+  //   $("#thumbnail-wrapper").css("background-color", hex);
+  // });
   
-  //update preview on change
-  $("#minicolors").change(function(){
-    var hex = $("#minicolors").val();
-    $("#thumbnail-wrapper").css("background-color", hex);
-  });
+  // //update preview on change
+  // $("#minicolors").change(function(){
+  //   var hex = $("#minicolors").val();
+  //   $("#thumbnail-wrapper").css("background-color", hex);
+  // });
 }

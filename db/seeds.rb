@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-(1..17).each do |i|
-    random_color = "%06x" % (rand * 0xffffff)
-    Article.create!(title: "Article #{i}", text: 'Lorem ipsum', average_color: "##{random_color}")
-end
+# (1..17).each do |i|
+#     random_color = "%06x" % (rand * 0xffffff)
+#     Article.create!(title: "Article #{i}", text: 'Lorem ipsum', average_color: "##{random_color}")
+# end

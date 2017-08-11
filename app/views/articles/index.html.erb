@@ -25,16 +25,16 @@
     <% average_color = article.average_color %>
     
     <% if counter == 0 %>
-      <!--Create a new row with two articles by placing the article in this iteration, as well as the next iteration. Then skip the next iteration.-->
+      <!--Create a new row with two articles by placing the article in this iteration and the next iteration. Then skip the next iteration.-->
       <% nextid = id - 2 %>
       <!--Create the first article (current iteration)-->
       <%= content_tag :div, :class => "row" do -%>
         <%= link_to article_path(article) do %>
           <%= content_tag :div, :class => "col-md-6 homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
+            <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
             <% if !thumbnail_file_name.nil? %>
               <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
             <% end %>
-            <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
           <% end %>
         <% end %>
         
@@ -46,10 +46,10 @@
         <% average_color = @article[nextid].average_color %>
         <%= link_to article_path(@article[nextid]) do %>
           <%= content_tag :div, :class => "col-md-6 homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
+            <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
             <% if !thumbnail_file_name.nil? %>
               <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
             <% end %>
-            <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
           <% end %>
         <% end %>
         <% counter += 1 %>
@@ -61,10 +61,12 @@
       <%= content_tag :div, :class => "row" do -%>
         <%= link_to article_path(article) do %>
           <%= content_tag :div, :class => "col-md-12 homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
+            <%= content_tag :div, :class => "col-md-offset-3 col-md-6" do -%>
+              <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
+            <% end %>
             <% if !thumbnail_file_name.nil? %>
               <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
             <% end %>
-            <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
           <% end %>
         <% end %>
       <% end %>
