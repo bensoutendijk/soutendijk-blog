@@ -9,27 +9,30 @@ $(document).on('turbolinks:load', function(){
   $("#imgInp").change(function(){
     readURL(this);
   });
-
+  
   initMiniColors();
   
 });
 
 function readURL(input) {
   
-  //REQUIREMENTS: Crop image with CropperJS
-  
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     reader.onload = function (e) {
-      $('#thumbnail-edit').attr('src', e.target.result);
       
-      // Cropper Code
+      $('#thumbnail-edit').attr('src', e.target.result);
+
+// Cropper Code
+      
+      // Destroy existing cropper
+      $('#thumbnail-edit').cropper('destroy');
+      // Create cropper
       $('#thumbnail-edit').cropper({
         aspectRatio: 16 / 9,
         preview: ".img-preview",
         minContainerWidth: 640,
         minContainerHeight: 360,
-        modal: false,
+        modal: true,
         crop: function(e) {
           // Output the result data for cropping image.
           $('#crop_x').val(e.x);
@@ -42,8 +45,9 @@ function readURL(input) {
         }
       });
       
-      
     };
+    
+    
     
     reader.readAsDataURL(input.files[0]);
     
@@ -51,7 +55,7 @@ function readURL(input) {
 }
 
 function initMiniColors(){
-   // Apply minicolors colorpicker to DOM element using bootstrap them
+   // Apply minicolors colorpicker to DOM element using bootstrap theme
   $('INPUT.minicolors').minicolors({
     theme: 'bootstrap',
     defaultValue: '#000000'

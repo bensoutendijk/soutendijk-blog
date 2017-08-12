@@ -23,7 +23,17 @@
 
 $(document).on('turbolinks:load', function(){
   
-  // Animations
+// Animations
+  $('.cropper-modal').hover(
+    function() {
+      window.alert('1')
+      $("body").mCustomScrollbar("disable");
+    },
+    function() {
+      $("body").mCustomScrollbar("update");
+    }
+  );
+  
   $('.homepage-thumbnail').hover(
     function() {
       $(this).find('.thumbnail-hover').animate({
@@ -49,7 +59,7 @@ $(document).on('turbolinks:load', function(){
     }
   );
   
-  // Scrollbar
+// Scrollbar
   $("body").mCustomScrollbar({
     axis: "y",
     scrollInertia:270,
