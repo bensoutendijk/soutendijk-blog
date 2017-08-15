@@ -1,5 +1,8 @@
 module ArticlesHelper
   
+
+
+  
   def article_html (article, offset=0, fullwidth=true)
     if fullwidth
       size = 12

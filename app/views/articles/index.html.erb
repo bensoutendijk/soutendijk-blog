@@ -11,7 +11,7 @@
     
     <% if @counter == 0 %>
       <!--Create a new row with two articles by placing the article in this iteration and the next iteration. Then skip the next iteration.-->
-      <% nextid = id - 2 %>
+      <% nextid = id - 2 %> <!--Because arrays start at 0!-->
       <!--Create the first article (current iteration)-->
       <%= content_tag :div, :class => "row" do -%>
         <%= link_to article_path(article) do %>
