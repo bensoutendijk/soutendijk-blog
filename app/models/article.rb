@@ -6,12 +6,12 @@ class Article < ApplicationRecord
         :homepage => ['640x360#', :png, :quality => 100]
      },
      
-    # Cropper code (Disabled pending further developement)
+    # Cropper code
     :processors => [:cropper]
     attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
     after_update :reprocess_avatar
     
-     # Article form validations
+    # Article form validations
     validates :title, presence: true
     validates :text, presence: true
     validates :average_color, presence: true

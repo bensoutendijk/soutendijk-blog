@@ -24,15 +24,11 @@
 $(document).on('turbolinks:load', function(){
   
 // Animations
-  $('.cropper-modal').hover(
-    function() {
-      window.alert('1')
-      $("body").mCustomScrollbar("disable");
-    },
-    function() {
-      $("body").mCustomScrollbar("update");
-    }
-  );
+
+
+  $(".input-box").hover(function(eventObj) { 
+    alert(eventObj.target.id);  
+  });
   
   $('.homepage-thumbnail').hover(
     function() {
@@ -59,10 +55,10 @@ $(document).on('turbolinks:load', function(){
     }
   );
   
-// Scrollbar
-  $("body").mCustomScrollbar({
-    axis: "y",
-    scrollInertia:270,
-    theme: 'my-theme'
-  });
+// // Scrollbar
+//   $("body").mCustomScrollbar({
+//     axis: "y",
+//     scrollInertia:270,
+//     theme: 'my-theme'
+//   });
 });

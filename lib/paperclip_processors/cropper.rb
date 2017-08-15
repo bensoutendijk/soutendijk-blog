@@ -1,12 +1,18 @@
 module Paperclip
-    class Cropper < Thumbnail
-        def transformation_command
-            crop_command + super[2].sub(/ -crop \S+/, '')
-        end
-    
-        def crop_command
-            target = @attachment.instance
-            " -crop #{target.crop_w}x#{target.crop_h}+#{target.crop_x}+#{target.crop_y}"
-        end
+  class Cropper < Thumbnail
+    def transformation_command
+      
+      @target = @attachment.instance
+      
+      # Defines the command paperclip will execute (using ImageMagick) when Article thumbnail is uploaded
+      scale, crop = @current_geometry.transformation_to(@target_geometry, crop?)
+      trans = []
+      # trans << "-auto-orient" if auto_orient
+      # trans << "-resize" << %["#{scale}"] unless scale.nil? || scale.empty?
+      trans << "-page 640x360+#{@target.crop_w}+#{@target.crop_h} -background none -layers flatten" if crop
+      
+      # Puts the array of strings (which contain parameters for imagemagick) into the paperclip command line processor
+      trans
     end
+  end
 end

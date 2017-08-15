@@ -10,6 +10,8 @@ $(document).on('turbolinks:load', function(){
     readURL(this);
   });
   
+
+  
   initMiniColors();
   
 });
@@ -32,7 +34,18 @@ function readURL(input) {
         preview: ".img-preview",
         minContainerWidth: 640,
         minContainerHeight: 360,
-        modal: true,
+        modal: false,
+        highlight: false,
+        autoCropArea: 1,
+        toggleDragModeOnDblclick: false,
+        dragMode: 'move',
+        minCropBoxWidth: 640,
+        minCropBoxHeight: 360,
+        zoomable: true,
+        zoomOnWheel: true,
+        cropBoxMovable: false,
+        cropBoxResizable: false,
+        background: false,
         crop: function(e) {
           // Output the result data for cropping image.
           $('#crop_x').val(e.x);
@@ -61,15 +74,15 @@ function initMiniColors(){
     defaultValue: '#000000'
   });
   
-  // //initialize background color for preivew
-  // $("#minicolors").ready(function(){
-  //   var hex = $("#minicolors").val();
-  //   $("#thumbnail-wrapper").css("background-color", hex);
-  // });
+  //initialize background color for preivew
+  $("#minicolors").ready(function(){
+    var hex = $("#minicolors").val();
+    $("#thumbnail-wrapper").css("background-color", hex);
+  });
   
-  // //update preview on change
-  // $("#minicolors").change(function(){
-  //   var hex = $("#minicolors").val();
-  //   $("#thumbnail-wrapper").css("background-color", hex);
-  // });
+  //update preview on change
+  $("#minicolors").change(function(){
+    var hex = $("#minicolors").val();
+    $("#thumbnail-wrapper").css("background-color", hex);
+  });
 }

@@ -24,6 +24,7 @@
     <% thumbnail_file_name = article.thumbnail_file_name %>
     <% average_color = article.average_color %>
     
+    
     <% if counter == 0 %>
       <!--Create a new row with two articles by placing the article in this iteration and the next iteration. Then skip the next iteration.-->
       <% nextid = id - 2 %>
@@ -33,6 +34,7 @@
           <%= content_tag :div, :class => "col-md-6 homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
             <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
             <% if !thumbnail_file_name.nil? %>
+              <% thumbnail_file_name.gsub(/.jpg/, ".png")%>
               <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
             <% end %>
           <% end %>
@@ -48,6 +50,7 @@
           <%= content_tag :div, :class => "col-md-6 homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
             <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
             <% if !thumbnail_file_name.nil? %>
+              <% thumbnail_file_name.gsub(/.jpg/, ".png") %>
               <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
             <% end %>
           <% end %>
@@ -65,6 +68,7 @@
               <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
             <% end %>
             <% if !thumbnail_file_name.nil? %>
+              <% thumbnail_file_name.gsub(/.jpg/, ".png") %>
               <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
             <% end %>
           <% end %>

@@ -18,3 +18,8 @@ img[src="#"] {
   height: 360px;
   vertical-align: middle;
 }
+
+.thumbnail-wrapper {
+  max-height: 360px;
+  max-width: 640px;
+}
