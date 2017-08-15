@@ -8,7 +8,7 @@ module Paperclip
       scale, crop = @current_geometry.transformation_to(@target_geometry, crop?)
       trans = []
       # trans << "-auto-orient" if auto_orient
-      # trans << "-resize" << %["#{scale}"] unless scale.nil? || scale.empty?
+      trans << "-resize" << %["#{scale}"] unless scale.nil? || scale.empty?
       trans << "-page 640x360+#{@target.crop_w}+#{@target.crop_h} -background none -layers flatten" if crop
       
       # Puts the array of strings (which contain parameters for imagemagick) into the paperclip command line processor

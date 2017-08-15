@@ -24,44 +24,13 @@ function readURL(input) {
       
       $('#thumbnail-edit').attr('src', e.target.result);
 
-// Cropper Code
-      
-      // Destroy existing cropper
-      $('#thumbnail-edit').cropper('destroy');
-      // Create cropper
-      $('#thumbnail-edit').cropper({
-        aspectRatio: 16 / 9,
-        preview: ".img-preview",
-        minContainerWidth: 640,
-        minContainerHeight: 360,
-        modal: false,
-        highlight: false,
-        autoCropArea: 1,
-        toggleDragModeOnDblclick: false,
-        dragMode: 'move',
-        minCropBoxWidth: 640,
-        minCropBoxHeight: 360,
-        zoomable: true,
-        zoomOnWheel: true,
-        cropBoxMovable: false,
-        cropBoxResizable: false,
-        background: false,
-        crop: function(e) {
-          // Output the result data for cropping image.
-          $('#crop_x').val(e.x);
-          $('#crop_y').val(e.y);
-          $('#crop_w').val(e.width);
-          $('#crop_h').val(e.height);
-          // console.log(e.rotate);
-          // console.log(e.scaleX);
-          // console.log(e.scaleY);
-        }
-      });
-      
-    };
+      // Crop fields
+      $('#crop_x').val('0');
+      $('#crop_y').val('0');
+      $('#crop_w').val('0');
+      $('#crop_h').val('0');
     
-    
-    
+      };
     reader.readAsDataURL(input.files[0]);
     
   }
