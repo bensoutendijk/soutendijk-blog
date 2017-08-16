@@ -2,17 +2,6 @@
 //Document ready.
 $(document).on('turbolinks:load', function(){
   
-  $("a").on('click', function() {
-    console.log("faded out")
-    $(".turbo-body").animate({
-      'opacity' : '0'
-    }, 200);
-  });
-  
-  $(".turbo-body").animate({
-    'opacity' : '1'
-  }, 400);
-  
   // Use bootstrap.file-input.js to bootstrap 'choose file' button
   $('input[type=file]').bootstrapFileInput();
   
