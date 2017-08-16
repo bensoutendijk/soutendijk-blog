@@ -2,6 +2,17 @@
 //Document ready.
 $(document).on('turbolinks:load', function(){
   
+  $("a").on('click', function() {
+    console.log("faded out")
+    $(".turbo-body").animate({
+      'opacity' : '0'
+    }, 200);
+  });
+  
+  $(".turbo-body").animate({
+    'opacity' : '1'
+  }, 400);
+  
   // Use bootstrap.file-input.js to bootstrap 'choose file' button
   $('input[type=file]').bootstrapFileInput();
   
@@ -10,7 +21,9 @@ $(document).on('turbolinks:load', function(){
     readURL(this);
   });
   
-
+  $("#minicolors-input").change(function (){
+    
+  });
   
   initMiniColors();
   
@@ -40,18 +53,31 @@ function initMiniColors(){
    // Apply minicolors colorpicker to DOM element using bootstrap theme
   $('INPUT.minicolors').minicolors({
     theme: 'bootstrap',
-    defaultValue: '#000000'
+    defaultValue: '#ECE9E6'
   });
   
   //initialize background color for preivew
   $("#minicolors").ready(function(){
     var hex = $("#minicolors").val();
+
+
     $("#thumbnail-wrapper").css("background-color", hex);
   });
   
   //update preview on change
   $("#minicolors").change(function(){
     var hex = $("#minicolors").val();
+
     $("#thumbnail-wrapper").css("background-color", hex);
   });
 }
+
+$.fn.extend({
+    animateCss: function (animationName) {
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        this.addClass('animated ' + animationName).one(animationEnd, function() {
+            $(this).removeClass('animated ' + animationName);
+        });
+        return this;
+    }
+});

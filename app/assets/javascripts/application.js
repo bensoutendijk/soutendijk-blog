@@ -23,6 +23,8 @@
 
 $(document).on('turbolinks:load', function(){
   
+
+  
 // Animations
 
 
