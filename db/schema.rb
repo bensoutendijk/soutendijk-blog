@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815230844) do
+ActiveRecord::Schema.define(version: 20170816184106) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170815230844) do
     t.string   "crop_y"
     t.string   "crop_h"
     t.string   "crop_w"
+    t.string   "font_color"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|

@@ -19,6 +19,12 @@ img[src="#"] {
   vertical-align: middle;
 }
 
+// Thumbnail styles
+.homepage-thumbnail {
+    height: 360px;
+    margin: 0px;
+}
+
 .thumbnail-wrapper {
   display: block;
   height: 360px;
@@ -26,6 +32,19 @@ img[src="#"] {
   margin: 0 auto;
 }
 
-.ck-animate {
-  opacity: 1;
+.thumbnail-title-preview {
+  text-align: center;
+}
+
+.thumbnail-hover {
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+}
+
+.deva-canvas {
+  height: 360px;
+  width: 640px;
+  margin: 0 auto;
+  display: none;
 }

@@ -1,5 +1,3 @@
-
-
 <h1 class="text-center">Create a new blog post</h1>
 
 <div class="well well-lg">
@@ -27,10 +25,16 @@
       </div>
     </div>
     
-<!--Image Preview-->
+<!--Thumbnail Editor-->
     <div class="row">
-      <div class="thumbnail-wrapper" id="thumbnail-wrapper" >
-        <img class="container-fluid" id="thumbnail-edit" src="#" alt="crop tool image here">
+      <div class="deva-canvas">
+        <canvas id="canvas1" width="640" height="360">
+          This text is displayed if your browser does not support HTML5 Canvas.
+        </canvas>
+      </div>
+      <div class="thumbnail-wrapper" id="thumbnail-wrapper">
+        <h2 class="thumbnail-title-preview">Boozy Heights</h2>
+        <img class="container-fluid" id="thumbnail-image" src="#" alt="crop tool image here">
         <% for attribute in [:crop_w, :crop_h, :crop_x, :crop_y] %>
          <%= f.text_field attribute, :id => attribute, :type => 'hidden' %>
         <% end %>
@@ -39,14 +43,27 @@
     </br>
     
 <!--Color Picker-->
-    <div class="row">
-      <div class="col-md-offset-4 col-md-4" id="colorpicker">
-         <%= f.text_field :average_color, class: 'form-control minicolors', id: "minicolors" %>
+    <div class="row text-center">
+      <div class="col-md-offset-3 col-md-3">
+        <h3>Background Color</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Font Color</h3>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-offset-3 col-md-3" id="colorpicker">
+         <%= f.text_field :average_color, class: 'form-control minicolors', id: "minicolors1" %>
+      </div>
+      <div class="col-md-3" id="font-colorpicker">
+         <%= f.text_field :font_color, class: 'form-control minicolors', id: "minicolors2" %>
+      </div>
+    </div>
+    </br>
+    </br>
     
 <!--CKEDITOR-->
-    <div class="row text-center ck-animate">
+    <div class="row text-center">
       <div class="col-md-10 col-md-offset-1">
         <div class="form-group">
           <h3>Body</h3>
@@ -61,3 +78,7 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  // initCanvas();
+</script>

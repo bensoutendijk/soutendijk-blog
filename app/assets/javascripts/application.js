@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.minicolors
-//= require jquery.mCustomScrollbar
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require ckeditor/init
@@ -55,10 +54,14 @@ $(document).on('turbolinks:load', function(){
     }
   );
   
-// // Scrollbar
-//   $("body").mCustomScrollbar({
-//     axis: "y",
-//     scrollInertia:270,
-//     theme: 'my-theme'
-//   });
+});
+
+$.fn.extend({
+    animateCss: function (animationName) {
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        this.addClass('animated ' + animationName).one(animationEnd, function() {
+            $(this).removeClass('animated ' + animationName);
+        });
+        return this;
+    }
 });

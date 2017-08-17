@@ -1,7 +1,8 @@
 module ArticlesHelper
   def init
-      # Count the number of articles to display
-    a = @article.count%3 #And store modulo 3
+    # Count the number of articles to display
+    @numArticles = @article.count
+    a = @numArticles%3 #And store modulo 3
     
     # Articles are displayed in rows alternating between 1 and 2 thumbnails per row
     case a

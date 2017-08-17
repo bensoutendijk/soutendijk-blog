@@ -10,16 +10,18 @@
     <% title = article.title %>
     <% thumbnail_file_name = article.thumbnail_file_name %>
     <% average_color = article.average_color %>
+    <% title_text_color = article.font_color %>
     
     
     <% if @counter == 0 %>
+      <% size = 6 %>
       <!--Create a new row with two articles by placing the article in this iteration and the next iteration. Then skip the next iteration.-->
       <% nextid = id - 2 %> <!--Because arrays start at 0!-->
       <!--Create the first article (current iteration)-->
       <%= content_tag :div, :class => "row" do -%>
         <%= link_to article_path(article) do %>
-          <%= content_tag :div, :class => "col-md-6 homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
-            <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
+          <%= content_tag :div, :class => "col-md-#{size} homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
+            <%= content_tag :h2, "#{id}", :class => "thumbnail-hover", style: "color: #{title_text_color};" %>
             <% if !thumbnail_file_name.nil? %>
               <% thumbnail_file_name.gsub(/.jpg/, ".png")%>
               <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
