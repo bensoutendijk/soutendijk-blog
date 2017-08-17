@@ -7,7 +7,6 @@ class ArticlesController < ApplicationController
   
   def show
     @article = Article.find(params[:id])
-    @numComments = @article.comments.count
   end
   
   def new

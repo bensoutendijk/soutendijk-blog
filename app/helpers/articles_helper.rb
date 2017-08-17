@@ -1,6 +1,6 @@
 module ArticlesHelper
   def init
-    # Count the number of articles to display
+    # Count
     @numArticles = @article.count
     a = @numArticles%3 #And store modulo 3
     

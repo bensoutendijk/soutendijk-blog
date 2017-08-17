@@ -53,6 +53,10 @@ body {
     background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+p {
+  font-size: 18px;
+}
+
 // Apply custom font to h1,h2,h3,h4
 h1, h2, h3{
   font-family: 'Josefin Sans', sans-serif;
