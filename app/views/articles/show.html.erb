@@ -14,15 +14,20 @@
 </div>
 
 <h2>Comments</h2>
-<% @article.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
+
+<% if @numComments == 0 %>
+  <%= content_tag :h4, "There doesn't seem to be anything here", :class => "no-comments-text" %>
+<% else %>
+  <% @article.comments.each do |comment| %>
+    <p>
+      <strong>Commenter:</strong>
+      <%= comment.commenter %>
+    </p>
+    <p>
+      <strong>Comment:</strong>
+      <%= comment.body %>
+    </p>
+  <% end %>
 <% end %>
 
 <h2>Add a comment</h2>

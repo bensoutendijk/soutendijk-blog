@@ -7,14 +7,18 @@ class ArticlesController < ApplicationController
   
   def show
     @article = Article.find(params[:id])
+    @numComments = @article.comments.count
   end
   
   def new
+    @article = Article.new
   end
   
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
+    
+    redirect_to article_path
   end
   
   def create
@@ -22,6 +26,16 @@ class ArticlesController < ApplicationController
     
     @article.save
     redirect_to @article
+  end
+  
+  def update
+    @article = Article.find(params[:id])
+ 
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render 'edit'
+    end
   end
   
   

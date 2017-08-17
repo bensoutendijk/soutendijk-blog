@@ -21,18 +21,24 @@ img[src="#"] {
 
 // Thumbnail styles
 .homepage-thumbnail {
-    height: 360px;
-    margin: 0px;
+  height: 360px;
+  margin: 0px;
 }
 
+.no-comments-text {
+  margin-left: 32px;
+  font-style: italic;
+  opacity: .75;
+}
 
 .article-title-text {
+    margin-top: 32px;
     font-family: 'Raleway', sans-serif;
 }
 
 .article-container {
     margin-left: 256px;
-    margin-top: 128px;
+    margin-top: 64px;
 }
 
 .thumbnail-wrapper {
