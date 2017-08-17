@@ -5,7 +5,7 @@ class Article < ApplicationRecord
     :styles => { 
         :homepage => ['640x360#', :png, :quality => 100]
      }
-     
+    has_many :comments
     # Cropper code
     # :processors => [:cropper]
     # attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
