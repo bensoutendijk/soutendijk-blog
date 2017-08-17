@@ -12,6 +12,11 @@ class ArticlesController < ApplicationController
   def new
   end
   
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+  end
+  
   def create
     @article = Article.new(article_params)
     
