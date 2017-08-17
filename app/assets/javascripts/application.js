@@ -22,46 +22,6 @@
 
 $(document).on('turbolinks:load', function(){
   
-// Animations
 
-
-  $(".input-box").hover(function(eventObj) { 
-    alert(eventObj.target.id);  
-  });
   
-  $('.homepage-thumbnail').hover(
-    function() {
-      $(this).find('.thumbnail-hover').animate({
-        'opacity' : '1'
-      },'fast');
-    },
-    function() {
-      $(this).find('.thumbnail-hover').animate({
-        'opacity' : '0'
-      },'fast');
-    }
-  );
-  $('.navbar-link').hover(
-    function() {
-      $(this).animate({
-        'opacity' : '.5'  
-      },'fast');
-    },
-    function() {
-      $(this).animate({
-         'opacity' : "1"
-      }, 'fast');
-    }
-  );
-  
-});
-
-$.fn.extend({
-    animateCss: function (animationName) {
-        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-        this.addClass('animated ' + animationName).one(animationEnd, function() {
-            $(this).removeClass('animated ' + animationName);
-        });
-        return this;
-    }
 });

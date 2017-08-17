@@ -10,11 +10,37 @@ $(document).on('turbolinks:load', function(){
     readURL(this);
   });
   
-  $("#minicolors-input").change(function (){
-    
+  initMiniColors();
+  
+  // Animations
+  $(".input-box").hover(function(eventObj) { 
+    alert(eventObj.target.id);  
   });
   
-  initMiniColors();
+  $('.homepage-thumbnail').hover(
+    function() {
+      $(this).find('.thumbnail-hover').animate({
+        'opacity' : '1'
+      },'fast');
+    },
+    function() {
+      $(this).find('.thumbnail-hover').animate({
+        'opacity' : '0'
+      },'fast');
+    }
+  );
+  $('.navbar-link').hover(
+    function() {
+      $(this).animate({
+        'opacity' : '.5'  
+      },'fast');
+    },
+    function() {
+      $(this).animate({
+         'opacity' : "1"
+      }, 'fast');
+    }
+  );
   
 });
 
@@ -38,3 +64,32 @@ function readURL(input) {
   }
 }
 
+function initMiniColors(){
+   // Apply minicolors colorpicker to DOM element using bootstrap theme
+  $('INPUT.minicolors').minicolors({
+    theme: 'bootstrap',
+    defaultValue: '#ECE9E6'
+  });
+  
+  //initialize background and font color for preivew
+  $("#minicolors1").ready(function(){
+    var hex = $("#minicolors1").val();
+    $("#thumbnail-wrapper").css("background-color", hex);
+  });
+  
+  //update preview on change
+  $("#minicolors1").change(function(){
+    var hex = $("#minicolors1").val();
+    $("#thumbnail-wrapper").css("background-color", hex);
+  });
+  
+  $("#minicolors2").ready(function(){
+    var hex = $("#minicolors2").val();
+    $(".thumbnail-title-preview").css("color", hex);
+  });
+  
+  $("#minicolors2").change(function(){
+    var hex = $("#minicolors2").val();
+    $(".thumbnail-title-preview").css("color", hex);
+  });
+}
