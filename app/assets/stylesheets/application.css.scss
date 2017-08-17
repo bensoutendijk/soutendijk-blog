@@ -42,6 +42,9 @@ a {
     color: grey;
     text-decoration: none;
   }
+  &:active {
+    text-decoration: none;
+  }
 }
 
 body {
@@ -74,16 +77,6 @@ h1, h2, h3 {
     color: grey;
     font-family: 'Raleway', sans-serif;
     margin-top: -12px;
-}
-
-.article-title-text {
-    font-family: 'Raleway', sans-serif;
-    font-size: 5em;
-}
-
-.article-container {
-    margin-left: 256px;
-    margin-top: 128px;
 }
 
 .mCS-my-theme .mCSB_container{

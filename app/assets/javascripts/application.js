@@ -32,7 +32,7 @@ $(document).on('turbolinks:load', function(){
   $('.homepage-thumbnail').hover(
     function() {
       $(this).find('.thumbnail-hover').animate({
-        'opacity' : '.75'
+        'opacity' : '1'
       },'fast');
     },
     function() {
