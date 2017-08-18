@@ -19,6 +19,7 @@
       <% nextid = id - 2 %>
       <!--Create the first article (current iteration)-->
       <%= content_tag :div, :class => "row" do -%>
+      
         <%= link_to article_path(article) do %>
           <%= content_tag :div, :class => "col-md-#{size} homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
             <%= content_tag :h2, "#{id}", :class => "thumbnail-hover", style: "color: #{title_text_color};" %>
@@ -28,7 +29,6 @@
             <% end %>
           <% end %>
         <% end %>
-        
         
         <!--Store data for next article-->
         <% id = @article[nextid].id %>

@@ -1,9 +1,0 @@
-<%= link_to article_path(article) do %>
-  <%= content_tag :div, :class => "col-md-#{size} homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
-    <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
-    <% if !thumbnail_file_name.nil? %>
-      <% thumbnail_file_name.gsub(/.jpg/, ".png") %>
-      <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
-    <% end %>
-  <% end %>
-<% end %>
