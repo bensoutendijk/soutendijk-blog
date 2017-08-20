@@ -6,6 +6,7 @@ class Article < ApplicationRecord
         :homepage => ['640x360#', :png, :quality => 100]
      }
     has_many :comments
+    has_many :votes, dependent: :destroy
     # Cropper code
     # :processors => [:cropper]
     # attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
