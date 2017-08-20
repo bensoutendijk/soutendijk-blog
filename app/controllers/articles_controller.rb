@@ -23,8 +23,17 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     
-    @article.save
-    redirect_to @article
+    if @article.save
+      # Store success message in flash hash
+      # and redirect to the new action
+      flash[:success] = "Message sent."
+      redirect_to @article
+    else
+      # if Contact object doesn't save, store errors in flash hash
+      # and redirect
+      flash[:danger] = "Error: " + @article.errors.full_messages.join(", ")
+      redirect_to @article
+    end
   end
   
   def update
