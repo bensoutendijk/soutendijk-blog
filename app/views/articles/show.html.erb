@@ -20,7 +20,7 @@
     <h2>Comments</h2>
     
     <% if @numComments == 0 %>
-      <%= content_tag :h4, "There doesn't seem to be anything here", :class => "no-comments-text" %>
+      <%= content_tag :h4, "There doesn't seem to be anything here.", :class => "no-comments-text" %>
     <% else %>
       <% @article.comments.each do |comment| %>
         <p>
