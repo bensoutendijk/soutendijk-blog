@@ -1,9 +1,12 @@
 class VotesController < ApplicationController
-  def upvote
+  def create
     @comment = Comment.find(params[comment_id])
     @vote = @comment.votes.create(vote_params)
   end
-  def downvote
+  
+  def destroy
+    @comment = Comment.find(params[comment_id])
+    @vote = @comment.votes.destroy
   end
   
   private
