@@ -26,13 +26,13 @@ class ArticlesController < ApplicationController
     if @article.save
       # Store success message in flash hash
       # and redirect to the new action
-      flash[:success] = "Message sent."
+      flash[:success] = "Post Successful."
       redirect_to @article
     else
       # if Contact object doesn't save, store errors in flash hash
       # and redirect
       flash[:danger] = "Error: " + @article.errors.full_messages.join(", ")
-      redirect_to @article
+      redirect_to new_article_path
     end
   end
   
