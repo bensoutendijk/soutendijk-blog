@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+  
+  resources :comments do
+    resources :votes, only: [:create, :destroy]
+  end
 
   get 'about', to: 'pages#about'
 
