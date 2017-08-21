@@ -28,12 +28,12 @@
       </div>
       <div class="row">
         <div class="col-md-2">
-          <%= link_to "Read", root_path, class: (action_name == 'index' ? 'navbar-text navbar-link navbar-link-active' : 'navbar-text navbar-link') %>
+          <%= nav_link "Read", root_path, false %>
         </div>
         <div class="col-md-offset-8">
-          <%= link_to "Sign in", new_user_session_path, class: (action_name == 'new' ? 'navbar-text navbar-link navbar-right navbar-link-active' : 'navbar-text navbar-link navbar-right') %>
-          <%= link_to "New Posts", new_article_path, class: (action_name == 'new' ? 'navbar-text navbar-link navbar-right navbar-link-active' : 'navbar-text navbar-link navbar-right') %>
-          <%= link_to "About", about_path, class: (action_name == 'about' ? 'navbar-text navbar-link navbar-right navbar-link-active' : 'navbar-text navbar-link navbar-right') %>
+          <%= nav_link "Sign in", new_user_session_path, true %>
+          <%= nav_link "New Posts", new_article_path, true %>
+          <%= nav_link "About", about_path, class: true %>
         </div>
       </div>
       <div class="row">
