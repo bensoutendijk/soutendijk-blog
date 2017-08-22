@@ -67,7 +67,7 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="form-group">
           <h3>Body</h3>
-          <%= f.cktext_area :text %>
+          <%= f.cktext_area :text, :id => 'full' %>
         </div>
       </div>
     </div>
@@ -78,6 +78,9 @@
     </div>
   <% end %>
 </div>
+
+<!--Hidden Fields-->
+
 
 <script type="text/javascript">
   // initCanvas();

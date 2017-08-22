@@ -17,31 +17,21 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,800" rel="stylesheet">
     
   
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
   <nav class="navbar navbar-static">
-    <div class="container-fluid">
-      <div class="row">
-        <h1 class="text-center josefin">Boozy Heights</h1>
-      </div>
-      <div class="row">
-        <div class="col-md-2">
-          <%= nav_link "Read", root_path, false %>
-        </div>
-        <div class="col-md-offset-8">
-          <%= nav_link "Sign in", new_user_session_path, true %>
-          <%= nav_link "New Posts", new_article_path, true %>
-          <%= nav_link "About", about_path, class: true %>
-        </div>
-      </div>
-      <div class="row">
-        <h3 class="text-center">"What else can change your ideas...like whisky?"</h3>
-      </div>
-    </div>
+    <h1 class="text-center josefin">Boozy Heights</h1>
+    <%= nav_link "Read", root_path, 'left' %>
+    <%= nav_link "Sign in", new_user_session_path, 'right' %>
+    <%= nav_link "New Posts", new_article_path, 'right' %>
+    <%= nav_link "About", about_path, 'right' %>
   </nav>
-  
+  <div class="container">
+    <div class="row">
+      <h3 class="text-center blurb">"What else can change your ideas...like whisky?"</h3>
+    </div>
+  </div>
   <div class="container flash-container">
   <% flash.each do |key, value| %>
     <% if value.class == Array %>

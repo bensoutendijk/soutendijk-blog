@@ -17,6 +17,8 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -93,6 +95,11 @@ h4 {
     color: grey;
     font-family: 'Raleway', sans-serif;
     margin-top: -12px;
+}
+
+.blurb {
+  margin-top: -20px;
+  padding-bottom: 20px;
 }
 
 .mCS-my-theme .mCSB_container{

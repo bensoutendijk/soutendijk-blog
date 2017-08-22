@@ -23,34 +23,32 @@
       <%= content_tag :h4, "There doesn't seem to be anything here.", :class => "no-comments-text" %>
     <% else %>
       <% @article.comments.each do |comment| %>
-        <p>
-          <strong>Commenter:</strong>
-          <%= comment.commenter %>
-        </p>
-        <p>
-          <strong>Comment:</strong>
-          <%= comment.body %>
-        </p>
+        <% commenter = "Ben" %>
+        <%= content_tag :div, :class => "row" do %>
+          <%= content_tag :div, :class => "col-md-offset-1 col-md-10" do %>
+            <%= content_tag :h4, "#{commenter}", :class => "commenter" %>
+            </br>
+            <%= raw(comment.body) %>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
     </br>
     </br>
     <div class='col-md-offset-2 col-md-8'>
       <div class='well'>
-        <h2>Add a comment</h2>
+        <h4>Add a comment</h4>
         <%= form_for([@article, @article.comments.build]) do |f| %>
           <div class='form-group'>
-            <%= content_tag :label, 'Name:' %><br>
-            <%= f.text_field :commenter, class: 'form-control' %>
-          </div>
-          
-          <div class='form-group'>
-            <%= content_tag :label, 'Body:' %><br>
-            <%= f.text_area :body, class: 'form-control new-comment-area' %>
+            <% if user_signed_in? %>
+              <% user_id = current_user.id %>
+              <% hidden_field_tag :user_id, "#{user_id}" %>
+            <% end %>
+            <%= f.cktext_area :body, class: 'form-control new-comment-area' %>
           </div>
           
           <div>
-            <%= f.submit 'Post', class: 'btn btn-success'%>
+            <%= f.submit 'Post', class: 'btn btn-success commit'%>
           </div>
         <% end %>
       </div>
