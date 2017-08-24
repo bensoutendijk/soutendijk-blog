@@ -1,29 +1,28 @@
 <% @numComments = @article.comments.count %>
 
 <% article_title = @article.title %>
-<div class="row">
-  <div class="container text-center">
-    <div class="col-md-offset-3 col-md-6">
-      <%= content_tag :h2, "#{article_title}" , :class => "article-title-text" %>
-    </div>
-  </div>
-</div>
- 
-<div class="row">
-  <div class="container article-container">
-   <%= raw(@article.text) %>
-  </div>
-</div>
-<div class="row">
-  <div class="container comment-container">  
 
+
+<div class="container">
+  
+  <div class="text-center">
+      <%= content_tag :h2, "#{article_title}" , :class => "article-title-text" %>
+  </div>
+
+ 
+
+  <%= raw(@article.text) %>
+
+  <div class="comment-container">
+  
     <h2>Comments</h2>
     
     <% if @numComments == 0 %>
       <%= content_tag :h4, "There doesn't seem to be anything here.", :class => "no-comments-text" %>
     <% else %>
       <% @article.comments.each do |comment| %>
-        <% commenter = "Ben" %>
+        <% @user = User.find(comment.user_id) %>
+        <% commenter = @user.email %>
         <%= content_tag :div, :class => "row" do %>
           <%= content_tag :div, :class => "col-md-offset-1 col-md-10" do %>
             <%= content_tag :h4, "#{commenter}", :class => "commenter" %>
@@ -40,10 +39,7 @@
         <h4>Add a comment</h4>
         <%= form_for([@article, @article.comments.build]) do |f| %>
           <div class='form-group'>
-            <% if user_signed_in? %>
-              <% user_id = current_user.id %>
-              <% hidden_field_tag :user_id, "#{user_id}" %>
-            <% end %>
+            <%= f.text_area :commenter %>
             <%= f.cktext_area :body, class: 'form-control new-comment-area' %>
           </div>
           

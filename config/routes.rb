@@ -13,10 +13,6 @@ Rails.application.routes.draw do
     resources :votes, only: [:create, :destroy]
   end
   
-  resources :users do
-    resources :votes, only: [:create, :destroy]
-  end
-  
   get 'about', to: 'pages#about'
 
 end
