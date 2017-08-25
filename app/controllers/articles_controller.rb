@@ -17,8 +17,8 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    
-    redirect_to article_path
+    flash.now[:alert] = "Article deleted."
+    redirect_to articles_path
   end
   
   def create
@@ -27,10 +27,10 @@ class ArticlesController < ApplicationController
     @article.user_id = current_user.id
     
     if @article.save
-      flash[:success] = "Post Successful."
+      flash.now[:success] = "Post successful."
       redirect_to @article
     else
-      flash[:danger] = "Error: " + @article.errors.full_messages.join(", ")
+      flash.now[:danger] = "Error: " + @article.errors.full_messages.join(", ")
       redirect_to new_article_path
     end
   end

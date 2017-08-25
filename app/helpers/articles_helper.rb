@@ -1,8 +1,8 @@
 module ArticlesHelper
   def index
     # Count
-    @numArticles = @article.count
-    a = @numArticles%3 #And store modulo 3
+    @num_articles = @article.count
+    a = @num_articles%3 #And store modulo 3
     
     # Articles are displayed in rows alternating between 1 and 2 thumbnails per row
     case a
@@ -20,4 +20,5 @@ module ArticlesHelper
   def show
     @author = User.find(@article.user_id)
   end
+  
 end

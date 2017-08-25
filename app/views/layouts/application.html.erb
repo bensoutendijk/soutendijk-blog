@@ -15,17 +15,33 @@
     
       <!--Raleway-->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,800" rel="stylesheet">
-    
   
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+  <% flash.each do |key, value| %>
+    <div class="col-md-offset-3 col-md-6">
+      <% if value.class == Array %>
+        <div class="<%= flash_class(key) %>">
+          <% value.each do |message| %>  
+            <%= message %>
+            </br>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="<%= flash_class(key) %>">
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  
   <div class="container nav-container">
     <nav class="navbar navbar-static">
       <h1 class="text-center josefin">Boozy Heights</h1>
       <%= link_to "Read", root_path, class: "navbar-text navbar-link" %>
       <% if !user_signed_in? %>
-      
         <%= link_to "Sign in", new_user_session_path, class: "navbar-text navbar-link navbar-right" %>
       <% elsif user_signed_in? %>
         <%= link_to "Create Article", new_article_path, class: "navbar-text navbar-link navbar-right" %>
@@ -38,23 +54,6 @@
       </div>
     </div>
   </div>
-  
-  <div class="container flash-container">
-  <% flash.each do |key, value| %>
-    <% if value.class == Array %>
-      <div class="<%= flash_class(key) %>">
-        <% value.each do |message| %>  
-          <%= message %>
-          </br>
-        <% end %>
-      </div>
-    <% else %>
-      <div class="<%= flash_class(key) %>">
-        <%= value %>
-      </div>
-    <% end %>
-  <% end %>
-</div>
   
   <div class="turbo-body">
     <%= yield %>

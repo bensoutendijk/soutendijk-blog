@@ -10,8 +10,10 @@ def random_color
     "%06x" % (rand * 0xffffff)
 end
 
+# Articles
 
-Article.create!(
+(1..10).each do |i|
+    Article.create!(
     title: "The 4500 Word Lorem Ipsum", 
     text: '<p>Lorem ipsum dolor sit amet quisque. Sed blandit et porta eget curabitur. Ut scelerisque arcu. Lacus odio risus eget orci netus nec nisl tristique. Ut tincidunt et. Euismod neque dui nec volutpat luctus. Non nullam tortor. Dolor vel massa. Viverra quis diam quam wisi dolor elit ac suspendisse lorem tristique interdum sit id amet. Ipsum id dolorum aliquam quis ut.</p>
 
@@ -93,5 +95,7 @@ Article.create!(
     font_color: "##{random_color}",
     user_id: 1
     )
+end
 
-user = User.create! :email => 'john@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret', :admin => true
+# Users
+User.create! :email => 'john@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret', :admin => true

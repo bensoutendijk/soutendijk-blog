@@ -7,7 +7,10 @@
       <%= content_tag :h2, @article.title , :class => "article-title-text" %>
       <% if user_signed_in? %>
         <% if current_user.admin %>
-          <!--Add destroy links-->
+          <%= link_to 'Delete', 
+                article_path(@article), 
+                method: :delete, 
+                data: { confirm: 'Are you sure?' } %> 
         <% end %>
       <% end %>
       <%= content_tag :h4, "by #{author}", :class => "article-author-text" %>
