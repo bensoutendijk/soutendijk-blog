@@ -62,12 +62,6 @@ function readURL(input) {
       
       $('#thumbnail-image').attr('src', e.target.result);
 
-      // Crop fields
-      $('#crop_x').val('0');
-      $('#crop_y').val('0');
-      $('#crop_w').val('0');
-      $('#crop_h').val('0');
-    
       };
     reader.readAsDataURL(input.files[0]);
     

@@ -21,23 +21,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <div class="container nav-container">
-    <div class="container flash-container">
-      <% flash.each do |key, value| %>
-        <% if value.class == Array %>
-          <div class="<%= flash_class(key) %>">
-            <% value.each do |message| %>  
-              <%= message %>
-              </br>
-            <% end %>
-          </div>
-        <% else %>
-          <div class="<%= flash_class(key) %>">
-            <%= value %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-    
     <nav class="navbar navbar-static">
       <h1 class="text-center josefin">Boozy Heights</h1>
       <%= link_to "Read", root_path, class: "navbar-text navbar-link" %>
@@ -55,6 +38,24 @@
       </div>
     </div>
   </div>
+  
+  <div class="container flash-container">
+  <% flash.each do |key, value| %>
+    <% if value.class == Array %>
+      <div class="<%= flash_class(key) %>">
+        <% value.each do |message| %>  
+          <%= message %>
+          </br>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="<%= flash_class(key) %>">
+        <%= value %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+  
   <div class="turbo-body">
     <%= yield %>
   </div>

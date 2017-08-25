@@ -5,5 +5,10 @@
       <% artifice.thumbnail_file_name.gsub(/.jpg/, ".png")%>
       <%= image_tag "articles/#{artifice.id}/homepage/#{artifice.thumbnail_file_name}" %>
     <% end %>
+    <% if user_signed_in? %>
+      <% if current_user.admin %>
+        <%= render partial: "admin_tools" %>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>

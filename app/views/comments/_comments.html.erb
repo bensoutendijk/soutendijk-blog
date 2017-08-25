@@ -6,6 +6,11 @@
       <%= content_tag :h4, "#{commenter}", :class => "commenter" %>
       <div class="well">
         <%= raw(comment.body) %>
+        <% if user_signed_in? %>
+          <% if current_user.admin %>
+            <!--Add destroy links-->
+          <% end %>
+        <% end %>
       </div>
     <% end %>
   <% end %>

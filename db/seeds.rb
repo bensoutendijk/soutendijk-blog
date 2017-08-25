@@ -94,4 +94,4 @@ Article.create!(
     user_id: 1
     )
 
-
+user = User.create! :email => 'john@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret', :admin => true
