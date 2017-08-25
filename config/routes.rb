@@ -5,12 +5,8 @@ Rails.application.routes.draw do
   root to: 'articles#index'
 
   resources :articles do
-    resources :comments
-    resources :votes, only: [:create, :destroy]
-  end
-  
-  resources :comments do
-    resources :votes, only: [:create, :destroy]
+    resources :comments, module: :articles
+    resources :votes, module: :articles
   end
   
   get 'about', to: 'pages#about'

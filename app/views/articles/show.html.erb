@@ -1,53 +1,16 @@
-<% @numComments = @article.comments.count %>
+<% show %>
 
-<% article_title = @article.title %>
-
+<% author = @author.email %>
 
 <div class="container">
-  
   <div class="text-center">
-      <%= content_tag :h2, "#{article_title}" , :class => "article-title-text" %>
+      <%= content_tag :h2, @article.title , :class => "article-title-text" %>
+      <%= content_tag :h4, "by #{author}", :class => "article-author-text" %>
   </div>
-
- 
-
   <%= raw(@article.text) %>
-
-  <div class="comment-container">
-  
+  <div class="comments-container">
     <h2>Comments</h2>
-    
-    <% if @numComments == 0 %>
-      <%= content_tag :h4, "There doesn't seem to be anything here.", :class => "no-comments-text" %>
-    <% else %>
-      <% @article.comments.each do |comment| %>
-        <% @user = User.find(comment.user_id) %>
-        <% commenter = @user.email %>
-        <%= content_tag :div, :class => "row" do %>
-          <%= content_tag :div, :class => "col-md-offset-1 col-md-10" do %>
-            <%= content_tag :h4, "#{commenter}", :class => "commenter" %>
-            </br>
-            <%= raw(comment.body) %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
-    </br>
-    </br>
-    <div class='col-md-offset-2 col-md-8'>
-      <div class='well'>
-        <h4>Add a comment</h4>
-        <%= form_for([@article, @article.comments.build]) do |f| %>
-          <div class='form-group'>
-            <%= f.text_area :commenter %>
-            <%= f.cktext_area :body, class: 'form-control new-comment-area' %>
-          </div>
-          
-          <div>
-            <%= f.submit 'Post', class: 'btn btn-success commit'%>
-          </div>
-        <% end %>
-      </div>
-    </div>
+    <%= render partial: "comments/comments", locals: {commentable: @article} %>
+    <%= render partial: "comments/form", locals: {commentable: @article} %>
   </div>
 </div>

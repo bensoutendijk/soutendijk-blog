@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!
   
   
   def index
@@ -7,7 +8,6 @@ class ArticlesController < ApplicationController
   
   def show
     @article = Article.find(params[:id])
-    @user = User.all
   end
   
   def new
@@ -22,16 +22,14 @@ class ArticlesController < ApplicationController
   end
   
   def create
+    
     @article = Article.new(article_params)
+    @article.user_id = current_user.id
     
     if @article.save
-      # Store success message in flash hash
-      # and redirect to the new action
       flash[:success] = "Post Successful."
       redirect_to @article
     else
-      # if Contact object doesn't save, store errors in flash hash
-      # and redirect
       flash[:danger] = "Error: " + @article.errors.full_messages.join(", ")
       redirect_to new_article_path
     end
@@ -50,7 +48,7 @@ class ArticlesController < ApplicationController
   
   private
     def article_params
-      params.require(:article).permit(:title, :text, :average_color, :crop_x, :crop_y, :crop_w, :crop_h, :thumbnail)
+      params.require(:article).permit(:title, :text, :average_color, :font_color, :thumbnail)
     end
   
 end

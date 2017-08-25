@@ -2,7 +2,6 @@
 //Document ready.
 $(document).on('turbolinks:load', function(){
 
-
   setTimeout(function(){
     $('.flash').animate({
       'opacity' : '0'

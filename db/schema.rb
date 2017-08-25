@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170824034054) do
+ActiveRecord::Schema.define(version: 20170825021540) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -22,11 +22,9 @@ ActiveRecord::Schema.define(version: 20170824034054) do
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
     t.string   "average_color"
-    t.string   "crop_x"
-    t.string   "crop_y"
-    t.string   "crop_h"
-    t.string   "crop_w"
     t.string   "font_color"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -43,13 +41,15 @@ ActiveRecord::Schema.define(version: 20170824034054) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string   "commenter"
     t.text     "body"
     t.integer  "article_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "user_id"
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
     t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -72,14 +72,12 @@ ActiveRecord::Schema.define(version: 20170824034054) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.string   "contractable_type"
-    t.integer  "contractable_id"
     t.string   "votable_type"
     t.integer  "votable_id"
     t.integer  "weight"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["contractable_type", "contractable_id"], name: "index_votes_on_contractable_type_and_contractable_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
   end
 
 end

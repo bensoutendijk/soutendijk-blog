@@ -1,5 +1,5 @@
 module ArticlesHelper
-  def init
+  def index
     # Count
     @numArticles = @article.count
     a = @numArticles%3 #And store modulo 3
@@ -15,5 +15,9 @@ module ArticlesHelper
         # This means the counter should be set to 0
         @counter = 0
     end
+  end
+  
+  def show
+    @author = User.find(@article.user_id)
   end
 end

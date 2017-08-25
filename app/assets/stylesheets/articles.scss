@@ -20,8 +20,9 @@ img[src="#"] {
 }
 
 // Thumbnail styles
-.homepage-thumbnail {
-  height: 640px;
+.homepage-thumbnail { //The dimensions of each link in the article_index
+  height: 256px;
+  opacity: .45;
   margin: 0px;
 }
 

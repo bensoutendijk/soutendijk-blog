@@ -1,71 +1,23 @@
-<!--Article Helper init-->
-<% init %>
+<% index %>
 
 <div class="container-fluid">
-  
-  <!--Create the articles-->
   <% @article.reverse.each do |article| %>
-    <!--Store data in variables-->
-    <% id = article.id %>
-    <% title = article.title %>
-    <% thumbnail_file_name = article.thumbnail_file_name %>
-    <% average_color = article.average_color %>
-    <% title_text_color = article.font_color %>
-    
-    
-    <% if @counter == 0 %>
+    <% if @counter == 0%>
       <% size = 6 %>
-      <!--Create a new row with two articles by placing the article in this iteration and the next iteration. Then skip the next iteration.-->
-      <% nextid = id - 2 %>
-      <!--Create the first article (current iteration)-->
-      <%= content_tag :div, :class => "row" do -%>
-      
-        <%= link_to article_path(article) do %>
-          <%= content_tag :div, :class => "col-md-#{size} homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
-            <%= content_tag :h2, "#{id}", :class => "thumbnail-hover", style: "color: #{title_text_color};" %>
-            <% if !thumbnail_file_name.nil? %>
-              <% thumbnail_file_name.gsub(/.jpg/, ".png")%>
-              <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
-            <% end %>
-          <% end %>
-        <% end %>
-        
-        <!--Store data for next article-->
-        <% id = @article[nextid].id %>
-        <% title = @article[nextid].title %>
-        <% thumbnail_file_name = @article[nextid].thumbnail_file_name %>
-        <% average_color = @article[nextid].average_color %>
-        <!--Create the next article (current iteration - 1)-->
-        <%= link_to article_path(@article[nextid]) do %>
-          <%= content_tag :div, :class => "col-md-6 homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
-            <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
-            <% if !thumbnail_file_name.nil? %>
-              <% thumbnail_file_name.gsub(/.jpg/, ".png") %>
-              <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
-            <% end %>
-          <% end %>
-        <% end %>
+      <%= content_tag :div, :class => "row" do %>
+        <%= render partial: "thumbnail", locals: {artifice: article, size: size} %>
+        <% article = @article[article.id - 2] %>
+        <%= render partial: "thumbnail", locals: {artifice: article, size: size} %>
+      <% end %>
         <% @counter += 1 %>
-      <% end %>
-    <% elsif @counter == 1 %>
-      <% @counter += 1 %>
-    <% elsif @counter == 2 %>
-      <!--Create a new row and article with 'col-md-12'-->
-      <%= content_tag :div, :class => "row" do -%>
-        <%= link_to article_path(article) do %>
-          <%= content_tag :div, :class => "col-md-12 homepage-thumbnail text-center", style: "background: #{average_color};" do -%>
-            <%= content_tag :div, :class => "col-md-offset-3 col-md-6" do -%>
-              <%= content_tag :h2, "#{id}", :class => "thumbnail-hover" %>
-            <% end %>
-            <% if !thumbnail_file_name.nil? %>
-              <% thumbnail_file_name.gsub(/.jpg/, ".png") %>
-              <%= image_tag "articles/#{id}/homepage/#{thumbnail_file_name}" %>
-            <% end %>
-          <% end %>
+      <% elsif @counter == 1 %>
+        <% @counter += 1 %>
+      <% elsif @counter == 2 %>
+        <% size = 12 %>
+        <%= content_tag :div, :class => "row" do %>
+          <%= render partial: "thumbnail", locals: {artifice: article, size: size} %>
         <% end %>
-      <% end %>
-      <% @counter = 0 %>
+        <% @counter = 0 %>
     <% end %>
   <% end %>
-
 </div>

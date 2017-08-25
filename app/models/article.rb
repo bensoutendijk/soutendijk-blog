@@ -5,12 +5,10 @@ class Article < ApplicationRecord
     :styles => { 
         :homepage => ['640x360#', :png, :quality => 100]
      }
+     
+    belongs_to :user
     has_many :votes, as: :votable
-    has_many :comments
-    # Cropper code
-    # :processors => [:cropper]
-    # attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-    # after_update :reprocess_avatar
+    has_many :comments, as: :commentable
     
     # Article form validations
     validates :title, presence: true

@@ -1,0 +1,12 @@
+<% commentable.comments.each do |comment| %>
+  <% @user = User.find(comment.user_id) %>
+  <% commenter = @user.email %>
+  <%= content_tag :div, :class => "row" do %>
+    <%= content_tag :div, :class => "col-md-offset-1 col-md-10" do %>
+      <%= content_tag :h4, "#{commenter}", :class => "commenter" %>
+      <div class="well">
+        <%= raw(comment.body) %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
