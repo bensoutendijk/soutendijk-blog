@@ -42,56 +42,19 @@
       <% end %>
     </div>
     
-      <!--Top Nav-->
-      <% if current_user.try(:admin) %>
-        <div class="row" style="height: 40px;">
-          <%= render partial: "layouts/navs/admin" %>
-          <div class="admin-nav">
-            <nav class="navbar navbar-default navbar-fixed-top">
-              <div class="container-fluid">
-                  <!-- Collect the nav links, forms, and other content for toggling -->
-                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                         Boozy Heights
-                        </a>
-                        <ul class="dropdown-menu multi-level" role="menu">
-                          <li><a href="/">Home</a></li>
-                          <li role="separator" class="divider"></li>
-                          <li class="dropdown-submenu">
-                            <a tabindex="-1">New...</a>
-                            <ul class="dropdown-menu">
-                              <li><a tabindex="-1" href="/articles/new">Article</a></li>
-                            </ul>
-                          </li>
-
-                          <li><a href="#">Open...</a></li>
-                          <li role="separator" class="divider"></li>
-                          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-                          <li><a href="/about">About</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div><!-- /.navbar-collapse -->
-                </div>
-              </div>
-            </nav>
-          </div>
-          <div class="row">
-            <div class="tab-content" style="padding: 0; margin-top: 1px;">
-              <!--Page 1-->
-              <div id="yeild" class="tab-pane fade in active">
-                <%= yield %>
-              </div>
-            </div>
-          </div>
-            <!--End of page 1-->
-      <% else %>
-        <%= render partial: "layouts/navs/basic" %>
-        <div class="row">
+    <!--Top Nav-->
+    <% if current_user.try(:admin) %>
+      <%= render partial: "layouts/navs/admin" %>
+      <div class="row" style="margin-top: 39px;">
+        <div id="yeild" class="tab-pane fade in active">
           <%= yield %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% else %>
+      <%= render partial: "layouts/navs/basic" %>
+      <div class="row">
+        <%= yield %>
+      </div>
+    <% end %>
+  </div>
 </html>

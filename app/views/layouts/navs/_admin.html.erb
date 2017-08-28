@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="admin-nav">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+               Boozy Heights
+              </a>
+              <ul class="dropdown-menu multi-level" role="menu">
+                <li><a href="/">Home</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-submenu">
+                  <a tabindex="-1">New...</a>
+                  <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="/articles/new">Article</a></li>
+                  </ul>
+                </li>
+
+                <li><a data-toggle="modal" data-target="#open-modal">Open...</a></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+                <li><a href="/about">About</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!--Open Modal-->
+<div class="modal fade" id="open-modal" tabindex="-1" role="dialog" aria-labelledby="Open..." aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="open_modal_title">Open...</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                
+        <!--put nav tabs here-->
+        
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#articles-tab">Articles</a></li>
+          <li><a data-toggle="tab" href="#users-tab">Users</a></li>
+        </ul>
+        
+        <!--put tab content here-->
+        
+        <div class="tab-content">
+          <div id="articles-tab" class="tab-pane fade in active">
+            <h3>Articles</h3>
+            <% list_articles %>
+            <ul>
+              <% @article_list.each do |article| %>
+                <%= content_tag :li do %>
+                  <%= link_to article.title, article_path(article), class: "btn-link" %>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+          <div id="users-tab" class="tab-pane fade">
+            <h3>Users</h3>
+            <% list_users %>
+            <% @user_list.each do |user| %>
+              <%= content_tag :p, user.email %>
+            <% end %>
+          </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

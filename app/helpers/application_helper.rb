@@ -1,4 +1,5 @@
 module ApplicationHelper
+    
 end
 def flash_class(level)
     case level
@@ -11,4 +12,12 @@ end
 
 def define_page 
     @PAGE = {:controller => controller_name, :action => action_name, :id => params[:id]}
+end
+
+def list_articles
+    @article_list = Article.all
+end
+
+def list_users
+    @user_list = User.all
 end
