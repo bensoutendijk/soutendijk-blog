@@ -2,63 +2,56 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* Limit image width to avoid overflow the container for cropper.js */
-img {
-  max-width: 100%; /* This rule is very important, please do not ignore this! */
-}
-
 //don't display crop tool img tag before image is selected
 img[src="#"] {
    display: none;
 }
 
-.img-preview {
-  overflow: hidden;
-  width: 640px; 
-  height: 360px;
-  vertical-align: middle;
-}
-
-// Thumbnail styles
-.homepage-thumbnail { //The dimensions of each link in the article_index
-  height: 256px;
-  opacity: .45;
-  margin: 0px;
-}
-
-.no-comments-text {
-  margin-left: 32px;
-  font-style: italic;
-  opacity: .75;
-}
-
-.article-title-text {
-    margin-top: 32px;
-    font-family: 'Raleway', sans-serif;
-}
-
-.article-container {
-    margin-left: 256px;
-    margin-top: 64px;
-}
-
-.thumbnail-wrapper {
-  display: block;
-  height: 360px;
-  width: 640px;
-  margin: 0 auto;
-}
-
-.thumbnail-title-preview {
-  text-align: center;
-}
-
-.thumbnail-hover {
-    width: 100%;
-    opacity: 0;
-}
-
-//Comments
-.commenter {
-  font-family: sans-serif;
-}
+// Articles
+  // INDEX
+    .homepage-thumbnail { //The dimensions of each link in the article_index
+      height: 256px;
+      opacity: .45;
+      margin: 0px;
+    }
+    .thumbnail-hover {
+        width: 100%;
+        opacity: 0;
+    }
+    
+  // SHOW
+    .article-title-text {
+        margin-top: 32px;
+        font-family: 'Raleway', sans-serif;
+    }
+    .article-container {
+        margin-left: 256px;
+        margin-top: 64px;
+    }
+  
+  // NEW/EDIT
+    .thumbnail-wrapper {
+      display: block;
+      height: 360px;
+      width: 640px;
+      margin: 0 auto;
+    }
+    .thumbnail-title-preview {
+      text-align: center;
+    }
+    .img-preview {
+      overflow: hidden;
+      width: 640px; 
+      height: 360px;
+      vertical-align: middle;
+    }
+    
+  //Comments
+    .commenter {
+      font-family: sans-serif;
+    }
+    .no-comments-text {
+      margin-left: 32px;
+      font-style: italic;
+      opacity: .75;
+    }
