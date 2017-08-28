@@ -10,7 +10,7 @@ img[src="#"] {
 // Articles
   // INDEX
     .homepage-thumbnail { //The dimensions of each link in the article_index
-      height: 256px;
+      height: 360px;
       opacity: .45;
       margin: 0px;
     }
@@ -44,14 +44,4 @@ img[src="#"] {
       width: 640px; 
       height: 360px;
       vertical-align: middle;
-    }
-    
-  //Comments
-    .commenter {
-      font-family: sans-serif;
-    }
-    .no-comments-text {
-      margin-left: 32px;
-      font-style: italic;
-      opacity: .75;
     }
