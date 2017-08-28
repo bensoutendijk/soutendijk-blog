@@ -41,27 +41,13 @@
                 </div>
               </div>
               <!--Image Browse-->
-              <div class="row">
-                <div class="col-md-6" id="image-uploader">
                   <span>Choose a thumbnail image:</span>
                   <%= f.file_field :thumbnail, id: 'imgInp', "data-filename-placement" => 'inside' %>
-                </div>
-              </div>
-              
               <!--Thumbnail Editor-->
-              <div class="row">
-                <div class="deva-canvas">
-                  <canvas id="canvas1" width="640" height="360">
-                    This text is displayed if your browser does not support HTML5 Canvas.
-                  </canvas>
-                </div>
                 <div class="thumbnail-wrapper" id="thumbnail-wrapper">
                   <h2 class="thumbnail-title-preview">Boozy Heights</h2>
                   <img class="container-fluid" id="thumbnail-image" src="#" alt="crop tool image here">
                 </div>
-              </div>
-              </br>
-              
               <!--Color Picker-->
               <div class="row text-center">
                 <div class="col-md-offset-3 col-md-3">

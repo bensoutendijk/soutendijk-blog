@@ -9,10 +9,7 @@ $(document).on('turbolinks:load', function(){
       $('.flash').remove();
     });
   }, 3000);
-  
-  // Use bootstrap.file-input.js to bootstrap 'choose file' button
-  $('input[type=file]').bootstrapFileInput();
-  
+
   // Preview the image chosen for upload
   $("#imgInp").change(function(){
     readURL(this);

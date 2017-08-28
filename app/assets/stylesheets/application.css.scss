@@ -147,15 +147,13 @@ h4 {
   
 }
 
-.modal-title{
-  display: inline;
+.tool{
+  float: right;
+  padding-left: 8px;
 }
 
-.admin-tools {
-  padding-top: 64px;
-  .fa {
-    color: black;
-  }
+.modal-title{
+  display: inline;
 }
 
 .flash {

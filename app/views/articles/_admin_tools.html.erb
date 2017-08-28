@@ -1,13 +1,7 @@
-<%= content_tag :div, class: "admin-tools" do %>
-  <%= content_tag :div, class: "row" do %>
-    
-    <%= link_to article_path(admin_object), :method => :delete, data: { confirm: 'Are you sure?' }, class: 'tool' do %>
-      <i class="fa fa-trash-o" aria-hidden="true"></i>
-    <% end %>
-
-    <%= link_to edit_article_path(admin_object), class: 'tool' do %>
-      <i class="fa fa-pencil" aria-hidden="true"></i>
-    <% end %>
-    
+  <%= link_to article_path(admin_object), :method => :delete, data: { confirm: 'Are you sure?' }, class: 'tool' do %>
+    <i class="fa fa-trash-o" aria-hidden="true"></i>
   <% end %>
-<% end %>
+
+  <%= link_to edit_article_path(admin_object), class: 'tool' do %>
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  <% end %>
