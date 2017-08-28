@@ -1,3 +1,5 @@
+<h1 class="text-center">Edit blog post</h1>
+
 <%= render partial: "form", locals: {artifice: @article} %>
 
 <script type="text/javascript">
@@ -18,5 +20,5 @@
   
   initMiniColors();
   
-  CKEDITOR.replace('text-area-article', { height: '960px', toolbar: 'article' });
+  CKEDITOR.replace('text-area-article', { toolbar: 'article' });
 </script>

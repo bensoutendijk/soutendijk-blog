@@ -93,11 +93,10 @@ CKEDITOR.editorConfig = function( config ) {
   config.toolbar_comment = [[ 'Bold','Italic','Underline','Find','Replace']];
     
   config.toolbar_article = [
-    { name: 'document',    items : [ 'Source','-'] },
-    { name: 'clipboard',   items : [ 'PasteFromWord','-','Undo','Redo' ] },
+    { name: 'document',    items : [ 'Maximize', 'Source','-'] },
+    { name: 'clipboard',   items : [ 'Undo','Redo' ] },
     { name: 'insert',      items : [ 'Image','Table','HorizontalRule','SpecialChar','PageBreak' ] },
-    { name: 'tools',       items : [ 'Maximize', 'ShowBlocks','-','About' ] },
-    '/',
+    { name: 'tools',       items : [ 'ShowBlocks','-','About' ] },
     { name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
     { name: 'paragraph',   items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ] },
     { name: 'links',       items : [ 'Link','Unlink','Anchor' ] },

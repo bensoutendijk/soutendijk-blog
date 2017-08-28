@@ -40,6 +40,9 @@ gem 'hirb', '0.7.3'
 #Use Devise for user authentication
 gem 'devise', '4.2.0'
 
+#Use SimpleForm for simple forms
+gem 'simple_form'
+
 #Use Stripe for payment processing
 gem 'stripe', '1.48.0'
 

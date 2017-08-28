@@ -8,3 +8,7 @@ def flash_class(level)
         when 'alert' then "flash alert alert-danger"
     end
 end
+
+def define_page 
+    @PAGE = {:controller => controller_name, :action => action_name, :id => params[:id]}
+end

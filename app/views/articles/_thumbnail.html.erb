@@ -1,14 +1,14 @@
 <%= link_to article_path(artifice) do %>
   <%= content_tag :div, :class => "col-md-#{size} homepage-thumbnail text-center", style: "background: #{artifice.average_color};" do -%>
-    <%= content_tag :h2, "#{artifice.title}", :class => "thumbnail-hover", style: "color: #{artifice.font_color};" %>
+    <%= content_tag :div, :class => "row" do %>
+      <%= content_tag :h2, "#{artifice.title}", :class => "thumbnail-hover", style: "color: #{artifice.font_color};" %>
+    <% end %>
+    <% if current_user.try(:admin?) %>
+      <%= render partial: "admin_tools", locals: {:admin_object => artifice}%>
+    <% end %>
     <% if !artifice.thumbnail_file_name.nil? %>
       <% artifice.thumbnail_file_name.gsub(/.jpg/, ".png")%>
       <%= image_tag "articles/#{artifice.id}/homepage/#{artifice.thumbnail_file_name}" %>
-    <% end %>
-    <% if user_signed_in? %>
-      <% if current_user.admin %>
-        <%= render partial: "admin_tools" %>
-      <% end %>
     <% end %>
   <% end %>
 <% end %>

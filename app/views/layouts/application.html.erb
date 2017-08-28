@@ -15,47 +15,83 @@
     
       <!--Raleway-->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,800" rel="stylesheet">
+    
+      <!--Open Sans-->
+    <link href="https://fonts.googleapis.com/css?family=OpenSans:400,600,700" rel="stylesheet">
   
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <% flash.each do |key, value| %>
-    <div class="col-md-offset-3 col-md-6">
-      <% if value.class == Array %>
-        <div class="<%= flash_class(key) %>">
-          <% value.each do |message| %>  
-            <%= message %>
-            </br>
+  <div class="container-fluid">
+    <div class="row">
+      <% flash.each do |key, value| %>
+        <div class="col-md-offset-3 col-md-6">
+          <% if value.class == Array %>
+            <div class="<%= flash_class(key) %>">
+              <% value.each do |message| %>  
+                <%= message %>
+                </br>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="<%= flash_class(key) %>">
+              <%= value %>
+            </div>
           <% end %>
         </div>
+      <% end %>
+    </div>
+    
+      <!--Top Nav-->
+      <% if current_user.try(:admin) %>
+        <div class="row" style="height: 40px;">
+          <%= render partial: "layouts/navs/admin" %>
+          <div class="admin-nav">
+            <nav class="navbar navbar-default navbar-fixed-top">
+              <div class="container-fluid">
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                         Boozy Heights
+                        </a>
+                        <ul class="dropdown-menu multi-level" role="menu">
+                          <li><a href="/">Home</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li class="dropdown-submenu">
+                            <a tabindex="-1">New...</a>
+                            <ul class="dropdown-menu">
+                              <li><a tabindex="-1" href="/articles/new">Article</a></li>
+                            </ul>
+                          </li>
+
+                          <li><a href="#">Open...</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+                          <li><a href="/about">About</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div><!-- /.navbar-collapse -->
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="row">
+            <div class="tab-content" style="padding: 0; margin-top: 1px;">
+              <!--Page 1-->
+              <div id="yeild" class="tab-pane fade in active">
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+            <!--End of page 1-->
       <% else %>
-        <div class="<%= flash_class(key) %>">
-          <%= value %>
+        <%= render partial: "layouts/navs/basic" %>
+        <div class="row">
+          <%= yield %>
         </div>
       <% end %>
     </div>
-  <% end %>
-  
-  <div class="container nav-container">
-    <nav class="navbar navbar-static">
-      <h1 class="text-center josefin">Boozy Heights</h1>
-      <%= link_to "Read", root_path, class: "navbar-text navbar-link" %>
-      <% if !user_signed_in? %>
-        <%= link_to "Sign in", new_user_session_path, class: "navbar-text navbar-link navbar-right" %>
-      <% elsif user_signed_in? %>
-        <%= link_to "Create Article", new_article_path, class: "navbar-text navbar-link navbar-right" %>
-        <%= link_to "Sign out", destroy_user_session_path, class: "navbar-text navbar-link navbar-right", :method => :delete %>
-      <% end %>
-    </nav>
-    <div class="container">
-      <div class="row">
-        <h3 class="text-center blurb">"What else can change your ideas...like whisky?"</h3>
-      </div>
-    </div>
-  </div>
-  
-  <div class="turbo-body">
-    <%= yield %>
-  </div>
 </html>

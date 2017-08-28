@@ -3,7 +3,7 @@
     <h4>Add a comment</h4>
     <%= form_for [commentable, Comment.new] do |f| %>
       <div class='form-group'>
-        <%= f.text_area :body, class: 'form-control', :id => 'text_area_comments' %>
+        <%= f.text_area :body, class: 'form-control', :id => 'text-area-comments' %>
         <%= f.submit 'Post', class: 'btn btn-success commit'%>
       </div>
     <% end %>

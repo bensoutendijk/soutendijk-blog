@@ -53,10 +53,8 @@ img[src="#"] {
   text-align: center;
 }
 
-.thumbnail-hover {
-    color: black;
+.thumbnail-hover, .tool {
     width: 100%;
-    position: absolute;
     opacity: 0;
 }
 
@@ -70,12 +68,4 @@ img[src="#"] {
 //Comments
 .commenter {
   font-family: sans-serif;
-}
-
-.admin-tools {
-  bottom: 0;
-}
-
-.admin-tools h4 {
-  margin: 0;
 }

@@ -18,8 +18,6 @@ $(document).on('turbolinks:load', function(){
     readURL(this);
   });
   
-  initMiniColors();
-  
   // Animations
   $(".input-box").hover(function(eventObj) { 
     alert(eventObj.target.id);  
@@ -27,17 +25,17 @@ $(document).on('turbolinks:load', function(){
   
   $('.homepage-thumbnail').hover(
     function() {
-      $(this).find('.thumbnail-hover').animate({
+      $(this).find('.thumbnail-hover, .tool').animate({
         'opacity' : '1'
       },'fast');
     },
     function() {
-      $(this).find('.thumbnail-hover').animate({
+      $(this).find('.thumbnail-hover, .tool').animate({
         'opacity' : '0'
       },'fast');
     }
   );
-  $('.navbar-link').hover(
+  $('.navbar-link, .tool').hover(
     function() {
       $(this).animate({
         'opacity' : '.5'  
@@ -49,8 +47,6 @@ $(document).on('turbolinks:load', function(){
       }, 'fast');
     }
   );
-  
-  CKEDITOR.replace('text_area_comments', { toolbar: 'comment' });
   
 });
 
