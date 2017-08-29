@@ -1,7 +1,17 @@
-  <%= link_to article_path(admin_object), :method => :delete, data: { confirm: 'Are you sure?' }, class: 'tool' do %>
-    <i class="fa fa-trash-o" aria-hidden="true"></i>
-  <% end %>
+<%= link_to article_path(admin_object),
+  :method => :delete,
+  data: { confirm: 'Warning! This cannot be undone.' },
+  class: 'tool tool-danger vertical-line-left',
+  "data-toggle" => "tooltip",
+  "data-placement" => "top",
+  "title" => "delete" do %>
+  <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+<% end %>
 
-  <%= link_to edit_article_path(admin_object), class: 'tool' do %>
-    <i class="fa fa-pencil" aria-hidden="true"></i>
-  <% end %>
+<%= link_to article_path(admin_object), class: 'tool', "data-toggle" => "tooltip", "data-placement" => "top", "title" => "hide" do %>
+  <i class="fa fa-eye fa-2x" aria-hidden="true"></i>  
+<% end %>
+
+<%= link_to edit_article_path(admin_object), class: 'tool', "data-toggle" => "tooltip", "data-placement" => "top", "title" => "edit"  do %>
+  <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+<% end %>

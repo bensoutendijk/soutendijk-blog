@@ -12,7 +12,7 @@ end
 
 # Articles
 
-(1..10).each do |i|
+(1..644).each do |i|
     Article.create!(
     title: "The 4500 Word Lorem Ipsum", 
     text: '<p>Lorem ipsum dolor sit amet quisque. Sed blandit et porta eget curabitur. Ut scelerisque arcu. Lacus odio risus eget orci netus nec nisl tristique. Ut tincidunt et. Euismod neque dui nec volutpat luctus. Non nullam tortor. Dolor vel massa. Viverra quis diam quam wisi dolor elit ac suspendisse lorem tristique interdum sit id amet. Ipsum id dolorum aliquam quis ut.</p>

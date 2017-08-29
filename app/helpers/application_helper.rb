@@ -11,13 +11,13 @@ def flash_class(level)
 end
 
 def define_page 
-    @PAGE = {:controller => controller_name, :action => action_name, :id => params[:id]}
+    @page = {:controller => controller_name, :action => action_name, :id => params[:id]}
 end
 
-def list_articles
-    @article_list = Article.all
+def get_all_articles
+    @all_articles = Article.all
 end
 
-def list_users
-    @user_list = User.all
+def get_all_users
+    @all_users = User.all
 end

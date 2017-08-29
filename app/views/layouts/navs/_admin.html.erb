@@ -31,7 +31,7 @@
   </div>
 </div>
 
-<!--Open Modal-->
+<!--"Open" Modal-->
 <div class="modal fade" id="open-modal" tabindex="-1" role="dialog" aria-labelledby="Open..." aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -45,8 +45,8 @@
                 
         <!--put nav tabs here-->
         
-        <ul class="nav nav-tabs">
-          <li class="active"><a data-toggle="tab" href="#articles-tab">Articles</a></li>
+        <ul class="nav nav-pills">
+          <li class="active"><a data-toggle="pill" href="#articles-tab">Articles</a></li>
           <li><a data-toggle="tab" href="#users-tab">Users</a></li>
         </ul>
         
@@ -54,30 +54,66 @@
         
         <div class="tab-content">
           <div id="articles-tab" class="tab-pane fade in active">
-            <h3>Articles</h3>
-            <% list_articles %>
-            <ul>
-              <% @article_list.each do |article| %>
-                <%= content_tag :li do %>
-                  <%= link_to article.title, article_path(article), class: "btn-link" %>
-                  <%= render partial: "articles/admin_tools", locals: {admin_object: article} %>
-                <% end %>
+            <% get_all_articles %>
+            <% article_count = @all_articles.count %>
+            <div class="row">
+              <%= content_tag :h5,"#{article_count} articles", class: "OpenSans" %>
+              <form class="navbar-form navbar-right articles-search">
+                <div class="form-group">
+                  <input class="form-control" type="text" id="open-articles-search" onkeyup="searchArticlesByName()" placeholder="Search by title or id" title="Type in an article name">
+                </div>
+              </form>
+            </div>
+            <ul id="open-articles-list">
+            <% @previous_month = nil %>
+            <% @all_articles.each do |article| %>
+              <% article_id = article.id %>
+              <% @article_month = article.created_at.strftime("%B") %>
+              <% if @previous_month == nil %>
+                <% new_month = true %>
+              <% elsif @previous_month == @article_month %>
+                <% new_month = false %>
+              <% else %>
+                <% new_month = true %>
               <% end %>
+              <%= content_tag :div, class: "row article-list-item" do %>
+                <%= content_tag :span, "#{article_id}" %>
+                <%= link_to article.title, article_path(article), class: "btn", :id => "#{article.id}" %>
+                <%= render partial: "articles/admin_tools", locals: {admin_object: article} %>
+              <% end %>
+              <% @previous_month = article.created_at.strftime("%B") %>
+            <% end %>
             </ul>
           </div>
           <div id="users-tab" class="tab-pane fade">
             <h3>Users</h3>
-            <% list_users %>
-            <% @user_list.each do |user| %>
+            <% get_all_users %>
+            <% @all_users.each do |user| %>
               <%= content_tag :p, user.email %>
             <% end %>
           </div>
         </div>
         
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
     </div>
   </div>
 </div>
+
+<script>
+function searchArticlesByName() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("open-articles-search");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("open-articles-list");
+  li = ul.getElementsByTagName("div");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1 || filter == a.id) {
+        li[i].style.display = "";
+    } else {
+        li[i].style.display = "none";
+
+    }
+  }
+}
+</script>
