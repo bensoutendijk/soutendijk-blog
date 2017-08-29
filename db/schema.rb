@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825021540) do
+ActiveRecord::Schema.define(version: 20170829175605) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "thumbnail_file_name"
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170825021540) do
     t.string   "average_color"
     t.string   "font_color"
     t.integer  "user_id"
+    t.boolean  "hidden",                 default: false
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 

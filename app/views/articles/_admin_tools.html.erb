@@ -8,8 +8,12 @@
   <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
 <% end %>
 
-<%= link_to article_path(admin_object), class: 'tool', "data-toggle" => "tooltip", "data-placement" => "top", "title" => "hide" do %>
-  <i class="fa fa-eye fa-2x" aria-hidden="true"></i>  
+<%= link_to toggle_hidden_article_path(admin_object), method: :patch, class: 'tool hide-btn', "title" => "hide" do %>
+  <% if admin_object.hidden %>
+    <i class="fa fa-eye-slash fa-2x article_hidable_icon" aria-hidden="true"></i>
+  <% else %>
+    <i class="fa fa-eye fa-2x article_hidable_icon" aria-hidden="true"></i>  
+  <% end %>
 <% end %>
 
 <%= link_to edit_article_path(admin_object), class: 'tool', "data-toggle" => "tooltip", "data-placement" => "top", "title" => "edit"  do %>

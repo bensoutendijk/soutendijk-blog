@@ -42,6 +42,12 @@ class ArticlesController < ApplicationController
     end
   end
   
+  def toggle_hidden
+    @article = Article.find(params[:id])
+    @article.hidden = !@article.hidden
+    @article.save
+  end
+  
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
@@ -52,7 +58,7 @@ class ArticlesController < ApplicationController
   
   private
     def article_params
-      params.require(:article).permit(:title, :text, :average_color, :font_color, :thumbnail)
+      params.require(:article).permit(:title, :text, :average_color, :font_color, :thumbnail, :hidden)
     end
   
 end

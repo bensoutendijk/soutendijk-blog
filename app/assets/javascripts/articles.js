@@ -45,6 +45,11 @@ $(document).on('turbolinks:load', function(){
     }
   );
   
+  $(".hide-btn").click(function(){
+    $(this).find('.article_hidable_icon').toggleClass("fa-eye");
+    $(this).find('.article_hidable_icon').toggleClass("fa-eye-slash");
+  });
+  
 });
 
 function readURL(input) {
