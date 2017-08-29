@@ -1,7 +1,12 @@
 module ArticlesHelper
   def index
     # Count
-    @num_articles = @article.count
+    @num_articles = 0
+    @article.each do |article|
+      if !article.hidden
+        @num_articles += 1
+      end
+    end
     a = @num_articles%3 #And store modulo 3
     
     # Articles are displayed in rows alternating between 1 and 2 thumbnails per row
