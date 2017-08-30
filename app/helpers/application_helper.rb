@@ -10,10 +10,6 @@ def flash_class(level)
     end
 end
 
-def define_page 
-    @page = {:controller => controller_name, :action => action_name, :id => params[:id]}
-end
-
 def get_all_articles
     @all_articles = Article.all
 end

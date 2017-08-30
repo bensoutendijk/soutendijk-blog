@@ -1,29 +1,20 @@
 <% index %>
 
 <div class="container-fluid">
-  <% i = @num_articles - 1 %>
-  <% @article.reverse.each do |article| %>
-    <% if !article.hidden %>
-      <% if @counter == 0%>
-        <% size = 6 %>
-        <%= content_tag :div, :class => "row" do %>
-          <%= render partial: "thumbnail", locals: {artifice: article, size: size} %>
-          <% i -= 1 %>
-          <% article = @article[i] %>
-          <%= render partial: "thumbnail", locals: {artifice: article, size: size} %>
-          <% i -= 1 %>
+  <div class="row">
+    <% @article.reverse.each do |article| %>
+      <% if !article.hidden %>
+        <% if @counter == 0 %>
+          <%= render partial: "thumbnail", locals: {artifice: article, size: 12} %>
+          <% @counter += 1 %>
+        <% elsif @counter == 1 %>
+          <%= render partial: "thumbnail", locals: {artifice: article, size: 6} %>
+          <% @counter += 1 %>
+        <% elsif @counter == 2 %>
+          <%= render partial: "thumbnail", locals: {artifice: article, size: 6} %>
+          <% @counter = 0 %>
         <% end %>
-        <% @counter += 1 %>
-      <% elsif @counter == 1 %>
-        <% @counter += 1 %>
-      <% elsif @counter == 2 %>
-        <% size = 12 %>
-        <%= content_tag :div, :class => "row" do %>
-          <%= render partial: "thumbnail", locals: {artifice: article, size: size} %>
-          <% i -= 1 %>
-        <% end %>
-        <% @counter = 0 %>
       <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
