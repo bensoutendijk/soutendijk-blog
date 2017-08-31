@@ -27,29 +27,14 @@
 
 
 //FONTS
-  .josefin {
-      font-family: 'Josefin Sans', sans-serif;
-  }
   
-  .barrio {
-      font-family: 'Barrio', sans-serif;
-  }
-  
-  .raleway {
-      font-family: 'Raleway', sans-serif;
-  }
-  
-  .arial {
-    font-family: arial;
-  }
-
 //TAGS
   a {
-    color: grey;
+    color: whitesmoke;
     text-decoration: none;
   
     &:hover {
-      color: grey;
+      color: #44A08D;
       text-decoration: none;
     }
     &:active {
@@ -63,20 +48,21 @@
   }
 
   body {
-      background: #ECE9E6;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  }
-  
+    color: #E9F0F0;
+    font-family: 'Raleway', sans-serif;
+    background: #485563; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #485563, #29323c); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #485563, #29323c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  }
+
   p {
     font-size: 14px;
   }
   
   // Apply custom font to h1,h2,h3,h4
-  h1, h2, h3{
-    font-family: 'Josefin Sans', sans-serif;
+  h1, h2, h3, h5{
+    font-family: 'Cutive', sans-serif;
   }
-  h4 {
+  h4, h6{
     font-family: 'Raleway', sans-serif;
   }
 
@@ -92,55 +78,11 @@
   // Navbar styles
     // Admin Nav
     
-      // Make mini
-        .navbar {min-height: 28px;}
-        .navbar .navbar-brand{ padding: 0 12px;font-size: 16px;line-height: 38px;height: 38px; }
-        .navbar .navbar-nav > li > a { margin-top: 1px; padding-top: 0px; padding-bottom: 0px; line-height: 38px; }
-        .navbar .navbar-toggle {  margin-top: 3px; margin-bottom: 0px; padding: 8px 9px; }
-        .navbar .navbar-form { margin-top: 2px; margin-bottom: 0px }
-        .navbar .navbar-collapse {border-color: #A40303;}
-        .navbar-nav > li > .dropdown-menu { margin-top: 1px; }
-        
-      // nested dropdowns
-        .dropdown-submenu {
-            position: relative;
-        }
-        .dropdown-submenu>.dropdown-menu {
-            top: -3px;
-            left: 100%;
-            padding: 0;
-        }
-        .dropdown-submenu:hover>.dropdown-menu {
-            display: block;
-        }
-        .dropdown-submenu>a:after {
-            display: block;
-            content: " ";
-            float: right;
-            width: 0;
-            height: 0;
-            border-color: transparent;
-            border-style: solid;
-            border-width: 5px 0 5px 5px;
-            border-left-color: #ccc;
-            margin-top: 5px;
-            margin-right: -10px;
-        }
-        .dropdown-submenu:hover>a:after {
-            border-left-color: #fff;
-        }
-        .dropdown-submenu.pull-left {
-            float: none;
-        }
-        .dropdown-submenu.pull-left>.dropdown-menu {
-            left: -100%;
-            margin-left: 10px;
-            -webkit-border-radius: 0;
-            -moz-border-radius: 0;
-            border-radius: 0;
-          
-        }
-        
+      .navbar {
+        background: #17212B;
+      }
+      
+      
       // Admin Tools
         .tool{
           float: right;
@@ -169,6 +111,13 @@
           color: grey;
           font-family: 'Raleway', sans-serif;
           margin-top: -12px;
+      }
+      
+      .navbar-link{
+         border-bottom: solid 0px whitesmoke;
+         :hover {
+           border-bottom-width: 1px;
+         }
       }
       
       .blurb {

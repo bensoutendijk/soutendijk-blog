@@ -12,7 +12,13 @@
           <% @counter += 1 %>
         <% elsif @counter == 2 %>
           <%= render partial: "thumbnail", locals: {artifice: article, size: 6} %>
-          <% @counter = 0 %>
+          <% @counter += 1 %>
+        <% elsif @counter == 3 %>
+          <%= render partial: "thumbnail", locals: {artifice: article, size: 8} %>
+          <% @counter += 1 %>
+        <% elsif @counter == 4 %>
+          <%= render partial: "thumbnail", locals: {artifice: article, size: 4} %>
+          <% @counter = 3 %>
         <% end %>
       <% end %>
     <% end %>

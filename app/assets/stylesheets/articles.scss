@@ -11,22 +11,21 @@ img[src="#"] {
   // INDEX
     .homepage-thumbnail { //The dimensions of each link in the article_index
       height: 360px;
-      opacity: .45;
       margin: 0px;
     }
     .thumbnail-hover {
-        width: 100%;
-        opacity: 0;
+      width: 100%;
+      opacity: 0;
     }
     
   // SHOW
     .article-title-text {
-        margin-top: 32px;
-        font-family: 'Raleway', sans-serif;
+      margin-top: 32px;
+      font-family: 'Raleway', sans-serif;
     }
     .article-container {
-        margin-left: 256px;
-        margin-top: 64px;
+      margin-left: 256px;
+      margin-top: 64px;
     }
   
   // NEW/EDIT

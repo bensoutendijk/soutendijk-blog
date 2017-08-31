@@ -35,13 +35,13 @@ $(document).on('turbolinks:load', function(){
   $('.navbar-link, .tool').hover(
     function() {
       $(this).animate({
-        'opacity' : '.5'  
-      },'fast');
+        
+      }, '50');
     },
     function() {
       $(this).animate({
-         'opacity' : "1"
-      }, 'fast');
+        
+      }, '50');
     }
   );
   
