@@ -30,24 +30,21 @@
   
 //TAGS
   a {
-    color: whitesmoke;
     text-decoration: none;
   
     &:hover {
-      color: #44A08D;
-      text-decoration: none;
+      border-bottom-width: 1px;
     }
     &:active {
-      text-decoration: none;
+
     }
     
     &:focus {
-      color: grey;
-      text-decoration: none;
+
     }
   }
 
-  body {
+  body{
     color: #E9F0F0;
     font-family: 'Raleway', sans-serif;
     background: #485563; /* fallback for old browsers */
@@ -69,7 +66,7 @@
 //CLASSES
 
   // Bye bye rounded borders
-  .well, .btn, .form-control, .nav-pills > li > a, .dropdown-menu, .modal-content {
+  .well, .btn, .form-control, .nav-pills > li > a, .dropdown-menu, .modal-content, .navbar {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
@@ -79,11 +76,20 @@
     // Admin Nav
     
       .navbar {
-        background: #17212B;
+
       }
       
       
       // Admin Tools
+        .admin-nav-link {
+          a { 
+            color: whitesmoke; 
+          }
+          position: absolute;
+          top: 5px;
+          right: 5px;
+        }
+      
         .tool{
           float: right;
           padding-left: 8px;
@@ -102,27 +108,21 @@
     // Basic Nav
     
       .navbar-default {
-          background: #ECE9E6;  /* fallback for old browsers */
-          background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-          background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-      }
+          background: #17212B;
+          border: none;
       
-      .navbar-text {
-          color: grey;
-          font-family: 'Raleway', sans-serif;
-          margin-top: -12px;
-      }
-      
-      .navbar-link{
-         border-bottom: solid 0px whitesmoke;
-         :hover {
-           border-bottom-width: 1px;
-         }
-      }
-      
-      .blurb {
-        margin-top: -20px;
-        padding-bottom: 20px;
+        .navbar-link{
+           border-bottom: solid 0px whitesmoke;
+           margin: 0px 8px 0px 8px;
+           &:hover {
+             color: #FFFFFF;
+           }
+        }
+        
+        .blurb {
+          margin-top: -20px;
+          padding-bottom: 20px;
+        }
       }
   
 // Flash Messages
@@ -139,18 +139,32 @@
   
 // Modals
   
-  .modal-header{
-    padding-top: 8px;
-    padding-bottom: 8px;
-    box-shadow: inset 0px -1px 4px 1px rgba(0,0,0,.05);
+  #admin-modal{
+    padding: 0 !important;
   }
-  .modal-body{
-     padding-top: 0;
+  
+  .modal-dialog {
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
   }
-  .modal-body .nav-pills{
-     border-bottom: solid lightgrey 1px;
-     padding-top: 3px;
-   }
+    .modal-content{
+      background: rgba(249, 252, 255, .90);
+      color: grey;
+      height: 100%;
+    }  
+      .modal-header{
+        padding-top: 8px;
+        padding-bottom: 8px;
+        box-shadow: inset 0px -1px 4px 1px rgba(0,0,0,.05);
+      }
+      .modal-body{
+         padding-top: 0;
+      }
+      .modal-body .nav-pills{
+         border-bottom: solid lightgrey 1px;
+         padding-top: 3px;
+      }
 
   // Article list
     .article-list-item:hover{

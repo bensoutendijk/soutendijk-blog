@@ -1,13 +1,14 @@
 <% if !artifice.hidden %>
-  <%= link_to article_path(artifice) do %>
-    <%= content_tag :div, :class => "col-md-#{size} homepage-thumbnail text-center", style: "background: #{artifice.average_color};" do -%>
-      <%= content_tag :div, :class => "row" do %>
+  <%= content_tag :div, :class => "homepage-thumbnail col-md-#{size} text-center" do -%>
+    <%= content_tag :div, :class => "row" do %>
+      <%= link_to article_path(artifice) do %>
         <%= content_tag :h2, "#{artifice.title}", :class => "thumbnail-hover", style: "color: #{artifice.font_color};" %>
       <% end %>
-      <% if !artifice.thumbnail_file_name.nil? %>
-        <% artifice.thumbnail_file_name.gsub(/.jpg/, ".png")%>
-        <%= image_tag "articles/#{artifice.id}/homepage/#{artifice.thumbnail_file_name}" %>
-      <% end %>
+    <% end %>
+    <% if !artifice.thumbnail_file_name.nil? %>
+      <% artifice.thumbnail_file_name.gsub(/.jpg/, ".png")%>
+      <%= image_tag "articles/#{artifice.id}/homepage/#{artifice.thumbnail_file_name}" %>
     <% end %>
   <% end %>
+  
 <% end %>

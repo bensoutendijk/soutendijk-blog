@@ -1,21 +1,23 @@
-<%= link_to article_path(admin_object),
-  :method => :delete,
-  data: { confirm: 'Warning! This cannot be undone.' },
-  class: 'tool tool-danger vertical-line-left',
-  "data-toggle" => "tooltip",
-  "data-placement" => "top",
-  "title" => "delete" do %>
-  <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-<% end %>
-
-<%= link_to toggle_hidden_article_path(admin_object), method: :patch, class: 'tool hide-btn', "title" => "hide" do %>
-  <% if admin_object.hidden %>
-    <i class="fa fa-eye-slash fa-2x article_hidable_icon" aria-hidden="true"></i>
-  <% else %>
-    <i class="fa fa-eye fa-2x article_hidable_icon" aria-hidden="true"></i>  
+<% unless admin_object.id = 1 %>
+  <%= link_to article_path(admin_object),
+    :method => :delete,
+    data: { confirm: 'Warning! This cannot be undone.' },
+    class: 'tool tool-danger vertical-line-left',
+    "data-toggle" => "tooltip",
+    "data-placement" => "top",
+    "title" => "delete" do %>
+    <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+  <% end %>
+  
+  <%= link_to toggle_hidden_article_path(admin_object), method: :patch, class: 'tool hide-btn', "title" => "hide" do %>
+    <% if admin_object.hidden %>
+      <i class="fa fa-eye-slash fa-2x article_hidable_icon" aria-hidden="true"></i>
+    <% else %>
+      <i class="fa fa-eye fa-2x article_hidable_icon" aria-hidden="true"></i>  
+    <% end %>
   <% end %>
 <% end %>
-
-<%= link_to edit_article_path(admin_object), class: 'tool', "data-toggle" => "tooltip", "data-placement" => "top", "title" => "edit"  do %>
-  <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
-<% end %>
+  
+  <%= link_to edit_article_path(admin_object), class: 'tool', "data-toggle" => "tooltip", "data-placement" => "top", "title" => "edit"  do %>
+    <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+  <% end %>
