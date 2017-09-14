@@ -3,7 +3,14 @@
     </br>
     <h1 class="text-center">devaent <span="hashtag">#</span> 1316</h1>
     <div class="admin-nav-link">
-      <a data-toggle="modal" data-target="#admin-modal"><i class="fa fa-gears fa-2x"></i></a>
+      <ul class="list-inline">
+        <li>
+          <%= link_to settings_path do %>
+            <i class="fa fa-gears fa-2x"></i>
+          <% end %>
+        </li>
+        <li><%= link_to "New Article", new_article_path, class: "btn btn-success" %></li>
+      </ul>
     </div>
     </br>
     <div class="row text-center">
@@ -15,81 +22,3 @@
     </br>
   </nav>
 </div>
-
-<!--"Open" Modal-->
-<div class="modal" id="admin-modal" tabindex="-1" role="dialog" aria-labelledby="Content Manager" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="open_modal_title">Content Manager</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-                
-        <!--put nav tabs here-->
-        
-        <ul class="nav nav-pills">
-          <li class="active"><a data-toggle="pill" href="#articles-tab">Articles</a></li>
-          <li><a data-toggle="tab" href="#users-tab">Users</a></li>
-        </ul>
-        
-        <!--put tab content here-->
-        <div class="container">
-          <div class="tab-content">
-          <div id="articles-tab" class="tab-pane fade in active">
-            <% get_all_articles %>
-            <div class="row">
-              <%= content_tag :h5,"#{@all_articles.count} article(s)" %>
-              <form class="navbar-form navbar-right articles-search">
-                <div class="form-group">
-                  <input class="form-control" type="text" id="open-articles-search" onkeyup="searchArticlesByName()" placeholder="Search by title or id" title="Type in an article name">
-                </div>
-              </form>
-            </div>
-            <ul id="open-articles-list">
-            <% @all_articles.each do |article| %>
-              <% article_id = article.id %>
-              <%= content_tag :div, class: "row article-list-item" do %>
-                <%= content_tag :span, "#{article_id}" %>
-                <%= link_to article.title, article_path(article), class: "btn", :id => "#{article.id}" %>
-                <%= render partial: "articles/admin_tools", locals: {admin_object: article} %>
-              <% end %>
-              <% @previous_month = article.created_at.strftime("%B") %>
-            <% end %>
-            </ul>
-          </div>
-          <div id="users-tab" class="tab-pane fade">
-            <h3>Users</h3>
-            <% get_all_users %>
-            <% @all_users.each do |user| %>
-              <%= content_tag :p, user.email %>
-            <% end %>
-          </div>
-        </div>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-function searchArticlesByName() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("open-articles-search");
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("open-articles-list");
-  li = ul.getElementsByTagName("div");
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    if (a.innerHTML.toUpperCase().indexOf(filter) > -1 || filter == a.id) {
-        li[i].style.display = "";
-    } else {
-        li[i].style.display = "none";
-
-    }
-  }
-}
-</script>

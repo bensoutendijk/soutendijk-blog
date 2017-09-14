@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   end
   
   get 'about', to: 'pages#about'
+  get 'settings', to: 'pages#settings'
 
 end

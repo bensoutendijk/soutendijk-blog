@@ -29,20 +29,6 @@
 //FONTS
   
 //TAGS
-  a {
-    text-decoration: none;
-  
-    &:hover {
-      border-bottom-width: 1px;
-    }
-    &:active {
-
-    }
-    
-    &:focus {
-
-    }
-  }
 
   body{
     color: #E9F0F0;
@@ -65,6 +51,10 @@
 
 //CLASSES
 
+  .well {
+    color: #485563;
+  }
+
   // Bye bye rounded borders
   .well, .btn, .form-control, .nav-pills > li > a, .dropdown-menu, .modal-content, .navbar {
     -webkit-border-radius: 0;
@@ -73,36 +63,47 @@
   }
   
   // Navbar styles
-    // Admin Nav
-    
-      .navbar {
 
-      }
-      
-      
-      // Admin Tools
-        .admin-nav-link {
-          a { 
-            color: whitesmoke; 
+  .nav-tabs > li > a {
+    color: whitesmoke;
+  }
+  .nav-tabs > li > a:hover {
+    background: #3c4754;
+    border-color: #3c4754 #3c4754 #ddd;
+  }
+
+    // Admin Tools
+      .admin-nav-link {
+        a {
+          &:hover{
+            color: grey;
           }
-          position: absolute;
-          top: 5px;
-          right: 5px;
+          color: whitesmoke; 
         }
-      
-        .tool{
-          float: right;
-          padding-left: 8px;
-          padding-right: 8px;
-          margin-top: 2px;
+        .btn {
+          margin-bottom: 8px; 
         }
-        .tool-danger {
-          color: IndianRed;
+        position: absolute;
+        top: 8px;
+        right: 5px;
+      }
+    
+      .tool{
+        float: right;
+        padding-left: 8px;
+        padding-right: 8px;
+        margin-top: 2px;
+      }
+      .tool-danger {
+        color: IndianRed !important;
+        :hover {
+          color: #6b2e2e !important;
         }
-        .vertical-line-left {
-          border-left: solid 1px;
-          border-color: grey;
-        }
+      }
+      .vertical-line-left {
+        border-left: solid 1px;
+        border-color: grey;
+      }
 
 
     // Basic Nav
@@ -141,7 +142,7 @@
   
   #admin-modal{
     padding: 0 !important;
-  }
+  
   
   .modal-dialog {
     margin-top: 0;
@@ -150,7 +151,7 @@
   }
     .modal-content{
       background: rgba(249, 252, 255, .90);
-      color: grey;
+      color: #485563;
       height: 100%;
     }  
       .modal-header{
@@ -165,36 +166,8 @@
          border-bottom: solid lightgrey 1px;
          padding-top: 3px;
       }
-
-  // Article list
-    .article-list-item:hover{
-      background: lightgrey;
-    }
-    #articles-tab{
-      .row{
-        margin: 0;
-      }
-      ul{
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-      }
-    }
-    .articles-search .form-control{
-      height: 24px;
-    }
-    
-    #articles-tab h5 {
-      margin-top: 12px;
-      color: grey;
-      display: inline-block;
-    }
-    
-  .modal-title{
-    display: inline;
   }
-  
-// Scrollbar
-  .mCS-my-theme .mCSB_container{
-      margin-right: 0px;
+
+  .modal-content{
+    color: #485563;
   }

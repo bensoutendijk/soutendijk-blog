@@ -1,4 +1,4 @@
-<% unless admin_object.id = 1 %>
+<% unless admin_object.id == 1  %>
   <%= link_to article_path(admin_object),
     :method => :delete,
     data: { confirm: 'Warning! This cannot be undone.' },

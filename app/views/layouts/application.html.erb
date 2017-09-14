@@ -2,7 +2,7 @@
 <html>
   <head>
     <%= favicon_link_tag 'favicon.ico' %>
-    <title>Boozy Heights</title>
+    <title>devaent1316</title>
     <%= csrf_meta_tags %>
     
     <!--Google Fonts:-->
@@ -35,11 +35,9 @@
     <!--Top Nav-->
     <% if current_user.try(:admin) %>
       <%= render partial: "layouts/navs/admin" %>
-      <div class="row" style="margin-top: 39px;">
         <div id="yeild" class="tab-pane fade in active">
           <%= yield %>
         </div>
-      </div>
     <% else %>
       <%= render partial: "layouts/navs/basic" %>
       <div class="row">

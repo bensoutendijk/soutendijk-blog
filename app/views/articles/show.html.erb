@@ -1,14 +1,12 @@
 <% show %>
 
-<% author = @author.email %>
-
 <div class="container">
   <div class="text-center">
       <%= content_tag :h2, @article.title , :class => "article-title-text" %>
         <% if current_user.try(:admin?) %>
           
         <% end %>
-      <%= content_tag :h4, "by #{author}", :class => "article-author-text" %>
+      <%= content_tag :h4, "by #{@author.email}", :class => "article-author-text" %>
   </div>
   <%= raw(@article.text) %>
   <div class="comments-container">
