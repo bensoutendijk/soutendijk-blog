@@ -3,26 +3,59 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-//Settings page
+// Settings page
+
+// Admin Tools
+
+  .admin-nav-link {
+    a {
+      color: whitesmoke; 
+    }
+    .btn {
+      margin-bottom: 8px; 
+    }
+    position: absolute;
+    top: 8px;
+    right: 5px;
+  }
+
+  .tool{
+    float: right;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: 2px;
+  }
+  .tool-danger {
+    color: IndianRed !important;
+  }
+  .vertical-line-left {
+    border-left: solid 1px;
+    border-color: grey;
+  }
+
+  .glow {
+    text-shadow: 0 0 5px #E5008D;
+  }
 
 // Article list
-  .article-list-item:hover{
-    background: #465260;
-  }
-
   .article-list-item > a {
-  	color: whitesmoke;
-  }
-
-  .article-list-item > a:hover {
   	color: slategrey;
   }
 
+  .article-list-item > a:hover {
+  	text-shadow: 0 0 5px #E5008D;
+  	color: whitesmoke;
+  	text-decoration: none;
+  }
+
   .article-list-item {
+    border-bottom: dotted 1px whitesmoke;
   	.article-id {
+  	  display: inline-block;
   		margin-top: 6px;
   	}
   	.article-link {
+  	  display: inline-block;
   		margin-top: 6px;
   		margin-left: 10px;
   	}

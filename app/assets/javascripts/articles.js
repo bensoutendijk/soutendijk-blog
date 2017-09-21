@@ -20,28 +20,12 @@ $(document).on('turbolinks:load', function(){
     alert(eventObj.target.id);  
   });
   
-  $('.homepage-thumbnail').hover(
+  $('.tool').hover(
     function() {
-      $(this).find('.thumbnail-hover, .tool').animate({
-        'opacity' : '1'
-      },'fast');
+      $(this).addClass('glow');
     },
     function() {
-      $(this).find('.thumbnail-hover, .tool').animate({
-        'opacity' : '0'
-      },'fast');
-    }
-  );
-  $('.navbar-link, .tool').hover(
-    function() {
-      $(this).animate({
-        
-      }, '50');
-    },
-    function() {
-      $(this).animate({
-        
-      }, '50');
+      $(this).removeClass('glow');
     }
   );
   
