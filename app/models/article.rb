@@ -14,8 +14,7 @@ class Article < ApplicationRecord
     # Article form validations
     validates :title, presence: true
     validates :text, presence: true
-    validates :average_color, presence: true
+    # validates :average_color, presence: true
     validates_attachment :thumbnail,
-                        content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
-                        presense: true
+                        content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 end

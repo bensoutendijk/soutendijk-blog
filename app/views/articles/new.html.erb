@@ -1,21 +1,11 @@
-<%= render partial: "form", locals: {method: "post", article: @article} %>
+<%= form_for @article, url: {action: "create"}, html: {class: ""} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :text, :id => "text-area-article" %>
+  <%= f.submit "Create" %>
+<% end %>
 
 <script type="text/javascript">
-  
-   $('#info-button').hover(
-    function() {
-      $(this).animate({
-        'opacity' : '.5'  
-      },'fast');
-    },
-    function() {
-      $(this).animate({
-         'opacity' : "1"
-      }, 'fast');
-    }
-  );
-  
   initMiniColors();
   
-  CKEDITOR.replace('text-area-article', { height: '960px', toolbar: 'article' });
+  CKEDITOR.replace('text-area-article', { height: '640px', toolbar: 'article' });
 </script>

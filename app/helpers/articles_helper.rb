@@ -1,6 +1,6 @@
 module ArticlesHelper
   def index
-    @counter = 0
+
   end
   
   def show

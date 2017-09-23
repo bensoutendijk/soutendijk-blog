@@ -1,37 +1,10 @@
 /* global $, CKEDITOR*/
 //Document ready.
 $(document).on('turbolinks:load', function(){
-
-  setTimeout(function(){
-    $('.flash').animate({
-      'opacity' : '0'
-    }, 860, function(){
-      $('.flash').remove();
-    });
-  }, 3000);
-
+  
   // Preview the image chosen for upload
   $("#imgInp").change(function(){
     readURL(this);
-  });
-  
-  // Animations
-  $(".input-box").hover(function(eventObj) { 
-    alert(eventObj.target.id);  
-  });
-  
-  $('.tool').hover(
-    function() {
-      $(this).addClass('glow');
-    },
-    function() {
-      $(this).removeClass('glow');
-    }
-  );
-  
-  $(".hide-btn").click(function(){
-    $(this).find('.article_hidable_icon').toggleClass("fa-eye");
-    $(this).find('.article_hidable_icon').toggleClass("fa-eye-slash");
   });
   
 });

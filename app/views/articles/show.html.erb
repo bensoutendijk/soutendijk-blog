@@ -3,25 +3,11 @@
 <div class="container">
   <div class="text-center">
       <%= content_tag :h2, @article.title , :class => "article-title-text" %>
-        <% if current_user.try(:admin?) %>
-          
-        <% end %>
-      <%= content_tag :h4, "by #{@author.email}", :class => "article-author-text" %>
+      <% unless @article.id == 1 %>
+        <%= content_tag :h4, "by #{@author.email}", :class => "article-author-text" %>
+      <% end %>
   </div>
   <%= raw(@article.text) %>
-  <div class="comments-container">
-    <h2>Comments</h2>
-    <% if @numComments == 0 %>
-      <%= content_tag :h4, "There doesn't seem to be anything here.", :class => "no-comments-text" %>
-    <% elsif user_signed_in? %>
-      <%= render partial: "comments/comments", locals: {commentable: @article} %>
-      <%= render partial: "comments/form", locals: {commentable: @article} %>
-    <% else %>
-      <%= render partial: "comments/comments", locals: {commentable: @article} %>
-      <%= content_tag :h4, "You must be signed in to post comments.", :class => "no-comments-text" %>
-    <% end %>
-      <h4></h4>
-  </div>
 </div>
 
 <script type="text/javascript">
