@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829175605) do
+ActiveRecord::Schema.define(version: 20170923002905) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 20170829175605) do
     t.integer  "weight"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
     t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
   end
 

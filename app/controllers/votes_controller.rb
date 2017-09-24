@@ -4,12 +4,15 @@ class VotesController < ApplicationController
   def create
     @vote = @votable.votes.new vote_params
     @vote.user_id = current_user.id
-    if @vote.save
-      redirect_to @votable
-    else
-      flash[:danger] = "Error: vote " + @vote.errors.full_messages.join(", ")
-      redirect_to @votable
+    @article = Article.find(params[:article_id])
+    respond_to do |format|
+      if @vote.save
+        
+        format.js
+      else
+      end
     end
+    
   end
   def destroy
     @article = Article.find(params[:article_id])

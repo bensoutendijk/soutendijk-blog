@@ -1,0 +1,9 @@
+<div class="row text-center">
+  <h4><%= article = Article.find(id) 
+          score = 0 
+          votes = Vote.where(votable_type: "Article", votable_id: id) 
+          votes.each do |a| 
+            score += a.weight 
+          end 
+          score %></h4>
+</div>

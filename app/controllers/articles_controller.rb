@@ -1,13 +1,14 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
-  
   def index
     @article = Article.all
   end
   
   def show
     @article = Article.find(params[:id])
+    @articles = Article.all
+    @author = User.find(@article.user_id)
   end
   
   def new
@@ -57,6 +58,13 @@ class ArticlesController < ApplicationController
   
   
   private
+
+  
+    def get_article_score
+      @votes = Vote.where(votable_id: params[:id])
+      @score = @votes.count
+    end
+    
     def article_params
       params.require(:article).permit(:title, :text, :average_color, :font_color, :thumbnail, :hidden)
     end

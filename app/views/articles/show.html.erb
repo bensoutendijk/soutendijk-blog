@@ -1,13 +1,64 @@
-<% show %>
 
 <div class="container">
   <div class="text-center">
       <%= content_tag :h2, @article.title , :class => "article-title-text" %>
       <% unless @article.id == 1 %>
         <%= content_tag :h4, "by #{@author.email}", :class => "article-author-text" %>
+        <div class="row">
+          <div class="col-md-offset-5 col-md-2">
+            <%= form_for [@article, Vote.new], remote: true do |f| %>
+              <div class="form-group">
+                <%= f.hidden_field :weight, value: 1 %>
+                <%= f.submit 'Upvote', class: 'btn btn-success' %>
+              </div>
+            <% end %>
+            <%= form_for [@article, Vote.new], remote: true do |f| %>
+              <div class="form-group">
+                <%= f.hidden_field :weight, value: -1 %>
+                <%= f.submit 'Downvote', class: 'btn btn-success' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
       <% end %>
+      
+    <div id="votes">  
+      <%= render partial: "shared/votes", locals: {id: params[:id]} %>
+    </div>
+    
   </div>
-  <%= raw(@article.text) %>
+  <div class="row">
+    <%= raw(@article.text) %>
+  </div>
+  
+  
+  <% unless @article.id == 1 %>
+    <div class="row">
+      <% @article.comments.each do |comment| %>
+        <% @user = User.find(comment.user_id) %>
+        <% commenter = @user.email %>
+        <%= content_tag :div, :class => "row" do %>
+          <%= content_tag :div, :class => "col-md-offset-1 col-md-10" do %>
+            <%= content_tag :h4, "#{commenter}", :class => "commenter" %>
+            <div class="well">
+              <%= raw(comment.body) %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <%= form_for [@article, Comment.new] do |f| %>
+          <div class='form-group'>
+            <%= f.text_area :body, class: 'form-control', :id => 'text-area-comments' %>
+            <%= f.submit 'Post', class: 'btn btn-success commit'%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <script type="text/javascript">
