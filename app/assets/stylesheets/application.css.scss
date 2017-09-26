@@ -19,3 +19,44 @@
 @import 'bootstrap';
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+.upvote {
+  background:none!important;
+  border:none; 
+  padding:0!important;
+  
+  /*optional*/
+  font-family:arial,sans-serif; /*input has OS specific font-family*/
+  color:#069;
+  cursor:pointer;
+}
+
+.upvote.on {
+ color: red;
+}
+
+.upvote:hover{
+   text-decoration:underline;
+}
+
+
+.downvote {
+  background:none!important;
+  border:none; 
+  padding:0!important;
+  
+  /*optional*/
+  font-family:arial,sans-serif; /*input has OS specific font-family*/
+  color:#069;
+  cursor:pointer;
+
+
+}
+
+.downvote.on {
+ color: red;
+}
+
+.downvote:hover{
+   text-decoration:underline;
+}

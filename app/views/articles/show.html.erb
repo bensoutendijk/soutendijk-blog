@@ -5,27 +5,12 @@
       <% unless @article.id == 1 %>
         <%= content_tag :h4, "by #{@author.email}", :class => "article-author-text" %>
         <div class="row">
-          <div class="col-md-offset-5 col-md-2">
-            <%= form_for [@article, Vote.new], remote: true do |f| %>
-              <div class="form-group">
-                <%= f.hidden_field :weight, value: 1 %>
-                <%= f.submit 'Upvote', class: 'btn btn-success' %>
-              </div>
-            <% end %>
-            <%= form_for [@article, Vote.new], remote: true do |f| %>
-              <div class="form-group">
-                <%= f.hidden_field :weight, value: -1 %>
-                <%= f.submit 'Downvote', class: 'btn btn-success' %>
-              </div>
-            <% end %>
+          <div class="col-md-offset-5 col-md-2" id="vote_form">
+            <%= render partial: "votes/form", locals: {votable: @article, vote: current_user.has_voted_on(@article)} %>
           </div>
         </div>
       <% end %>
-      
-    <div id="votes">  
-      <%= render partial: "shared/votes", locals: {id: params[:id]} %>
-    </div>
-    
+
   </div>
   <div class="row">
     <%= raw(@article.text) %>

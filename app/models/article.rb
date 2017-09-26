@@ -17,4 +17,14 @@ class Article < ApplicationRecord
     # validates :average_color, presence: true
     validates_attachment :thumbnail,
                         content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+                   
+                   
+  # The votable's score is the sum of the weights of each of the most recently submitted votes by user
+  def score
+    res = 0
+    self.votes.all.group(:user_id).each do |a|
+      res += a.weight
+    end
+    res
+  end
 end

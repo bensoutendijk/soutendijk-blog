@@ -7,7 +7,6 @@ class ArticlesController < ApplicationController
   
   def show
     @article = Article.find(params[:id])
-    @articles = Article.all
     @author = User.find(@article.user_id)
   end
   
@@ -56,17 +55,8 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
   
-  
   private
-
-  
-    def get_article_score
-      @votes = Vote.where(votable_id: params[:id])
-      @score = @votes.count
-    end
-    
     def article_params
       params.require(:article).permit(:title, :text, :average_color, :font_color, :thumbnail, :hidden)
     end
-  
 end
