@@ -3,7 +3,7 @@ class Vote < ApplicationRecord
   belongs_to :user
   
   validates :weight, presence: true, :inclusion => { :in => [-1,0,1] }
-  # validates_uniqueness_of :user_id, :scope => [:votable_type, :votable_id]
+  validates_uniqueness_of :user_id, :scope => [:votable_type, :votable_id]
   
   def form_control direction, field
     current_vote = self

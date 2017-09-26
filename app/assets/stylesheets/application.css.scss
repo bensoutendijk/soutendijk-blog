@@ -29,14 +29,22 @@
   font-family:arial,sans-serif; /*input has OS specific font-family*/
   color:#069;
   cursor:pointer;
+  
+  line-height: 0;
+  
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid grey;
 }
 
 .upvote.on {
- color: red;
+  border-bottom: 8px solid orange;
 }
 
 .upvote:hover{
-   text-decoration:underline;
+  border-bottom: 8px solid orange;
 }
 
 
@@ -49,14 +57,21 @@
   font-family:arial,sans-serif; /*input has OS specific font-family*/
   color:#069;
   cursor:pointer;
-
+  
+  line-height: 0;
+  
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid grey;
 
 }
 
 .downvote.on {
- color: red;
+  border-top: 8px solid steelblue;
 }
 
 .downvote:hover{
-   text-decoration:underline;
+  border-top: 8px solid steelblue;
 }
