@@ -6,7 +6,7 @@ class VotesController < ApplicationController
     @vote.user_id = current_user.id
     respond_to do |format|
       if @vote.save
-        format.js
+        format.js 
       else
         # do something if it fails
       end
@@ -19,7 +19,7 @@ class VotesController < ApplicationController
     respond_to do |format|
       if @vote.update! vote_params
         format.html { render(:text => "not implemented") }
-        format.js
+        format.js { render :action => "create" }
       else
         # do something if it fails
       end
@@ -30,7 +30,7 @@ class VotesController < ApplicationController
     @vote = Vote.find(params[:id])
     @vote.destroy
     respond_to do |format|
-      format.js
+      format.js 
     end
   end
   

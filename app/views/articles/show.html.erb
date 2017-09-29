@@ -1,39 +1,29 @@
-
 <div class="container">
-  <div class="text-center">
-      <%= content_tag :h2, @article.title , :class => "article-title-text" %>
-      <% unless @article.id == 1 %>
-        <%= content_tag :h4, "by #{@author.email}", :class => "article-author-text" %>
-        <div class="row">
-          <div class="col-md-offset-5 col-md-2" id="vote_form">
-            <%= render partial: "votes/form", locals: {votable: @article, vote: current_user.has_voted_on(@article)} %>
-          </div>
-        </div>
+  <div class="row text-center">
+    <%= content_tag :h2, @article.title , :class => "article-title-text" %>
+    <% unless @article.id == 1 %>
+      <%= content_tag :h4, "by #{@author.email}", :class => "article-author-text" %>
+      <%= content_tag :div, id: "article-vote-form-#{@article.id}" do %>
+        <% unless !user_signed_in? %>
+          <%= render partial: "votes/form", locals: {votable: @article, vote: current_user.has_voted_on(@article)} %>
+        <% else %>
+          <%= render partial: "votes/form", locals: {votable: @article, vote: Vote.new} %>
+        <% end %>
       <% end %>
-
+    <% end %>
   </div>
+  
   <div class="row">
     <%= raw(@article.text) %>
   </div>
   
-  
   <% unless @article.id == 1 %>
-    <div class="row">
-      <% @article.comments.each do |comment| %>
-        <% @user = User.find(comment.user_id) %>
-        <% commenter = @user.email %>
-        <%= content_tag :div, :class => "row" do %>
-          <%= content_tag :div, :class => "col-md-offset-1 col-md-10" do %>
-            <%= content_tag :h4, "#{commenter}", :class => "commenter" %>
-            <div class="well">
-              <%= raw(comment.body) %>
-            </div>
-          <% end %>
-        <% end %>
-      <% end %>
+    
+    <div>
+     <%= render partial: "articles/comments/comments", locals: {commentable: @article} %>
     </div>
     
-    <div class="row">
+    <div class="row comment-form-container">
       <div class="col-md-offset-3 col-md-6">
         <%= form_for [@article, Comment.new] do |f| %>
           <div class='form-group'>

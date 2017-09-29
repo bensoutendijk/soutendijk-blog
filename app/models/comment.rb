@@ -7,10 +7,12 @@ class Comment < ApplicationRecord
   # Validations
   validates :body, presence: true
   
-  private
-    
-    def score
-      votes.count
+  def score
+    res = 0
+    self.votes.all.group(:user_id).each do |a|
+      res += a.weight
     end
+    res
+  end 
   
 end
