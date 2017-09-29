@@ -1,7 +1,11 @@
 <% commentable.comments.each do |comment| %>
   <% @user = User.find(comment.user_id) %>
   <% commenter = @user.email %>
-  
+  <div class="row">
+    <div class="col-md-offset-1 col-md-11">
+      <%= content_tag :h4, "#{commenter}", :class => "commenter" %>
+    </div>
+  </div>
   <%= content_tag :div, :class => "row v-align" do %>
     <%= content_tag :div, :class => "col-md-1 vote-form-container text-center" do %>
       <% unless !user_signed_in? %>
@@ -15,7 +19,6 @@
       <% end %>
     <% end %>
     <%= content_tag :div, :class => "col-md-11 comment-container" do %>
-        <%= content_tag :h4, "#{commenter}", :class => "commenter" %>
         <div class="well">
           <%= raw(comment.body) %>
         </div>
