@@ -2,7 +2,12 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    @article = Article.all
+    @articles = Article.search(params[:term], params[:page])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+    
   end
   
   def show

@@ -1,8 +1,9 @@
+<h1 id="header">Articles</h1>
 
-<div class="container">
-  <% @article.reverse.each do |article| %>
-    <%= content_tag :div, class: "row" do %>
-      <%= link_to article.title, article_path(article.id) %>
-    <% end %>
-  <% end %>
-</div>
+<%= hidden_field_tag 'page-number', 1%>
+
+<ul id="articles">
+  <%= render @articles %>
+</ul>
+
+<%= link_to "load more...", root_path, id: 'load-more' %>

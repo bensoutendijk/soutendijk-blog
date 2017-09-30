@@ -47,7 +47,7 @@ gem 'simple_form'
 # gem 'stripe', '1.48.0'
 
 #Use Figaro for ENV variables
-gem 'figaro', '1.1.1'
+# gem 'figaro', '1.1.1'
 
 #Use Paperclip for file attachment
 gem 'paperclip', github: 'thoughtbot/paperclip'
@@ -59,10 +59,10 @@ gem 'rmagick'
 gem 'ckeditor'
 
 #Use jQuery colorpicker
-gem 'jquery-minicolors-rails'
+# gem 'jquery-minicolors-rails'
 
-#Use jQuery Custom Scrollbar
-gem 'scrollbar-rails'
+#Use will_paginate to paginate index views
+gem 'will_paginate', '>= 3.1'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
