@@ -6,6 +6,7 @@ gem 'rails', '5.0.0'
 # Use Puma as the app server
 gem 'puma', '3.4.0'
 # Use SCSS for stylesheets
+gem 'sass', '~> 3.5', '>= 3.5.1'
 gem 'sass-rails', '5.0.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '3.0.0'
@@ -29,8 +30,9 @@ gem 'jbuilder', '2.5.0'
 # gem 'capistrano-rails', group: :development
 
 #Use Twitter bootstrap library for front-end UI and layout
-gem 'bootstrap', '~> 4.0.0.beta'
-
+gem 'autoprefixer-rails', '~> 7.1', '>= 7.1.4.1'
+gem 'popper_js', '1.11.1'
+gem 'bootstrap-sass'
 #Use FontAwesome sass gem for adding icons
 gem 'font-awesome-sass', '4.6.2'
 
@@ -50,7 +52,7 @@ gem 'simple_form'
 # gem 'figaro', '1.1.1'
 
 #Use Paperclip for file attachment
-gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'paperclip','5.1.0'
 
 #Use RMagick for Ruby bindings for ImageMagick
 gem 'rmagick'
