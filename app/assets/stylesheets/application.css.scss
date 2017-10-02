@@ -19,6 +19,23 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+
+#navbar-container{
+  z-index: 500;
+}
+
+#flash-container{
+  z-index: 250;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+#yeild-container{
+  z-index: 150;
+  margin-top: 128px;
+}
+
 .v-align{
   display: flex;
   align-items: center
