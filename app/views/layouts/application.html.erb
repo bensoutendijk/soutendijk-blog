@@ -44,30 +44,18 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
+            <li class="nav-item"><%= link_to "About", article_path(1), class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Settings", settings_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Create Account", new_user_registration_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Sign In", new_user_session_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Create Post", new_article_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Sign Out", destroy_user_session_path, class: "nav-link", method: 'delete' %> </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
         </div>
       </nav>
 
       
-<!--<li><%= link_to "About", article_path(1) %></li>-->
-<!--<li><%= link_to "Settings", settings_path %></li>-->
-<!--<li><%= link_to "Create Account", new_user_registration_path %></li>-->
-<!--<li><%= link_to "Sign In", new_user_session_path %></li>-->
-<!--<li><%= link_to "Create Post", new_article_path %></li>-->
-<!--<li><%= link_to "Sign Out", destroy_user_session_path, method: 'delete' %> </li>-->
+
       
       <!--Yield-->
       <div class="container-fluid" id='yield-container'>
