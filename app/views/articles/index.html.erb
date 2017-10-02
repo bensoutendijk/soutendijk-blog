@@ -1,9 +1,11 @@
-<h1 id="header">Articles</h1>
-
-<%= hidden_field_tag 'page-number', 1%>
-
-<ul id="articles">
-  <%= render @articles %>
-</ul>
-
-<%= link_to "load more...", root_path, id: 'load-more' %>
+<div class="articles-container">
+  
+  <%= hidden_field_tag 'page-number', 1 %>
+  
+  <ul class="articles">
+    <%= render @articles %>
+  </ul>
+  
+  <%= link_to "load more...", root_path, id: 'load-more' %>
+  
+</div>
