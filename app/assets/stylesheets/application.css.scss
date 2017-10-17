@@ -32,10 +32,21 @@
 
 #yield-container{
   z-index: 150;
-  margin-top: 71px;
 }
 
 .v-align{
   display: flex;
   align-items: center
+}
+
+.link-container {
+  height: 360px;
+}
+
+.bd-sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4rem;
+  z-index: 1000;
+  max-height: calc(100vh - 4rem);
 }

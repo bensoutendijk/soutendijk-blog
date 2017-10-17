@@ -31,6 +31,8 @@ gem 'jbuilder', '2.5.0'
 
 #Use Twitter bootstrap library for front-end UI and layout
 gem 'bootstrap', '~> 4.0.0.beta'
+gem 'popper_js', '~> 1.11.1'
+
 #Use FontAwesome sass gem for adding icons
 gem 'font-awesome-sass'
 

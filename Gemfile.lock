@@ -213,6 +213,7 @@ DEPENDENCIES
   listen (= 3.0.5)
   paperclip (= 5.1.0)
   pg (= 0.18.4)
+  popper_js (~> 1.11.1)
   puma (= 3.4.0)
   rails (= 5.0.0)
   rmagick (~> 2.16.0)

@@ -4,6 +4,7 @@
     <%= favicon_link_tag 'favicon.ico' %>
     <title>devaent1316</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!--Google Fonts:-->
     <link href="https://fonts.googleapis.com/css?family=Cutive" rel="stylesheet">
@@ -36,19 +37,13 @@
       </div>
       
       <!--Navbar-->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar-container">
+      <header class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark flex-row" id="navbar-container">
         <a class="navbar-brand" href="/">devaent1316</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <ul class="navbar-nav ml-sm-auto mr-sm-4 ml-md-2 mr-md-auto">
+          <li class="nav-item"><%= link_to "Résumé", about_path, class: "nav-link" %></li>
+        </ul>
+      </header>
       
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item"><%= link_to "About", about_path, class: "nav-link" %></li>
-          </ul>
-        </div>
-      </nav>
-
       <!--Yield-->
       <div class="container-fluid" id='yield-container'>
         <%= yield %>
