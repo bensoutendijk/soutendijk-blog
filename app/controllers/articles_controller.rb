@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
     
     if @article.save
       flash.now[:success] = "Post successful."
-      redirect_to @article
+      redirect_to articles_path
     else
       flash.now[:danger] = "Error: " + @article.errors.full_messages.join(", ")
       redirect_to new_article_path
@@ -57,6 +57,6 @@ class ArticlesController < ApplicationController
   
   private
     def article_params
-      params.require(:article).permit(:title, :text, :average_color, :font_color, :thumbnail, :hidden)
+      params.require(:article).permit(:title, :body, :average_color, :font_color, :icon, :hidden)
     end
 end

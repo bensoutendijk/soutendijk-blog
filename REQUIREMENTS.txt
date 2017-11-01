@@ -2,7 +2,7 @@ Requirements
 
 Blog
 
-*Users (for admins)
+*Users
 
 *Home Page
 

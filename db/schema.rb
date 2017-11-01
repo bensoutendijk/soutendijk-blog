@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923002905) do
+ActiveRecord::Schema.define(version: 20171024150818) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
-    t.text     "text"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "thumbnail_file_name"
-    t.string   "thumbnail_content_type"
-    t.integer  "thumbnail_file_size"
-    t.datetime "thumbnail_updated_at"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "average_color"
     t.string   "font_color"
     t.integer  "user_id"
-    t.boolean  "hidden",                 default: false
+    t.boolean  "hidden",            default: false
+    t.text     "body"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 

@@ -1,8 +1,9 @@
-
 <div class="container">
   <% @article.reverse.each do |article| %>
-    <%= content_tag :div, class: "row" do %>
-      <%= link_to article.title, article_path(article.id) %>
+    <%= content_tag :div, class: "col-md-10 col-md-offset-1" do %>
+      <%= content_tag :div, class: "well" do %>
+        <%= render partial: "article", locals: {article: article, author: User.find(article.user_id)} %>
+      <% end %>
     <% end %>
   <% end %>
 </div>

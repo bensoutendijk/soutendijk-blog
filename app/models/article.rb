@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
     
-    has_attached_file :thumbnail,
+    has_attached_file :icon,
     :path => "/home/ubuntu/workspace/blog/app/assets/images/:class/:id/:style/:basename.:extension",
     :url => "/article/:attachment/:id/:basename_:style.:extension",
     :styles => { 
@@ -13,12 +13,10 @@ class Article < ApplicationRecord
     
     # Article form validations
     validates :title, presence: true
-    validates :text, presence: true
-    # validates :average_color, presence: true
-    validates_attachment :thumbnail,
-                        content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
-                   
-                   
+    validates :body, presence: true
+    validates_attachment :icon, presence: true,
+                                content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+                        
   # The votable's score is the sum of the weights of each of the most recently submitted votes by user
   def score
     res = 0

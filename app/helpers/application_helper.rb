@@ -8,5 +8,9 @@ module ApplicationHelper
       when 'alert' then "flash alert alert-danger"
     end
   end
+  
+  def cp(path)
+    "active" if current_page?(path)
+  end
 
 end

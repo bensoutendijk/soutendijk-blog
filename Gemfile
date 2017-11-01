@@ -6,7 +6,8 @@ gem 'rails', '5.0.0'
 # Use Puma as the app server
 gem 'puma', '3.4.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '5.0.6'
+gem 'sass', '~> 3.5.1'
+gem 'sass-rails', '~> 5.0.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '3.0.0'
 # Use CoffeeScript for .coffee assets and views
@@ -29,10 +30,11 @@ gem 'jbuilder', '2.5.0'
 # gem 'capistrano-rails', group: :development
 
 #Use Twitter bootstrap library for front-end UI and layout
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap', '~> 4.0.0.beta'
+gem 'popper_js', '~> 1.11.1'
 
 #Use FontAwesome sass gem for adding icons
-gem 'font-awesome-sass', '4.6.2'
+gem 'font-awesome-sass'
 
 #Use Hirb for better db table display
 gem 'hirb', '0.7.3'
@@ -41,28 +43,28 @@ gem 'hirb', '0.7.3'
 gem 'devise', '4.2.0'
 
 #Use SimpleForm for simple forms
-gem 'simple_form'
+gem 'simple_form', '~> 3.5.0'
 
 # Use Stripe for payment processing
 # gem 'stripe', '1.48.0'
 
 #Use Figaro for ENV variables
-gem 'figaro', '1.1.1'
+# gem 'figaro', '1.1.1'
 
 #Use Paperclip for file attachment
-gem 'paperclip', github: 'thoughtbot/paperclip'
+gem "paperclip", "~> 5.0.0"
 
 #Use RMagick for Ruby bindings for ImageMagick
-gem 'rmagick'
+gem 'rmagick', '~> 2.16.0'
 
-#Use CKEditor for User Posting
+#Use CKEditor for WYSIWYG text editor
 gem 'ckeditor'
 
 #Use jQuery colorpicker
-gem 'jquery-minicolors-rails'
+# gem 'jquery-minicolors-rails'
 
-#Use jQuery Custom Scrollbar
-gem 'scrollbar-rails'
+#Use will_paginate to paginate index views
+gem 'will_paginate', '>= 3.1'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
