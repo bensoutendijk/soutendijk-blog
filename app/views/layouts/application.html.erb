@@ -16,71 +16,69 @@
   <div class="modal fade" id="signup-modal"></div>
     
   <body>
-    <div>
-      <!--Flash Messages-->
-      <div class="container-fluid" id='flash-container'> 
-        <% flash.each do |key, value| %>
-          <div class="d-flex justify-content-center">
-            <% if value.class == Array %>
-              <div class="<%= flash_class(key) %>">
-                <% value.each do |message| %>  
-                  <%= message %>
-                  </br>
-                <% end %>
-              </div>
-            <% else %>
-              <div class="<%= flash_class(key) %>">
-                <%= value %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-      
-      <!--Navbar-->
-      <header class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark flex-row">
-        <div class="container">
-          <a class="navbar-brand" href="/">Boozy Heights</a>
-          <ul class="navbar-nav ml-sm-auto mr-sm-4 ml-md-2 mr-md-auto">
-            
-            <!--Writer's Nav-->
-            <li class="nav-item"><%= link_to "Write", new_article_path, class: "nav-link #{cp(new_article_path)}" %></li>
-            <!--About Link-->
-            <li class="nav-item"><%= link_to "About", about_path, class: "nav-link #{cp(about_path)}" %></li>
-            
-          </ul>
-          
-           <!--Sign In/Out Links-->
-          <ul class="navbar-nav">
-            <% if user_signed_in? %>
-              <li class="nav-item"> 
-                <%= link_to "Sign out", destroy_user_session_path, class: "nav-link", :method => :delete %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to "Sign up", new_registration_path(User.new), class: "btn btn-primary mr-2", remote: true %>
-              </li>
-              
-              <li>
-                <span class="navbar-text"> or </span>
-              </li>
-              
-              <li>
-                <div class="dropdown">
-                  <%= link_to "Log in", new_user_session_path, class: "nav-link", remote: true, 'data-toggle' => "dropdown" %>
-                  <div class="dropdown-menu" id="login-dropdown-menu"></div>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-          
+    <!--Flash Messages-->
+    <div class="container-fluid" id='flash-container'> 
+      <% flash.each do |key, value| %>
+        <div class="d-flex justify-content-center">
+          <% if value.class == Array %>
+            <div class="<%= flash_class(key) %>">
+              <% value.each do |message| %>  
+                <%= message %>
+                </br>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="<%= flash_class(key) %>">
+              <%= value %>
+            </div>
+          <% end %>
         </div>
-      </header>
-      
-      <!--Yield-->
-      <div class="container-fluid" id='yield-container'>
-        <%= yield %>
+      <% end %>
+    </div>
+    
+    <!--Navbar-->
+    <header class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark flex-row">
+      <div class="container">
+        <a class="navbar-brand" href="/">Boozy Heights</a>
+        <ul class="navbar-nav ml-sm-auto mr-sm-4 ml-md-2 mr-md-auto">
+          
+          <!--Writer's Nav-->
+          <li class="nav-item"><%= link_to "Write", new_article_path, class: "nav-link #{cp(new_article_path)}" %></li>
+          <!--About Link-->
+          <li class="nav-item"><%= link_to "About", about_path, class: "nav-link #{cp(about_path)}" %></li>
+          
+        </ul>
+        
+         <!--Sign In/Out Links-->
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <li class="nav-item"> 
+              <%= link_to "Sign out", destroy_user_session_path, class: "nav-link", :method => :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Sign up", new_registration_path(User.new), class: "btn btn-primary mr-2", remote: true %>
+            </li>
+            
+            <li>
+              <span class="navbar-text"> or </span>
+            </li>
+            
+            <li>
+              <div class="dropdown">
+                <%= link_to "Log in", new_user_session_path, class: "nav-link", remote: true, 'data-toggle' => "dropdown" %>
+                <div class="dropdown-menu" id="login-dropdown-menu"></div>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+        
       </div>
+    </header>
+    
+    <!--Yield-->
+    <div class="container-fluid" id='yield-container'>
+      <%= yield %>
     </div>
   </body>
 </html>
