@@ -13,6 +13,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
     
+  <div class="modal fade" id="signup-modal"></div>
+    
   <body>
     <div>
       <!--Flash Messages-->
@@ -43,7 +45,6 @@
             
             <!--Writer's Nav-->
             <li class="nav-item"><%= link_to "Write", new_article_path, class: "nav-link #{cp(new_article_path)}" %></li>
-            
             <!--About Link-->
             <li class="nav-item"><%= link_to "About", about_path, class: "nav-link #{cp(about_path)}" %></li>
             
@@ -52,9 +53,24 @@
            <!--Sign In/Out Links-->
           <ul class="navbar-nav">
             <% if user_signed_in? %>
-              <li class="nav-item"> <%= link_to "Sign Out", destroy_user_session_path, class: "nav-link", :method => "DELETE" %></li>
+              <li class="nav-item"> 
+                <%= link_to "Sign out", destroy_user_session_path, class: "nav-link", :method => :delete %>
+              </li>
             <% else %>
-              <li class="nav item"><%= link_to "Sign in", new_user_session_path, class: "nav-link" %> </li>
+              <li>
+                <%= link_to "Sign up", new_registration_path(User.new), class: "btn btn-primary mr-2", remote: true %>
+              </li>
+              
+              <li>
+                <span class="navbar-text"> or </span>
+              </li>
+              
+              <li>
+                <div class="dropdown">
+                  <%= link_to "Log in", new_user_session_path, class: "nav-link", remote: true, 'data-toggle' => "dropdown" %>
+                  <div class="dropdown-menu" id="login-dropdown-menu"></div>
+                </div>
+              </li>
             <% end %>
           </ul>
           
