@@ -1,11 +1,13 @@
-<%= form_for [votable, vote], remote: true, method: vote.form_control('up', 'method') do |f| %>
-  <%= f.hidden_field :weight, value: vote.form_control('up', 'value') %>
-  <%= f.submit "+", class: vote.form_control('up', 'class') %>
-<% end %>
-<div id="score">
-  <%= render partial: "shared/score", locals: {score: votable.score} %>
+<div class="d-block">
+  <%= form_for [votable, vote], remote: true, method: vote.form_control('up', 'method'), :html => {:class => "d-flex align-items-center"} do |f| %>
+    <%= f.hidden_field :weight, value: vote.form_control('up', 'value') %>
+    <%= f.submit "+", class: vote.form_control('up', 'class') %>
+  <% end %>
+  <div id="score">
+    <%= render partial: "shared/score", locals: {score: votable.score} %>
+  </div>
+  <%= form_for [votable, vote], remote: true, method: vote.form_control('down', 'method'), :html => {:class => "d-flex align-items-center"} do |f| %>
+    <%= f.hidden_field :weight, value: vote.form_control('down', 'value') %>
+    <%= f.submit "-", class: vote.form_control('down', 'class') %>
+  <% end %>
 </div>
-<%= form_for [votable, vote], remote: true, method: vote.form_control('down', 'method') do |f| %>
-  <%= f.hidden_field :weight, value: vote.form_control('down', 'value') %>
-  <%= f.submit "-", class: vote.form_control('down', 'class') %>
-<% end %>

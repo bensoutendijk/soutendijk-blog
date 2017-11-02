@@ -18,6 +18,21 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+body{
+  background-color: #e9ecef;
+}
+
+.jumbotron{
+  .article-body{
+    p{
+      color: #4c555a;  
+    }
+    
+  }
+  border-radius: 0;
+  background-color: white;
+}
+
 .nav-link {
   .current{
     color: red;

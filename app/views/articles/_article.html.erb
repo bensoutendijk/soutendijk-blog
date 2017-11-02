@@ -1,39 +1,46 @@
-<div class="row text-center">
-  <%= content_tag :h4, "by #{article.user.email}", :class => "article-author-text" %>
-  <%= content_tag :div, id: "article-vote-form-#{article.id}" do %>
+<div class="d-flex">
+  
+  <%= content_tag :div, id: "article-vote-form-#{article.id}", class: "align-self-center float-left" do %>
     <% unless !user_signed_in? %>
       <%= render partial: "votes/form", locals: {votable: article, vote: current_user.has_voted_on(article)} %>
     <% else %>
       <%= render partial: "votes/form", locals: {votable: article, vote: Vote.new} %>
     <% end %>
   <% end %>
+
+
+  <div class="mx-auto pr-3">
+    <%= content_tag :h2, article.title , :class => "article-title-text text-center" %>
+    <%= content_tag :h4, "by #{article.user.email}", :class => "article-author-text text-center" %>
+  </div>
+  
+  <% if user_signed_in? && current_user.id == article.user_id %>
+  <ul class="nav">
+    <li class="nav-item"><%= link_to "Edit", edit_article_path(article), class: "nav-link" %></li>
+    <li class="nav-item"><%= link_to "Delete", article_path(article), class: "nav-link danger", :method => :delete, :confirm => "Are you sure you want to delete #{article.title}" %></li>
+  </ul>
+  <% end %>
+  
 </div>
 
-<%= content_tag :h2, article.title , :class => "article-title-text" %>
+<hr>
 
-<div class="row">
-
-  <div class="container">
-    <% if user_signed_in? && current_user.id == article.user_id %>
-      <li class="nav-item"><%= link_to "Edit article", edit_article_path(article) %></li>
-    <% end %>
-    <div class="col-md-10 col-md-offset-1">
-      <%= raw(article.body) %>
-    </div>
-  </div>    
+<div class="article-body">
+  <%= raw(article.body) %>
 </div>
 
+<hr>
 
 <div>
   <%= render partial: "articles/comments/comments", locals: {commentable: article} %>
 </div>
 
-<div class="row comment-form-container">
-  <div class="col-md-offset-3 col-md-6">
+<div class="">
+  <div class="">
     <%= form_for [article, Comment.new] do |f| %>
-      <div class='form-group'>
+      <div class="">
         <%= f.text_area :body, class: 'form-control', :id => 'text-area-comments' %>
-        <%= f.submit 'Post', class: 'btn btn-success commit'%>
+        <%= f.submit 'Post', class: 'btn btn-default commit'%>
       </div>
     <% end %>
   </div>
