@@ -1,3 +1,14 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/s
+
+.comment-card {
+  overflow: hidden;
+  .card-text {
+    word-wrap: break-word;
+  }
+}
+
+.commenter {
+  font-weight: 500;
+}

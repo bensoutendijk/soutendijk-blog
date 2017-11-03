@@ -44,7 +44,9 @@
         <ul class="navbar-nav ml-sm-auto mr-sm-4 ml-md-2 mr-md-auto">
           
           <!--Writer's Nav-->
-          <li class="nav-item"><%= link_to "Write", new_article_path, class: "nav-link #{cp(new_article_path)}" %></li>
+          <% if user_signed_in? %>
+            <li class="nav-item"><%= link_to "Write", new_article_path, class: "nav-link #{cp(new_article_path)}" %></li>
+          <% end %>
           <!--About Link-->
           <li class="nav-item"><%= link_to "About", about_path, class: "nav-link #{cp(about_path)}" %></li>
           
@@ -68,7 +70,10 @@
             <li>
               <div class="dropdown">
                 <%= link_to "Log in", new_user_session_path, class: "nav-link", remote: true, 'data-toggle' => "dropdown" %>
-                <div class="dropdown-menu" id="login-dropdown-menu"></div>
+                
+                <!--contains login singup form when user clicks sign-in button on nav-->
+                <div class="dropdown-menu dropdown-menu-right" id="login-dropdown-menu"></div> 
+                
               </div>
             </li>
           <% end %>

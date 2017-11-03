@@ -1,28 +1,32 @@
 <% commentable.comments.each do |comment| %>
-  <% @user = User.find(comment.user_id) %>
-  <% commenter = @user.email %>
-  <div class="row">
-    <div class="col-md-offset-1 col-md-11">
-      <%= content_tag :h4, "#{commenter}", :class => "commenter" %>
+  <div class="card comment-card m-2">
+    <div class="d-flex flex-row">
+      <div class="col-1">
+        <!--vote form-->
+        <div class="d-inline-flex mb-3">
+          <% unless !user_signed_in? %>
+            <%= content_tag :div, id: "comment-vote-form-#{comment.id}" do %>
+              <%= render partial: "votes/form", locals: {votable: comment, vote: current_user.has_voted_on(comment)} %>
+            <% end %>
+          <% else %>
+            <%= content_tag :div, id: "comment-vote-form-#{comment.id}" do %>
+              <%= render partial: "votes/form", locals: {votable: comment, vote: Vote.new} %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-9">
+        <!--commenter email-->
+        <div class="">
+          <%= content_tag :span, "#{comment.user.email}", class: "commenter" %>
+        </div>
+        <!--comment body-->
+        <div class="">
+          <div class="card-text">
+            <%= raw(comment.body) %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <%= content_tag :div, :class => "row v-align" do %>
-    <%= content_tag :div, :class => "col-md-1 vote-form-container text-center" do %>
-      <% unless !user_signed_in? %>
-        <%= content_tag :div, id: "comment-vote-form-#{comment.id}" do %>
-          <%= render partial: "votes/form", locals: {votable: comment, vote: current_user.has_voted_on(comment)} %>
-        <% end %>
-      <% else %>
-        <%= content_tag :div, id: "comment-vote-form-#{comment.id}" do %>
-          <%= render partial: "votes/form", locals: {votable: comment, vote: Vote.new} %>
-        <% end %>
-      <% end %>
-    <% end %>
-    <%= content_tag :div, :class => "col-md-11 comment-container" do %>
-        <div class="well">
-          <%= raw(comment.body) %>
-        </div>
-    <% end %>
-  <% end %>
-  
 <% end %>

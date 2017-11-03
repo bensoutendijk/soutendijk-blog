@@ -31,17 +31,13 @@
 
 <hr>
 
-<div>
-  <%= render partial: "articles/comments/comments", locals: {commentable: article} %>
-</div>
+<%= render partial: "articles/comments/comments", locals: {commentable: article} %>
 
-<div class="">
-  <div class="">
-    <%= form_for [article, Comment.new] do |f| %>
-      <div class="">
-        <%= f.text_area :body, class: 'form-control', :id => 'text-area-comments' %>
-        <%= f.submit 'Post', class: 'btn btn-default commit'%>
-      </div>
-    <% end %>
-  </div>
+<div class="container">
+  <%= form_for [article, Comment.new] do |f| %>
+    <div class="col-md-6">
+      <%= f.text_area :body, class: 'form-control', :id => 'text-area-comments' %>
+      <%= f.submit 'Post', class: 'btn btn-default commit'%>
+    </div>
+  <% end %>
 </div>
