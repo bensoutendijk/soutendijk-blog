@@ -1,0 +1,8 @@
+<!--if failure-->
+  <!--Inject Partial into modal-->
+  $("#signup-modal").html('<%= j render "new" %>');
+  <!--Initiate the form from users.js-->
+  initNewUserForm();
+
+<!--if success-->
+  <!--delete the modal-->

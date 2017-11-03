@@ -1,11 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
-  respond_to :js
   
   # GET /resource/sign_up
   def new
     build_resource({})
     yield resource if block_given?
-    respond_with resource_new_path
+    respond_to do |format|
+      format.js
+    end
   end
   
   def create
@@ -26,7 +27,9 @@ class RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords resource
       set_minimum_password_length
-      respond_with resource
+      respond_to do |format|
+        format.js
+      end
     end
   end
   
