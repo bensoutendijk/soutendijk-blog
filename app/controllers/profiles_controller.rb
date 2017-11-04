@@ -1,5 +1,4 @@
 class ProfilesController < ApplicationController
-  respond_to :js
   before_action :authenticate_user!
   before_action :only_current_user
   
@@ -39,15 +38,17 @@ class ProfilesController < ApplicationController
     end
   end
   
+  def only_current_user
+    @user = User.find(params[:user_id])
+    redirect_to(root_path) unless @user == current_user
+  end
+  
   
   private
     def profile_params
       params.require(:profile).permit(:first_name, :last_name, :avatar, :job_title, :phone_number, :contact_email, :description)
     end
     
-    def only_current_user
-      @user = User.find(params[:user_id])
-      redirect_to(root_path) unless @user == current_user
-    end
+   
     
 end

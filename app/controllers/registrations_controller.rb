@@ -18,7 +18,7 @@ class RegistrationsController < Devise::RegistrationsController
       if resource.active_for_authentication?
         # set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
-        respond_with resource, location: after_sign_up_path_for(resource)
+        after_signup_new_user_profile resource
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
         expire_data_after_sign_in!
@@ -32,9 +32,8 @@ class RegistrationsController < Devise::RegistrationsController
       end
     end
   end
-  
-  protected
-    def after_sign_up_path_for (resource)
-      about_path
-    end
+end
+
+def after_signup_new_user_profile(resource)
+  redirect_to new_user_profile_path(resource)
 end

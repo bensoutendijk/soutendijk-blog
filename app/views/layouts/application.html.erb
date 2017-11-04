@@ -55,6 +55,9 @@
          <!--Sign In/Out Links-->
         <ul class="navbar-nav">
           <% if user_signed_in? %>
+            <% if !current_user.profile %>
+              <li class="nav-item"><%= link_to "Create Profile", new_user_profile_path(user_id: current_user.id), class: "btn btn-success" %></li>
+            <% end %>
             <li class="nav-item"> 
               <%= link_to "Sign out", destroy_user_session_path, class: "nav-link", :method => :delete %>
             </li>
