@@ -9,16 +9,24 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
   
+  def edit
+    
+  end
+  
+  def update
+    
+  end
+  
   def create
     build_resource(sign_up_params)
-  
+    
     resource.save
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
         # set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
-        after_signup_new_user_profile resource
+        redirect_to user_path(resource)
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
         expire_data_after_sign_in!
@@ -27,13 +35,11 @@ class RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords resource
       set_minimum_password_length
-      respond_to do |format|
-        format.js
-      end
+      render action: 'new'
     end
   end
 end
 
-def after_signup_new_user_profile(resource)
-  redirect_to new_user_profile_path(resource)
+def sign_up_params
+  params.require(:user).permit(:username, :email, :password, :password_confirmation, :avatar, :bio)
 end

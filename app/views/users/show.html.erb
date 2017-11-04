@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+        <%= content_tag :h4, "#{@user.username}" %>
+        <h3>Bio</h3>
+        <div class="user-bio-container">
+          <%= link_to 'Edit', edit_user_registration_path(current_user), action: :edit, remote: true %>
+          <%= @user.bio %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
