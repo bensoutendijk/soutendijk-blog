@@ -4,11 +4,15 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.new comment_params
     @comment.user_id = current_user.id
-    if @comment.save
-      redirect_to articles_path
-    else
-      flash[:danger] = "Error: Comment " + @comment.errors.full_messages.join(", ")
-      redirect_to articles_path
+    respond_to do |format|
+      if @comment.save
+        @success = true
+        format.js
+      else
+        flash[:danger] = "Error: Comment " + @comment.errors.full_messages.join(", ")
+        @success = false
+        format.js
+      end
     end
   end
   def destroy

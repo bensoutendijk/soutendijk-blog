@@ -1,0 +1,7 @@
+<% if @success %>
+  $('.new_comment').html('<%= j render partial: "articles/comments/form", locals: {commentable: @commentable} %>');
+  $('.comments-container').html('<%= j render partial: "articles/comments/comments", locals: {commentable: @commentable} %>');
+<% else %>
+  $('.comment-submit-btn').addClass('shake');
+  setTimeout(function(){ $(".comment-submit-btn").removeClass('shake'); }, 1000);
+<% end %>

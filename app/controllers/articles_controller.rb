@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    @articles = Article.includes(:user)
+    @articles = Article.includes(:user, :comments)
   end
   
   def show
