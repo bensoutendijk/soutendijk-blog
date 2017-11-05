@@ -7,6 +7,12 @@
 <% else %>
   <!--Inject Partial into modal-->
   $("#signup-modal").html('<%= j render "new" %>');
+  
+  $('.devise-errors').html('<p class="signup-error">Something Went Wrong</p>')
+  
+  <!--Remove strange extra linebreak that bootstrap throws in after form labels-->
+  $('br').remove()
+  
   <!--Shake the form so they know they've dissapointed us-->
   $("#signup-modal").addClass('shake');
   setTimeout(function(){ $("#signup-modal").removeClass('shake'); }, 1000);
