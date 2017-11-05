@@ -1,0 +1,24 @@
+ <!--Sign In/Out Links-->
+<% if user_signed_in? %>
+  <li class="nav-item"> 
+    <%= link_to "Sign out", destroy_user_session_path, class: "nav-link", :method => :delete %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to "Sign up", new_registration_path(User.new), class: "btn btn-primary mr-2", remote: true %>
+  </li>
+  
+  <li>
+    <span class="navbar-text"> or </span>
+  </li>
+  
+  <li>
+    <div class="dropdown">
+      <%= link_to "Log in", new_user_session_path, class: "nav-link", remote: true, 'data-toggle' => "dropdown" %>
+      
+      <!--contains login singup form when user clicks sign-in button on nav-->
+      <div class="dropdown-menu dropdown-menu-right" id="login-dropdown-menu"></div> 
+      
+    </div>
+  </li>
+<% end %>

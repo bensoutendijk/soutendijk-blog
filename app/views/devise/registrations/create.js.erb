@@ -1,8 +1,13 @@
-<!--if failure-->
+<% if @success %>
+  <!--update the nav bar-->
+  $("#nav-user-links").html('<%= j render partial: 'layouts/user_links' %>');
+  $("#nav-article-links").html('<%= j render partial: 'layouts/article_links' %>');
+  <!--Close the modal-->
+  $("#signup-modal").modal("toggle");
+<% else %>
   <!--Inject Partial into modal-->
   $("#signup-modal").html('<%= j render "new" %>');
-  <!--Initiate the form from users.js-->
-  initNewUserForm();
-
-<!--if success-->
-  <!--delete the modal-->
+  <!--Shake the form so they know they've dissapointed us-->
+  $("#signup-modal").addClass('shake');
+  setTimeout(function(){ $("#signup-modal").removeClass('shake'); }, 1000);
+<% end %>

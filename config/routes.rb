@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
   
+  resources :users do
+    resource :profile
+  end
+  
   resources :articles do
     resources :comments, module: :articles, only: [:create, :destroy]
     resources :votes, module: :articles, only: [:create, :destroy, :update]
