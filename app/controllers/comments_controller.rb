@@ -1,6 +1,12 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   
+  def index
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   def create
     @comment = @commentable.comments.new comment_params
     @comment.user_id = current_user.id

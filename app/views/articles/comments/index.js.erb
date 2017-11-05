@@ -1,0 +1,4 @@
+<!--AJAX Render comments#index into comments-container-->
+$('.comments-container-<%= @commentable.id %>').html('<%= j render partial: "articles/comments/comments", locals: {commentable: @commentable} %>');
+<!--AJAX Replace view-comments-link with text now that comments are visible-->
+$('.view-comments-link-<%= @commentable.id %>').html('<%= j render partial: "articles/comments_links", locals: {comments_in_view: true, article: @commentable} %>');

@@ -22,9 +22,9 @@
         </div>
         <!--comment body-->
         <div class="">
-          <p class="card-text">
-            <%= comment.body %>
-          </p>
+          <div class="card-text">
+            <%= raw(comment.body) %>
+          </div>
         </div>
       </div>
     </div>

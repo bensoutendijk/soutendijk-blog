@@ -1,7 +1,7 @@
 module ApplicationHelper
   
   # Devise resource helper for partial forms
-
+  
   def resource_name
     :user
   end

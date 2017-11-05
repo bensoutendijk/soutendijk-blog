@@ -4,6 +4,7 @@
 
 .comment-card {
   overflow: hidden;
+  border: none !important;
   .card-text {
     word-wrap: break-word;
   }
@@ -11,4 +12,18 @@
 
 .commenter {
   font-weight: 500;
+}
+
+.view-comments-link {
+  font-style: italic;
+}
+
+.viewing-comments-text{
+  opacity: 0.6;
+  font-style: italic; 
+}
+
+p[class^="sans-comments-text-"] {
+  opacity: 0.6;
+  font-style: italic;
 }

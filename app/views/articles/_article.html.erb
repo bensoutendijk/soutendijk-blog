@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="article-header d-flex">
   
   <%= content_tag :div, id: "article-vote-form-#{article.id}", class: "align-self-center float-left" do %>
     <% unless !user_signed_in? %>
@@ -31,10 +31,15 @@
 
 <hr>
 
-<div class="comments-container">
-  <%= render partial: "articles/comments/comments", locals: {commentable: article} %>
-</div>
-
-<div class="comment-form">
-  <%= render partial: "articles/comments/form", locals: {commentable: article} %>
+<div class="article-footer">
+  <%= content_tag :div, class: "view-comments-link-#{article.id}" do %>
+    <%= render partial: "articles/comments_links", locals: {article: article} %>
+  <% end %>
+  
+  <%= content_tag :div, class: "comments-container-#{article.id}" do %>
+  <% end %>
+  
+  <%= content_tag :div, class: "comment-form-#{article.id}" do %>
+    <%= render partial: "articles/comments/form", locals: {commentable: article} %>
+  <% end %>
 </div>

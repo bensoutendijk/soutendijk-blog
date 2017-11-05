@@ -23,3 +23,8 @@
 $(document).on('turbolinks:load', function(){
   
 });
+
+function shake (element) {
+  element.addClass('shake');
+  setTimeout(function(){ element.removeClass('shake'); }, 1000); 
+}
