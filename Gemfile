@@ -53,6 +53,8 @@ gem 'simple_form', '~> 3.5.0'
 
 #Use Paperclip for file attachment
 gem "paperclip", "~> 5.0.0"
+# Use amazon web services for production file storage
+gem 'aws-sdk', '~> 2.3'
 
 #Use RMagick for Ruby bindings for ImageMagick
 gem 'rmagick', '~> 2.16.0'
