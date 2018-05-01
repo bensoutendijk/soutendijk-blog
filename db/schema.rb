@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171104185839) do
+ActiveRecord::Schema.define(version: 20180501162319) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.string   "average_color"
+    t.string   "crop_x"
+    t.string   "crop_y"
+    t.string   "crop_h"
+    t.string   "crop_w"
     t.string   "font_color"
     t.integer  "user_id"
     t.boolean  "hidden",            default: false
@@ -42,6 +46,7 @@ ActiveRecord::Schema.define(version: 20171104185839) do
   end
 
   create_table "comments", force: :cascade do |t|
+    t.string   "commenter"
     t.text     "body"
     t.integer  "article_id"
     t.datetime "created_at",       null: false
@@ -62,8 +67,12 @@ ActiveRecord::Schema.define(version: 20171104185839) do
     t.string   "phone_number"
     t.string   "contact_email"
     t.text     "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,25 +89,21 @@ ActiveRecord::Schema.define(version: 20171104185839) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.string   "username"
-    t.text     "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "votes", force: :cascade do |t|
+    t.string   "contractable_type"
+    t.integer  "contractable_id"
     t.string   "votable_type"
     t.integer  "votable_id"
     t.integer  "weight"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "user_id"
+    t.index ["contractable_type", "contractable_id"], name: "index_votes_on_contractable_type_and_contractable_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
-    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
   end
 
 end
