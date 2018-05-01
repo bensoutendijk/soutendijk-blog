@@ -21,3 +21,6 @@
 .byebug_history
 
 585e4bcdcb11b227491c3396.png
+
+# Ignore ide config
+/.idea
