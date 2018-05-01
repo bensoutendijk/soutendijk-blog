@@ -123,7 +123,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
-    pg (0.18.4)
+    pg (1.0.0)
     popper_js (1.11.1)
     puma (3.4.0)
     rack (2.0.5)
@@ -227,7 +227,7 @@ DEPENDENCIES
   jquery-rails (= 4.1.1)
   listen (= 3.0.5)
   paperclip (~> 6.0.0)
-  pg (= 0.18.4)
+  pg
   popper_js (~> 1.11.1)
   puma (= 3.4.0)
   rails (= 5.0.0)
