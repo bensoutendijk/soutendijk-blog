@@ -10,9 +10,9 @@ class Comment < ApplicationRecord
   
   def score
     res = 0
-    # self.votes.all.group(:user_id).each do |a|
-    #   res += a.weight
-    # end
+    self.votes.each do |a|
+      res += a.weight
+    end
     res
   end 
   
