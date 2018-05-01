@@ -57,6 +57,6 @@ class ArticlesController < ApplicationController
   
   private
     def article_params
-      params.require(:article).permit(:title, :body, :average_color, :font_color, :icon, :hidden)
+      params.require(:article).permit(:title, :body, :average_color, :font_color, :hidden)
     end
 end

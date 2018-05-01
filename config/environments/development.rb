@@ -53,5 +53,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
   # Let Paperclip know where to look for ImageMagick
-  Paperclip.options[:command_path] = "/usr/bin/"
+  Paperclip.options[:command_path] = "/usr/local/bin"
 end

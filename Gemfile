@@ -52,7 +52,7 @@ gem 'simple_form', '~> 3.5.0'
 # gem 'figaro', '1.1.1'
 
 #Use Paperclip for file attachment
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 6.0.0"
 # Use amazon web services for production file storage
 gem 'aws-sdk', '~> 2.3'
 
