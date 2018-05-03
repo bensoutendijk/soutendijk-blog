@@ -3,30 +3,20 @@
 </script>
 
 <%= form_for @article, :html => {:class => "article-form"} do |f| %> <!--New Article Form-->
-  <div class="pt-4 row">
-    <div class="col-8 p-0 ml-auto">
-      
-      <div class="tab-content" id="v-pills-tabContent">
-        <div class="tab-pane fade show active" id="v-pills-article" role="tabpanel" aria-labelledby="v-pills-article-tab">
-          <!--Title field-->
-          <%= f.text_field :title, :class => "title-area-article", :placeholder => "Title" %>
-          <!--WYSIWYG editor-->
-          <%= f.cktext_area :body, :class => "ckeditor", ckeditor: { toolbar: 'article', height: '900'} %>
-        </div>
-        <div class="tab-pane fade" id="v-pills-icon" role="tabpanel" aria-labelledby="v-pills-icon-tab">
-          <!--Icon field-->
-          <%= f.file_field :icon %>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-2 float-right">
-      <div class="nav flex-column nav-pills pt-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="m-1 nav-link active" id="v-pills-article-tab" data-toggle="pill" href="#v-pills-article" role="tab" aria-controls="v-pills-article" aria-selected="true">Article</a>
-        <a class="m-1 nav-link" id="v-pills-icon-tab" data-toggle="pill" href="#v-pills-icon" role="tab" aria-controls="v-pills-icon" aria-selected="false">Icon</a>
-        <!--Submit button-->
-        <%= f.submit "Submit", class: "m-1 btn btn-secondary" %>
-      </div>
+<div class="container flex">
+  <div class="row p-4">
+    <div class="col-12">
+        <!--Title field-->
+        <%= f.text_field :title, :class => "title-area-article", :placeholder => "Title" %>
+        <!--WYSIWYG editor-->
+        <%= f.cktext_area :body, :class => "ckeditor", ckeditor: { toolbar: 'article', height: '900'} %>
     </div>
   </div>
+  <hr></hr>
+  <div class="row p-2">
+    <div class="col-4 offset-4 text-center">
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
 <% end %> <!--End of form-->

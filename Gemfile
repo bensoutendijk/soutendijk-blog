@@ -30,8 +30,8 @@ gem 'jbuilder', '2.5.0'
 # gem 'capistrano-rails', group: :development
 
 #Use Twitter bootstrap library for front-end UI and layout
-gem 'bootstrap', '~> 4.0.0.beta'
-gem 'popper_js', '~> 1.11.1'
+gem 'bootstrap'
+gem 'popper_js'
 
 #Use FontAwesome sass gem for adding icons
 gem 'font-awesome-sass'
