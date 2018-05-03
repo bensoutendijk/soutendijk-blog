@@ -1,5 +1,14 @@
 class RegistrationsController < Devise::RegistrationsController
   respond_to :js
+
+  def sign_up_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def account_update_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :current_password)
+  end
+
   # GET /resource/sign_up
   def new
     build_resource({})
@@ -33,9 +42,4 @@ class RegistrationsController < Devise::RegistrationsController
       end
     end
   end
-  
-  protected
-    def after_sign_up_path_for (resource)
-      new_user_profile_path(resource)
-    end
 end
