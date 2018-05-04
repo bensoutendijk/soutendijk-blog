@@ -1,3 +1,4 @@
 <!--Ajax update score and upvote/downvote forms to reflect users current vote status-->
 
-$("#<%= @votable.class.name.downcase %>-vote-form-<%= @votable.id %>").html("<%= escape_javascript(render partial: "votes/form", locals: {votable: @votable, vote: current_user.has_voted_on(@votable)}) %>");
+$("#<%= @votable.class.name.downcase %>-vote-form-<%= @votable.id %>")
+    .html("<%= escape_javascript(render partial: "votes/form", locals: {votable: @votable, vote: current_user.has_voted_on(@votable)}) %>");

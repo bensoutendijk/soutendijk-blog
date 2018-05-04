@@ -10,6 +10,16 @@
   }
 }
 
+.char-counter {
+  display: inline;
+  font-style: italic;
+  opacity: 0.6;
+}
+.badge-warning {
+  font-style: default;
+  opacity: 1;
+}
+
 .commenter {
   font-weight: 500;
 }

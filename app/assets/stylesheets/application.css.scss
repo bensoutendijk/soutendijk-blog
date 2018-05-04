@@ -25,11 +25,18 @@ body{
   }
 }
 
+.btn{
+  margin-top: 4px;
+  border-radius: 2px;
+  padding: 2px;
+  width: 54px
+}
 
 .jumbotron{
   .article-body{
     p{
-      color: #4c555a;  
+      color: #4c555a;
+      font-size: 1em;
     }
     
   }

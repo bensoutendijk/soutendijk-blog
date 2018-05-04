@@ -21,10 +21,32 @@
 /* global $ */
 
 $(document).on('turbolinks:load', function(){
-  
+  $.each( $('[id^=text-area-comments]'), function (index, textArea){
+    var id = (/\d+/).exec(textArea.id);
+    textArea.addEventListener("focus", function(e) {
+        charCount(id, textArea);
+    });
+    textArea.addEventListener("blur", function(e) {
+        $('#character-count-' + id).html('')
+    });
+    textArea.addEventListener("keyup", function(e) {
+        charCount(id, textArea);
+    });
+    textArea.addEventListener("keydown", function(e) {
+        charCount(id, textArea);
+    });
+  });
 });
 
-function shake (element) {
-  element.addClass('shake');
-  setTimeout(function(){ element.removeClass('shake'); }, 1000); 
+function charCount(id, textArea){
+    var submitButton = $('#comment-submit-btn-' + id);
+    var counterLabel = $('#character-count-' + id);
+    counterLabel.html(textArea.value.length + '/255 characters');
+    if (textArea.value.length > 255) {
+        submitButton.addClass('disabled');
+        counterLabel.addClass('badge-warning');
+    } else if (textArea.value.length <= 255) {
+        submitButton.removeClass('disable');
+        counterLabel.removeClass('badge-warning');
+    }
 }

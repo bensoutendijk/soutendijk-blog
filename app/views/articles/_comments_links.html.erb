@@ -1,14 +1,12 @@
 <% if defined? comments_in_view != nil %>
   <!--If comments are in view, then the the variable will be defined, and the 'view' link will disappear-->
-  <%= content_tag :p, "Viewing #{comments_count(article)} comments", class: "viewing-comments-text" %>
+  
 <% else %>
-  <!--Otherwise the user has not yet clicked the link, and thus the link will be visible-->
+  <!--Otherwise the user has not yet clicked the link, and it will be visible-->
   <% if comments_count(article) > 1 %>
     <!--The 'view comments' link reads differently depending on the number of comments on the article-->
-      <%= link_to "View #{comments_count(article)} comments", article_comments_path(article), class: "view-comments-link", remote: true %>
-    <% elsif comments_count(article) == 1 %>
-      <%= link_to "View only comment", article_comments_path(article), class: "view-comments-link", remote: true %>
+    <%= link_to "View comments", article_comments_path(article), class: "view-comments-link pl-1", remote: true %>
     <% elsif comments_count(article) == 0 %>
-      <%= content_tag :p, "Be the first to comment...", class: "sans-comments-text-#{article.id}" %>
+      <%= content_tag :p, "Be the first to comment...", class: "sans-comments-text-#{article.id} mb-0 pl-1" %>
   <% end %>
 <% end %>

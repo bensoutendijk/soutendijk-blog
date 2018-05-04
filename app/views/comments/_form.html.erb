@@ -1,7 +1,0 @@
-<%= form_for [commentable, Comment.new], remote: true do |f| %>
-  <div class="col-md-6">
-    <%= f.text_area :body, class: 'form-control', :id => 'text-area-comments' %>
-    <br>
-    <%= f.submit 'Post', class: "btn btn-secondary commit comment-submit-btn-#{commentable.id}"%>
-  </div>
-<% end %>

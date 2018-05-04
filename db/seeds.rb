@@ -9,3 +9,4 @@
 
 # Users
 
+User.create :name => "admin_test", :email => "admin@gmail.com", :password => "asdfasdf", :password_confirmation => "asdfasdf", :admin => true

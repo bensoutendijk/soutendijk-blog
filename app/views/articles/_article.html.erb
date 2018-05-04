@@ -1,6 +1,6 @@
-<div class="article-header d-flex">
+<div class="article-header d-flex pb-0">
   
-  <%= content_tag :div, id: "article-vote-form-#{article.id}", class: "align-self-center float-left" do %>
+  <%= content_tag :div, id: "article-vote-form-#{article.id}", class: "pt-2 vote-form" do %>
     <% unless !user_signed_in? %>
       <%= render partial: "votes/form", locals: {votable: article, vote: current_user.has_voted_on(article)} %>
     <% else %>
@@ -9,17 +9,19 @@
   <% end %>
 
 
-  <div class="mx-auto pr-3">
-    <%= content_tag :h2, article.title , :class => "article-title-text text-center" %>
-    <%= content_tag :h4, "by #{article.user.email}", :class => "article-author-text text-center" %>
+  <div class="pl-3">
+    <%= content_tag :p, article.title , :class => "mb-0 pb-0 article-title-text" %>
+    <%= content_tag :p, "by #{article.user.name}", :class => "pl-1 m-0 article-author-text" %>
   </div>
   
-  <% if user_signed_in? && current_user.id == article.user_id %>
-  <ul class="nav">
-    <li class="nav-item"><%= link_to "Edit", edit_article_path(article), class: "nav-link" %></li>
-    <li class="nav-item"><%= link_to "Delete", article_path(article), class: "nav-link danger", :method => :delete, :confirm => "Are you sure you want to delete #{article.title}" %></li>
-  </ul>
-  <% end %>
+  <div class="ml-auto">
+    <% if user_signed_in? && current_user.id == article.user_id %>
+      <ul class="nav">
+        <li class="nav-item"><%= link_to "Edit", edit_article_path(article), class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Delete", article_path(article), class: "nav-link danger", :method => :delete, :confirm => "Are you sure you want to delete #{article.title}" %></li>
+      </ul>
+    <% end %>
+  </div>
   
 </div>
 

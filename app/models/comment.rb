@@ -4,9 +4,9 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :commentable, polymorphic: true
   
-  
   # Validations
   validates :body, presence: true
+  validates :body, length: { maximum: 255 }
   
   def score
     res = 0
