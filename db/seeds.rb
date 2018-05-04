@@ -8,4 +8,4 @@
 
 
 # Users
-User.create! :name => 'test admin', :email => 'admin@gmail.com', :password => 'unguessable', :password_confirmation => 'unguessable', :admin => true
+

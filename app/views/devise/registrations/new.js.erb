@@ -1,5 +1,6 @@
 <!--Inject Partial into modal-->
 $("#signup-modal").html('<%= j render "new" %>');
+$('#csrf').html('<%= j csrf_meta_tags %>');
 <!--Initiate the form from users.js-->
 initNewUserForm();
 <!--Popup Modal-->

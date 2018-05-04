@@ -1,7 +1,8 @@
 <!--Inject Partial into modal-->
 $("#signup-modal").html('<%= j render "new" %>');
+$('#csrf').html('<%= j csrf_meta_tags %>');
 <!--Initiate the form from users.js-->
-<%# initNewUserForm(); %>
+initNewUserForm();
 <!--Popup Modal-->
 $("#signup-modal").modal();
 <!--Remove style from header due to Bootstrap adding unnecessary padding-right: 33px-->

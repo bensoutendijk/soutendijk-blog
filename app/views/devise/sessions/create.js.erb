@@ -2,6 +2,7 @@
   <!--update the nav bar-->
   $("#nav-user-links").html('<%= j render partial: 'layouts/user_links' %>');
   $("#nav-article-links").html('<%= j render partial: 'layouts/article_links' %>');
+  $('#csrf').html('<%= j csrf_meta_tags %>');
   <!--Close the modal-->
   $("#signup-modal").modal("toggle");
 <% else %>
