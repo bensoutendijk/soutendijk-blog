@@ -62,8 +62,6 @@ gem 'rmagick', '~> 2.16.0'
 #Use CKEditor for WYSIWYG text editor
 gem 'ckeditor'
 
-#Use redcarpet for Markdown text editor
-gem 'redcarpet'
 
 #Use jQuery colorpicker
 # gem 'jquery-minicolors-rails'
