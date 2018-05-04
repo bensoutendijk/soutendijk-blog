@@ -1,5 +1,5 @@
 <!--Writer's Nav-->
-<% if user_signed_in? %>
+<% if current_user.try(:admin) && user_signed_in? %>
   <li class="nav-item"><%= link_to "Write", new_article_path, class: "nav-link #{cp(new_article_path)}" %></li>
 <% end %>
 <!--About Link-->

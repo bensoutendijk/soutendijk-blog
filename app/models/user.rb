@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  validates_uniqueness_of :name
          
   def has_voted_on votable
     votes = Vote.where(user_id: self.id, votable_type: votable.class.name, votable_id: votable.id)

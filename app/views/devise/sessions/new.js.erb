@@ -1,1 +1,8 @@
-$("#login-dropdown-menu").html('<%= j render "form" %>');
+<!--Inject Partial into modal-->
+$("#signup-modal").html('<%= j render "new" %>');
+<!--Initiate the form from users.js-->
+<%# initNewUserForm(); %>
+<!--Popup Modal-->
+$("#signup-modal").modal();
+<!--Remove style from header due to Bootstrap adding unnecessary padding-right: 33px-->
+$("header").removeAttr('style');

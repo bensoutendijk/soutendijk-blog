@@ -13,12 +13,8 @@
   </li>
   
   <li>
-    <div class="dropdown">
-      <%= link_to "Log in", new_user_session_path, class: "nav-link", remote: true, 'data-toggle' => "dropdown" %>
-      
-      <!--contains login singup form when user clicks sign-in button on nav-->
-      <div class="dropdown-menu dropdown-menu-right" id="login-dropdown-menu"></div> 
-      
-    </div>
+  
+    <%= link_to "Log in", new_user_session_path, class: "nav-link", remote: true %>
+
   </li>
 <% end %>

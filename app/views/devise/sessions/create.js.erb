@@ -1,4 +1,19 @@
-<!--update the nav bar-->
-$("#nav-user-links").html('<%= j render partial: 'layouts/user_links' %>');
-$("#nav-article-links").html('<%= j render partial: 'layouts/article_links' %>');
-$("head").html('<%= j render partial: 'layouts/head' %>');
+<% if @success %>
+  <!--update the nav bar-->
+  $("#nav-user-links").html('<%= j render partial: 'layouts/user_links' %>');
+  $("#nav-article-links").html('<%= j render partial: 'layouts/article_links' %>');
+  <!--Close the modal-->
+  $("#signup-modal").modal("toggle");
+<% else %>
+  <!--Inject Partial into modal-->
+  $("#signup-modal").html('<%= j render "new" %>');
+  
+  $('.devise-errors').html('<p class="signup-error">Something Went Wrong</p>')
+  
+  <!--Remove extra linebreak that bootstrap throws in after form labels-->
+  $('br').remove()
+  
+  <!--Shake the form-->
+  $("#signup-modal").addClass('shake');
+  setTimeout(function(){ $("#signup-modal").removeClass('shake'); }, 1000);
+<% end %>
