@@ -3,7 +3,7 @@
   
 <% else %>
   <!--Otherwise the user has not yet clicked the link, and it will be visible-->
-  <% if comments_count(article) > 1 %>
+  <% if comments_count(article) %>
     <!--The 'view comments' link reads differently depending on the number of comments on the article-->
     <%= link_to "View comments", article_comments_path(article), class: "view-comments-link pl-1", remote: true %>
     <% elsif comments_count(article) == 0 %>
