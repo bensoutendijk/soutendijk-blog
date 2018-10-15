@@ -20,7 +20,6 @@ Rails.application.routes.draw do
     resources :comments, module: :articles
   end
   
-  get 'about', to: 'pages#about'
   get 'settings', to: 'pages#settings'
 
 end
